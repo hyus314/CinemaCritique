@@ -20,6 +20,7 @@
                 .HasPrecision(2, 1);
 
             builder.ApplyConfiguration(new GenreEntityTypeConfiguration());
+            builder.ApplyConfiguration(new MovieEntityTypeConfiguration());
 
             base.OnModelCreating(builder);
         }

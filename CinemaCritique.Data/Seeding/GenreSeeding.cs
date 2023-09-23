@@ -1,9 +1,9 @@
 ﻿namespace CinemaCritique.Data.Seeding
 {
     using CinemaCritique.Data.Models;
-    public class GenreSeeder
+    public static class GenreSeeder
     {
-        public ICollection<Genre> SeedGenres()
+        public static ICollection<Genre> SeedGenres()
         {
             List<Genre> genres = new List<Genre>();
             Genre current;
