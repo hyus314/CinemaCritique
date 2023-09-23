@@ -1,5 +1,6 @@
 ﻿namespace CinemaCritique.Data
 {
+    using CinemaCritique.Data.EntityConfigurations;
     using CinemaCritique.Data.Models;
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
@@ -17,6 +18,8 @@
             builder.Entity<Review>()
                 .Property(r => r.Rating)
                 .HasPrecision(2, 1);
+
+            builder.ApplyConfiguration(new GenreEntityTypeConfiguration());
 
             base.OnModelCreating(builder);
         }
