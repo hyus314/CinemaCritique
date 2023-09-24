@@ -1,0 +1,29 @@
+﻿@model ICollection<RecentMovieViewModel>;
+
+<link rel="stylesheet" href="~/css/homePage/recentlyAdded.css" asp-append-version="true" />
+
+<div id="recentMoviesContainer">
+    <div id="movieCarousel" class="carousel">
+
+        <button id="prevBtn" class="control-btn">Previous</button>
+        <button id="nextBtn" class="control-btn">Next</button>
+
+        @foreach (var movie in Model)
+        {
+            <div class="carousel-item">
+                <div class="scene-photo" style="background-image: url('@movie.ScenePhotoURL')">
+                    <img src="@movie.CoverPhotoURL" alt="@movie.Title" class="cover-photo" />
+                    <div class="title">@movie.Title</div>
+                </div>
+            </div>
+        }
+    </div>
+    <ul id="movieList" class="movie-list">
+        @foreach (var movie in Model)
+        {
+            <li class="movie-item">@movie.Title</li>
+        }
+    </ul>
+</div>
+
+<script src="~/js/homePage/recentlyAdded.js"></script>

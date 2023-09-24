@@ -5,5 +5,6 @@ namespace CinemaCritique.Core.Contracts
     public interface IMovieService
     {
         public Task<ICollection<HomePageMovieViewModel>> GetMoviesForHomePageAsync();
+        public Task<ICollection<RecentMovieViewModel>> GetMostRecentFilmsAsync();
     }
 }

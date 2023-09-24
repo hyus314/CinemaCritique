@@ -16,6 +16,46 @@ namespace CinemaCritique.Core.Services
             this.data = data;
             this.dataProtector = dataProtector;
         }
+
+        public async Task<ICollection<RecentMovieViewModel>> GetMostRecentFilmsAsync()
+        {
+            ICollection<RecentMovieViewModel> model = new HashSet<RecentMovieViewModel>();
+
+            if (this.data.Movies.Count() >= 5)
+            {
+                model = await this.data.Movies
+                   .AsNoTracking()
+                   .OrderByDescending(x => x.DateAdded)
+                   .Select(x => new RecentMovieViewModel()
+                   {
+                       Id = this.dataProtector.Encrypt(x.Id.ToString()),
+                       CoverPhotoURL = x.CoverPhotoURL,
+                       ScenePhotoURL = x.ScenePhotoUrl,
+                       Title = x.Title,
+                       TrailerURL = x.TrailerURL
+                   })
+                   .Take(5)
+                   .ToArrayAsync();
+            }
+            else
+            {
+                model = await this.data.Movies
+                   .AsNoTracking()
+                   .OrderByDescending(x => x.DateAdded)
+                   .Select(x => new RecentMovieViewModel()
+                   {
+                       Id = this.dataProtector.Encrypt(x.Id.ToString()),
+                       CoverPhotoURL = x.CoverPhotoURL,
+                       ScenePhotoURL = x.ScenePhotoUrl,
+                       Title = x.Title,
+                       TrailerURL = x.TrailerURL
+                   })
+                   .ToArrayAsync();
+
+            }
+            return model;
+        }
+
         public async Task<ICollection<HomePageMovieViewModel>> GetMoviesForHomePageAsync()
         {
             var model = await this.data.Movies

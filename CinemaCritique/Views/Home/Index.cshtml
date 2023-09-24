@@ -10,6 +10,8 @@
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
 
+@await Component.InvokeAsync("RecentMovies");
+
 <div id="movieContainer" class="home-page-movies">
     <ul class="home-page-movies">
         @foreach (var movie in Model)
