@@ -28,8 +28,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CinemaCritique.Core\CinemaCritique.Core.csproj" />
     <ProjectReference Include="..\CinemaCritique.Data.Models\CinemaCritique.Data.Models.csproj" />
     <ProjectReference Include="..\CinemaCritique.Data\CinemaCritique.Data.csproj" />
+    <ProjectReference Include="..\CinemaCritique.Security\CinemaCritique.Security.csproj" />
+    <ProjectReference Include="..\CinemaCritique.ViewModels\CinemaCritique.ViewModels.csproj" />
   </ItemGroup>
 
 </Project>

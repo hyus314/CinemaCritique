@@ -1,4 +1,5 @@
-﻿using CinemaCritique.Models;
+﻿using CinemaCritique.Core.Contracts;
+using CinemaCritique.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -6,16 +7,15 @@ namespace CinemaCritique.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly IMovieService service;
+        public HomeController(IMovieService service)
         {
-            _logger = logger;
+            this.service = service;
         }
-
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var model = await this.service.GetMoviesForHomePageAsync();
+            return View(model);
         }
 
         public IActionResult Privacy()

@@ -1,8 +1,21 @@
-﻿@{
+﻿@model ICollection<HomePageMovieViewModel>
+@{
     ViewData["Title"] = "Home Page";
 }
+
+<link rel="stylesheet" href="~/css/homePage/homePage.css" asp-append-version="true" />
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+
+<ul class="home-page-movies">
+    @foreach (var movie in Model)
+    {
+        <li class="movie-element">
+            <img src="@movie.CoverPhotoUrl" alt="Movie Cover Photo">
+            <p>@movie.Title</p>
+        </li>
+    }
+</ul>

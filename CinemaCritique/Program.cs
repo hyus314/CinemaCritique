@@ -1,10 +1,12 @@
-using CinemaCritique.Data;
-using CinemaCritique.Data.Models;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-
 namespace CinemaCritique
 {
+    using CinemaCritique.Core.Contracts;
+    using CinemaCritique.Core.Services;
+    using CinemaCritique.Data;
+    using CinemaCritique.Data.Models;
+    using CinemaCritique.Security;
+    using Microsoft.AspNetCore.DataProtection;
+    using Microsoft.EntityFrameworkCore;
     public class Program
     {
         public static void Main(string[] args)
@@ -16,6 +18,16 @@ namespace CinemaCritique
             builder.Services.AddDbContext<CritiqueDbContext>(options =>
                 options.UseSqlServer(connectionString));
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+
+            builder.Services.AddSingleton(provider =>
+            {
+                var dataProtectionProvider = provider.GetService<IDataProtectionProvider>();
+                return dataProtectionProvider.CreateProtector("ProtectMovieData");
+            });
+
+            builder.Services.AddSingleton<MovieDataProtector>();
+
+            builder.Services.AddScoped<IMovieService, MovieService>();
 
             builder.Services.AddDefaultIdentity<CritiqueUser>(opt =>
             {

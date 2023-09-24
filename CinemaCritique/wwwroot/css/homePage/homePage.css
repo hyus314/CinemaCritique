@@ -1,0 +1,42 @@
+﻿body {
+}
+
+.home-page-movies {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    gap: 20px; 
+}
+
+.movie-element {
+    position: relative;
+    width: 200px; 
+    box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+    border-radius: 10px; 
+    overflow: hidden; 
+    transition: transform 0.3s ease-in-out; 
+}
+
+    .movie-element:hover {
+        transform: scale(1.05); 
+    }
+
+    .movie-element img {
+        display: block;
+        width: 100%;
+        height: 300px; 
+        object-fit: cover; 
+    }
+
+    .movie-element p {
+        text-align: center;
+        padding: 10px;
+        margin: 0;
+        background-color: rgba(0,0,0,0.7); 
+        color: #ffffff;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+    }
