@@ -10,12 +10,16 @@
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
 
-<ul class="home-page-movies">
-    @foreach (var movie in Model)
-    {
-        <li class="movie-element">
-            <img src="@movie.CoverPhotoUrl" alt="Movie Cover Photo">
-            <p>@movie.Title</p>
-        </li>
-    }
-</ul>
+<div id="movieContainer" class="home-page-movies">
+    <ul class="home-page-movies">
+        @foreach (var movie in Model)
+        {
+            <li class="movie-element">
+                <img src="@movie.CoverPhotoUrl" alt="Movie Cover Photo">
+                <p>@movie.Title</p>
+            </li>
+        }
+    </ul>
+</div>
+
+<script src="~/js/homePage/homePage.js"></script>
