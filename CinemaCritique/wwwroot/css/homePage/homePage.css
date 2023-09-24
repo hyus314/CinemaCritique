@@ -6,17 +6,21 @@
     flex-wrap: wrap;
     list-style-type: none;
     padding: 0;
-    margin: 0;
-    gap: 20px; 
+    margin: auto;
+    gap: 20px;
+    width: 80%;
+    justify-content: center;
 }
 
 .movie-element {
     position: relative;
-    width: 200px; 
+    width: auto;
+    flex: 1 0 auto;
+    max-width: 200px;
     box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
-    border-radius: 10px; 
-    overflow: hidden; 
-    transition: transform 0.3s ease-in-out; 
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
 }
 
     .movie-element:hover {
