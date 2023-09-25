@@ -4,6 +4,7 @@ using CinemaCritique.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CinemaCritique.Data.Migrations
 {
     [DbContext(typeof(CritiqueDbContext))]
-    partial class CritiqueDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230925003545_Update_TrailerURL_OfAllMovies")]
+    partial class Update_TrailerURL_OfAllMovies
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
