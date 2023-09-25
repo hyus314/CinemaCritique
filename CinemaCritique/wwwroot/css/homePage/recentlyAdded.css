@@ -13,6 +13,41 @@
     max-width: 1200px;
 }
 
+.movie-link, .movie-item a {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    display: block; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease; 
+}
+
+    .movie-link:hover, .movie-item a:hover {
+        text-decoration: none;
+        transform: scale(1.05); 
+        box-shadow: 0px 0px 15px rgba(0,0,0,0.2); 
+        filter: brightness(110%); 
+    }
+
+.carousel-item {
+    position: relative; 
+   
+}
+
+.movie-link:hover .carousel-item::before {
+    content: ''; 
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0.3);
+    z-index: 2;
+}
+
+.movie-link:hover .title {
+    z-index: 3; 
+}
+
 .carousel {
     position: relative;
     flex: 1;
