@@ -6,6 +6,7 @@ namespace CinemaCritique
     using CinemaCritique.Data.Models;
     using CinemaCritique.Security;
     using Microsoft.AspNetCore.DataProtection;
+    using Microsoft.AspNetCore.Identity;
     using Microsoft.EntityFrameworkCore;
     public class Program
     {
@@ -63,6 +64,35 @@ namespace CinemaCritique
 
             app.UseAuthentication();
             app.UseAuthorization();
+
+            using (var scope = app.Services.CreateScope())
+            {
+                var services = scope.ServiceProvider;
+                try
+                {
+                    var context = services.GetRequiredService<CritiqueDbContext>();
+                    context.Database.Migrate(); // apply all migrations
+
+                    var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
+
+                    if (!roleManager.RoleExistsAsync("Admin").Result)
+                    {
+                        var role = new IdentityRole("Admin");
+                        var roleResult = roleManager.CreateAsync(role).Result;
+                    }
+
+                    if (!roleManager.RoleExistsAsync("User").Result)
+                    {
+                        var role = new IdentityRole("User");
+                        var roleResult = roleManager.CreateAsync(role).Result;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    var logger = services.GetRequiredService<ILogger<Program>>();
+                    logger.LogError(ex, "An error occurred while migrating or initializing the database.");
+                }
+            }
 
             app.MapControllerRoute(
                 name: "default",

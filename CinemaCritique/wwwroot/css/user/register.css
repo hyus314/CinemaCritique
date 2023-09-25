@@ -1,0 +1,52 @@
+﻿body {
+}
+.row {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+form {
+    background-color: #ffffff; /* Background Color of the Form */
+    box-shadow: 0px 4px 6px 0px rgba(0,0,0,0.1); /* Shadow for 3D effect */
+    padding: 20px; /* Internal spacing */
+    border-radius: 8px; /* Rounded corners */
+}
+
+.form-floating {
+    margin-bottom: 15px; /* Spacing between form fields */
+}
+
+    .form-floating label {
+        color: #495057; /* Label color */
+    }
+
+.form-control {
+    border: 1px solid #ced4da; /* Border color */
+    border-radius: 5px; /* Rounded corners of input fields */
+    padding: 10px 12px; /* Internal padding in input fields */
+}
+
+    .form-control:focus {
+        box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25); /* Focus state shadow */
+        border-color: #80bdff; /* Border color on focus */
+    }
+
+#registerSubmit {
+    background-color: coral; /* Button background color */
+    border: none; /* Remove border */
+    color: #ffffff; /* Text color */
+    padding: 10px; /* Internal padding */
+    font-size: 16px; /* Text size */
+    cursor: pointer; /* Hand cursor on hover */
+    border-radius: 5px; /* Rounded corners */
+}
+
+    #registerSubmit:hover {
+        background-color: darkgoldenrod; /* Darken background color on hover */
+    }
+
+.text-danger {
+    font-size: 0.875em; /* Font size for error messages */
+}
