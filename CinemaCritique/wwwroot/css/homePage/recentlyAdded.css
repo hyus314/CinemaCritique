@@ -1,5 +1,6 @@
 ﻿body {
 }
+
 #recentMoviesContainer {
     display: flex;
     flex-direction: row;
@@ -17,24 +18,23 @@
     text-decoration: none;
     color: inherit;
     cursor: pointer;
-    display: block; 
-    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease; 
+    display: block;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
 }
 
     .movie-link:hover, .movie-item a:hover {
         text-decoration: none;
-        transform: scale(1.05); 
-        box-shadow: 0px 0px 15px rgba(0,0,0,0.2); 
-        filter: brightness(110%); 
+        transform: scale(1.05);
+        box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
+        filter: brightness(110%);
     }
 
 .carousel-item {
-    position: relative; 
-   
+    position: relative;
 }
 
 .movie-link:hover .carousel-item::before {
-    content: ''; 
+    content: '';
     position: absolute;
     top: 0;
     right: 0;
@@ -45,7 +45,7 @@
 }
 
 .movie-link:hover .title {
-    z-index: 3; 
+    z-index: 3;
 }
 
 .carousel {
@@ -97,6 +97,7 @@
     padding: 5px;
     border-radius: 5px;
 }
+
 #prevBtn, #nextBtn {
     z-index: 10;
     transition: all 0.3s;
