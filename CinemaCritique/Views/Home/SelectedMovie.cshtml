@@ -1,0 +1,27 @@
+﻿@model SelectedMovieViewModel;
+
+
+<link rel="stylesheet" href="~/css/movie/selectedMovie.css" asp-append-version="true" />
+
+<div class="movie-detail-container">
+    <div class="movie-header" style="background-image: url('@Model.ScenePhotoURL')">
+        <div class="overlay">
+            <h1>@Model.Title</h1>
+            <h3>@Model.YearPublished</h3>
+        </div>
+    </div>
+    
+    <div class="movie-content">
+        <img src="@Model.CoverPhotoURL" alt="@Model.Title" class="cover-photo"/>
+        
+        <div class="movie-info">
+            <h2>Directed by: @Model.Director</h2>
+            <p>@Model.Description</p>
+            <h4>Genre: @Model.Genre</h4>
+        </div>
+        
+        <div class="trailer">
+            <iframe src="@Model.TrailerURL" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+</div>

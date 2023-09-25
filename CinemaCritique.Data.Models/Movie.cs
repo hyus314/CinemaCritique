@@ -23,7 +23,7 @@
         public int GenreId { get; set; }
         public Genre Genre { get; set; } = null!;
         public DateTime DateAdded { get; set; }
-        [MaxLength(URLMaxLength)]
+        [MaxLength(URLMaxLength )]
         public string ScenePhotoUrl { get; set; } = null!;
         public ICollection<Review> Reviews { get; set; } = new HashSet<Review>();
     }

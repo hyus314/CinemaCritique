@@ -71,5 +71,43 @@ namespace CinemaCritique.Core.Services
 
             return model;
         }
+
+        public async Task<SelectedMovieViewModel> GetSelectedMoviePageAsync(string id)
+        {
+            if (id == null)
+            {
+                throw new ArgumentNullException("Such movie does not exist!");
+            }
+
+            var decryptedId = this.dataProtector.Decrypt(id);
+
+            var entity = await this.data.Movies.FindAsync(decryptedId);
+
+            var genre = await this.data.Genres.FindAsync(entity!.GenreId);
+
+            if (entity == null)
+            {
+                throw new ArgumentNullException("There is no movie with this id!");
+            }
+
+            var model = new SelectedMovieViewModel()
+            {
+                Title = entity.Title,
+                Director = entity.Director,
+                Description = entity.Description,
+                YearPublished = entity.YearPublished.ToString(),
+                CoverPhotoURL = entity.CoverPhotoURL,
+                TrailerURL = entity.TrailerURL,
+                Genre = genre!.Name,
+                ScenePhotoURL = entity.ScenePhotoUrl
+            };
+
+            if (!model.IsValid())
+            {
+                throw new InvalidOperationException("This movie has an invalid state!");
+            }
+
+            return model;
+        }
     }
 }
