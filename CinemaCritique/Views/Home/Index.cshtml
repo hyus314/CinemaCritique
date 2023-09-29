@@ -17,7 +17,7 @@
         @foreach (var movie in Model)
         {
             <li class="movie-element">
-                <a asp-action="SelectedMovie" asp-controller="Home" asp-route-id="@movie.Id">
+                <a asp-action="SelectedMovie" asp-controller="Movie" asp-route-id="@movie.Id">
                     <img src="@movie.CoverPhotoUrl" alt="Movie Cover Photo">
                     <p>@movie.Title</p>
                 </a>

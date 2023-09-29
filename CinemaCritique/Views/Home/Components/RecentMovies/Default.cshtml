@@ -10,7 +10,7 @@
 
         @foreach (var movie in Model)
         {
-            <a asp-controller="Home" asp-action="SelectedMovie" asp-route-id="@movie.Id" class="movie-link">
+            <a asp-controller="Movie" asp-action="SelectedMovie" asp-route-id="@movie.Id" class="movie-link">
                 <div class="carousel-item">
                     <div class="scene-photo" style="background-image: url('@movie.ScenePhotoURL')">
                         <img src="@movie.CoverPhotoURL" alt="@movie.Title" class="cover-photo" />

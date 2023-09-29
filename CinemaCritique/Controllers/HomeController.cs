@@ -18,12 +18,7 @@ namespace CinemaCritique.Controllers
             return View(model);
         }
 
-        public async Task<IActionResult> SelectedMovie(string id)
-        {
-            var model = await this.service.GetSelectedMoviePageAsync(id);
-            return View(model);
-        }
-
+       
         public IActionResult Privacy()
         {
             return View();
