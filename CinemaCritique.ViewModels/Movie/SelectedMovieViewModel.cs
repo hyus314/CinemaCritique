@@ -11,6 +11,8 @@
         public string Genre { get; set; } = null!;
         public string ScenePhotoURL { get; set; } = null!;
 
+        public string MainRoles { get; set; } = null!;
+
         public bool IsValid()
         {
             if (string.IsNullOrWhiteSpace(Title)) return false;
@@ -19,6 +21,8 @@
             if (string.IsNullOrWhiteSpace(YearPublished)) return false;
             if (!int.TryParse(YearPublished, out int year) || year < 1888 || year > DateTime.Now.Year) return false;
             if (string.IsNullOrWhiteSpace(Genre)) return false;
+            if (string.IsNullOrWhiteSpace(MainRoles)) return false;
+
 
             if (!string.IsNullOrWhiteSpace(CoverPhotoURL) && !Uri.IsWellFormedUriString(CoverPhotoURL, UriKind.Absolute)) return false;
             if (!string.IsNullOrWhiteSpace(TrailerURL) && !Uri.IsWellFormedUriString(TrailerURL, UriKind.Absolute)) return false;

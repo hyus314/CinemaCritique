@@ -74,3 +74,33 @@
         height: 100%;
         border: none;
     }
+
+.review-section {
+    padding: 20px;
+    background: #f5f5f5;
+}
+
+.star {
+    cursor: pointer;
+    font-size: 20px;
+    padding: 5px;
+}
+
+textarea {
+    width: 100%;
+    min-height: 100px;
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+    button:hover {
+        background-color: #45a049;
+    }
+

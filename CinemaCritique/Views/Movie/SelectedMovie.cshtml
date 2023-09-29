@@ -18,10 +18,29 @@
             <h2>Directed by: @Model.Director</h2>
             <p>@Model.Description</p>
             <h4>Genre: @Model.Genre</h4>
+            <h4>Main Roles: @Model.MainRoles</h4>
         </div>
         
         <div class="trailer">
             <iframe src="@Model.TrailerURL" allowfullscreen></iframe>
         </div>
     </div>
+</div>
+
+<div class="review-section">
+    <h3>Leave a Review</h3>
+    <div class="rating">
+        <span class="star" data-value="1">☆</span>
+        <span class="star" data-value="2">☆</span>
+        <span class="star" data-value="3">☆</span>
+        <span class="star" data-value="4">☆</span>
+        <span class="star" data-value="5">☆</span>
+        <span class="star" data-value="6">☆</span>
+        <span class="star" data-value="7">☆</span>
+        <span class="star" data-value="8">☆</span>
+        <span class="star" data-value="9">☆</span>
+        <span class="star" data-value="10">☆</span>
+    </div>
+    <textarea id="review-text" placeholder="Write your review here..."></textarea>
+    <button id="submit-review">Submit Review</button>
 </div>

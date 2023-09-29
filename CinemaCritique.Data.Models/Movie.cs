@@ -25,6 +25,8 @@
         public DateTime DateAdded { get; set; }
         [MaxLength(URLMaxLength )]
         public string ScenePhotoUrl { get; set; } = null!;
+        [MaxLength(MainRolesMaxLength)]
+        public string MainRoles { get; set; } = null!;
         public ICollection<Review> Reviews { get; set; } = new HashSet<Review>();
     }
 }

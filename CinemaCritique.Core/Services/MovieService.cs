@@ -99,7 +99,8 @@ namespace CinemaCritique.Core.Services
                 CoverPhotoURL = entity.CoverPhotoURL,
                 TrailerURL = entity.TrailerURL,
                 Genre = genre!.Name,
-                ScenePhotoURL = entity.ScenePhotoUrl
+                ScenePhotoURL = entity.ScenePhotoUrl,
+                MainRoles = entity.MainRoles
             };
 
             if (!model.IsValid())
