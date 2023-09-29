@@ -11,7 +11,7 @@
         public string Content { get; set; } = null!;
         public DateTime DatePublished { get; set; }
         [Range(RatingMinValue, RatingMaxValue)]
-        public decimal Rating { get; set; }
+        public byte Rating { get; set; }
         public ushort Likes { get; set; }
         [ForeignKey(nameof(User))]
         public string UserId { get; set; } = null!;
