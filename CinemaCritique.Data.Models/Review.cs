@@ -12,7 +12,6 @@
         public DateTime DatePublished { get; set; }
         [Range(RatingMinValue, RatingMaxValue)]
         public byte Rating { get; set; }
-        public ushort Likes { get; set; }
         [ForeignKey(nameof(User))]
         public string UserId { get; set; } = null!;
         public CritiqueUser User { get; set; } = null!;

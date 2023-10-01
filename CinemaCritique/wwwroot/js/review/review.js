@@ -33,29 +33,27 @@
 });
 
 $(document).ready(function () {
-    $("#submitReview").on('click', function () {
-        var reviewText = $("#reviewText").val();
-        var movieId = $("#movieId").val(); // Assuming you have a hidden input or some other way to get movieId
+    $("#submit-review").on('click', function () {
+        var reviewText = $("#review-text").val();
+        var movieId = $("#movie-id").data("value"); 
         var ratingValue = $('.star.selected').last().data('value') || 0; // if no star is selected, defaults to 0
 
         // Form a JSON object
         var reviewData = {
             movieId: movieId,
-            review: reviewText,
+            content: reviewText,
             rating: ratingValue
         };
 
         $.ajax({
             type: 'POST',
-            url: '/your-server-endpoint', // replace with your actual server endpoint
+            url: '/ReviewController/AddReview', 
             contentType: 'application/json;charset=utf-8',
             data: JSON.stringify(reviewData),
             success: function (response) {
-                // handle success, you might want to clear the form, or give user feedback
                 alert('Review submitted successfully');
             },
             error: function (response) {
-                // handle error, you might want to inform the user that something went wrong
                 alert('Error in submitting review');
             }
         });

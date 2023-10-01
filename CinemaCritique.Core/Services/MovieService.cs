@@ -28,7 +28,7 @@ namespace CinemaCritique.Core.Services
                    .OrderByDescending(x => x.DateAdded)
                    .Select(x => new RecentMovieViewModel()
                    {
-                       Id = this.dataProtector.Encrypt(x.Id.ToString()),
+                       Id = this.dataProtector.Encrypt(x.Id),
                        CoverPhotoURL = x.CoverPhotoURL,
                        ScenePhotoURL = x.ScenePhotoUrl,
                        Title = x.Title,
@@ -44,7 +44,7 @@ namespace CinemaCritique.Core.Services
                    .OrderByDescending(x => x.DateAdded)
                    .Select(x => new RecentMovieViewModel()
                    {
-                       Id = this.dataProtector.Encrypt(x.Id.ToString()),
+                       Id = this.dataProtector.Encrypt(x.Id),
                        CoverPhotoURL = x.CoverPhotoURL,
                        ScenePhotoURL = x.ScenePhotoUrl,
                        Title = x.Title,
@@ -62,7 +62,7 @@ namespace CinemaCritique.Core.Services
                 .AsNoTracking()
                 .Select(x => new HomePageMovieViewModel()
                 {
-                    Id = this.dataProtector.Encrypt(x.Id.ToString()),
+                    Id = this.dataProtector.Encrypt(x.Id),
                     Title = x.Title,
                     CoverPhotoUrl = x.CoverPhotoURL
                 })
@@ -92,6 +92,7 @@ namespace CinemaCritique.Core.Services
 
             var model = new SelectedMovieViewModel()
             {
+                Id = dataProtector.Encrypt(entity.Id),
                 Title = entity.Title,
                 Director = entity.Director,
                 Description = entity.Description,

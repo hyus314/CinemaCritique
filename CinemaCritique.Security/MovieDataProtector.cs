@@ -11,9 +11,9 @@ namespace CinemaCritique.Security
             this.dataProtector = dataProtector;
         }
 
-        public string Encrypt(string id)
+        public string Encrypt(int id)
         {
-            return dataProtector.Protect(id);
+            return dataProtector.Protect(id.ToString());
         }
 
         public int Decrypt(string id)
