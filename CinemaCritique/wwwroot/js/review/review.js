@@ -47,7 +47,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: 'POST',
-            url: '/ReviewController/AddReview', 
+            url: '/Review/AddReview', // Assuming your controller is named 'ReviewController'
             contentType: 'application/json;charset=utf-8',
             data: JSON.stringify(reviewData),
             success: function (response) {
