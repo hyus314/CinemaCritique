@@ -33,6 +33,16 @@
 });
 
 $(document).ready(function () {
+    $('#review-text').on('input', function () {
+        var maxLength = 300;
+        var length = $(this).val().length;
+        var charactersRemaining = maxLength - length;
+
+        $('#char-counter').text(charactersRemaining + ' characters remaining');
+    });
+});
+
+$(document).ready(function () {
     $("#submit-review").on('click', function () {
         var reviewText = $("#review-text").val();
         var movieId = $("#movie-id").data("value"); 

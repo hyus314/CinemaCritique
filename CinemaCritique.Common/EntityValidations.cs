@@ -21,8 +21,8 @@
         {
             public const int ContentMaxLength = 300;
             
-            public const int RatingMinValue = 0;
-            public const int RatingMaxValue = 5;
+            public const int RatingMinValue = 1;
+            public const int RatingMaxValue = 10;
         }
 
         public static class Genre

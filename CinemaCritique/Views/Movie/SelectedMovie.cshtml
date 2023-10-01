@@ -41,7 +41,8 @@
         <span class="star" data-value="9">☆</span>
         <span class="star" data-value="10">☆</span>
     </div>
-    <textarea id="review-text" placeholder="Write your review here..."></textarea>
+    <textarea id="review-text" placeholder="Write your review here..." maxlength="300"></textarea>
+    <div id="char-counter">300 characters remaining</div>
     <h2 id="movie-id" data-value="@Model.Id" hidden></h2>
     <button id="submit-review">Submit Review</button>
 </div>
