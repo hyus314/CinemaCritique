@@ -5,6 +5,7 @@
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using static CinemaCritique.Extensions.ClaimsExtensions;
+
     [Authorize]
     public class ReviewController : Controller
     {

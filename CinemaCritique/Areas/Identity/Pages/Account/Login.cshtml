@@ -10,7 +10,14 @@
     <div class="col-md-4">
         <section>
             <form id="account" method="post" class="bg-white p-3 rounded shadow">
-                <h2>Use a local account to log in.</h2>
+                @{
+                    var message = "Use a local account to log in.";
+                    if (Request.Query.ContainsKey("fromReview"))
+                    {
+                        message = "You need an account to add a review.";
+                    }
+                }
+                <h2>@message</h2>
                 <hr />
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="form-floating">

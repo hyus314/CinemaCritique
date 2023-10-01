@@ -63,8 +63,12 @@ $(document).ready(function () {
             success: function (response) {
                 alert('Review submitted successfully');
             },
-            error: function (response) {
-                alert('Error in submitting review');
+            error: function (xhr, textStatus, errorThrown) {
+                if (xhr.status === 401) { // 401 is the HTTP status code for Unauthorized
+                    window.location.href = "/Identity/Account/Login?fromReview=true"; // Assuming "/Account/Login" is the URL to your login page
+                } else {
+                    alert('Error in submitting review');
+                }
             }
         });
     });
