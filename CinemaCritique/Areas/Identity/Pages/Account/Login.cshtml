@@ -9,14 +9,16 @@
 <div class="row justify-content-center align-items-center">
     <div class="col-md-4">
         <section>
-            <form id="account" method="post" class="bg-white p-3 rounded shadow">
-                @{
-                    var message = "Use a local account to log in.";
-                    if (Request.Query.ContainsKey("fromReview"))
-                    {
-                        message = "You need an account to add a review.";
-                    }
+            @{
+                string returnUrl = string.Empty;
+                var message = "Use a local account to log in.";
+                if (Request.Query.ContainsKey("fromReview"))
+                {
+                     returnUrl = Request.Query["returnUrl"].ToString(); 
+                    message = "You need an account to add a review.";
                 }
+            }
+            <form id="account" method="post" class="bg-white p-3 rounded shadow" asp-page-handler="Login" asp-route-returnUrl="@returnUrl">
                 <h2>@message</h2>
                 <hr />
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>

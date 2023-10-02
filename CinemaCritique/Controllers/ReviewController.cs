@@ -23,12 +23,12 @@
         [HttpPost]
         public async Task<IActionResult> AddReview([FromBody] AddReviewViewModel review)
         {
-            if (!review.IsValid() || !ModelState.IsValid)
+            var userId = this.User.GetId();
+            review.UserId = userId;
+            if (!review.IsValid())
             {
                 return BadRequest("The review is invalid");
             }
-            var userId = this.User.GetId();
-            review.UserId = userId;
             await this.service.AddReview(review);
             return View();
         }

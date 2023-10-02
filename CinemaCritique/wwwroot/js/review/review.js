@@ -63,12 +63,35 @@ $(document).ready(function () {
             success: function (response) {
                 alert('Review submitted successfully');
             },
-            error: function (xhr, textStatus, errorThrown) {
-                if (xhr.status === 401) { // 401 is the HTTP status code for Unauthorized
-                    window.location.href = "/Identity/Account/Login?fromReview=true"; // Assuming "/Account/Login" is the URL to your login page
+            error: function (jqXHR, textStatus, errorThrown) {
+                if (jqXHR.status === 401) { // if unauthorized
+                    var reviewText = $("#review-text").val();
+                    var ratingValue = $('.star.selected').last().data('value') || 0;
+                    var currentPath = window.location.pathname; // gets the path of the current URL.
+                    var currentQueryString = window.location.search; // gets the query string of the current URL.
+                    var newQueryString = currentQueryString
+                        ? currentQueryString + "&reviewText=" + encodeURIComponent(reviewText) + "&ratingValue=" + ratingValue
+                        : "?reviewText=" + encodeURIComponent(reviewText) + "&ratingValue=" + ratingValue;
+                    var returnUrl = currentPath + newQueryString; // This will be a local URL.
+                    var url = "/Identity/Account/Login?fromReview=true&returnUrl=" + encodeURIComponent(returnUrl);
+                    window.location.href = url;
                 } else {
                     alert('Error in submitting review');
                 }
+            }
+
+        });
+    });
+});
+
+$(document).ready(function () {
+    $(".star").on('click', function () {
+        var value = $(this).data('value');
+        $(".star").each(function () {
+            var $star = $(this);
+            $star.removeClass('selected');
+            if ($star.data('value') <= value) {
+                $star.addClass('selected');
             }
         });
     });

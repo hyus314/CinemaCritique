@@ -10,17 +10,17 @@
             <h3>@Model.YearPublished</h3>
         </div>
     </div>
-    
+
     <div class="movie-content">
-        <img src="@Model.CoverPhotoURL" alt="@Model.Title" class="cover-photo"/>
-        
+        <img src="@Model.CoverPhotoURL" alt="@Model.Title" class="cover-photo" />
+
         <div class="movie-info">
             <h2>Directed by: @Model.Director</h2>
             <p>@Model.Description</p>
             <h4>Genre: @Model.Genre</h4>
             <h4>Main Roles: @Model.MainRoles</h4>
         </div>
-        
+
         <div class="trailer">
             <iframe src="@Model.TrailerURL" allowfullscreen></iframe>
         </div>
@@ -41,10 +41,25 @@
         <span class="star" data-value="9">☆</span>
         <span class="star" data-value="10">☆</span>
     </div>
-    <textarea id="review-text" placeholder="Write your review here..." maxlength="300"></textarea>
+    <textarea id="review-text" placeholder="Write your review here...">@ViewData["InitialReviewText"]</textarea>
     <div id="char-counter">300 characters remaining</div>
     <h2 id="movie-id" data-value="@Model.Id" hidden></h2>
     <button id="submit-review">Submit Review</button>
 </div>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="~/js/review/review.js"></script>
+
+<script>
+    $(document).ready(function () {
+        var initialRatingValue = @Html.Raw(Json.Serialize(ViewData["InitialRatingValue"] ?? "null"));
+        if (initialRatingValue && initialRatingValue !== "null") {
+            $(".star").each(function () {
+                var $this = $(this);
+                var starValue = $this.data('value');
+                if (starValue <= initialRatingValue) {
+                    $this.addClass('selected');
+                }
+            });
+        }
+    });
+</script>

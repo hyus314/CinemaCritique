@@ -115,8 +115,18 @@ namespace CinemaCritique.Areas.Identity.Pages.Account
                 var result = await _signInManager.PasswordSignInAsync(Input.Username, Input.Password, Input.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
-                    _logger.LogInformation("User logged in.");
-                    return LocalRedirect(returnUrl);
+                    if (!String.IsNullOrWhiteSpace(returnUrl) && Url.IsLocalUrl(returnUrl))
+                    {
+                        // Check for existing reviewText and ratingValue in Query String
+                        var reviewText = HttpContext.Request.Query["reviewText"].ToString();
+                        var ratingValue = HttpContext.Request.Query["ratingValue"].ToString();
+                        if (!string.IsNullOrEmpty(reviewText) || !string.IsNullOrEmpty(ratingValue))
+                        {
+                            returnUrl += (returnUrl.Contains("?") ? "&" : "?") + "reviewText=" + reviewText + "&ratingValue=" + ratingValue;
+                        }
+                        return LocalRedirect(returnUrl);
+                    }
+                    return LocalRedirect(Url.Content("~/"));
                 }
                 if (result.RequiresTwoFactor)
                 {
