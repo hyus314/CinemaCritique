@@ -19,6 +19,7 @@
             var review = new Review()
             {
                 UserId = model.UserId,
+                DatePublished = DateTime.UtcNow,
                 MovieId = dataProtector.Decrypt(model.MovieId),
                 Content = model.Content,
                 Rating = model.Rating
