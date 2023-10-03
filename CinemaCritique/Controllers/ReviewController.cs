@@ -4,8 +4,9 @@
     using CinemaCritique.ViewModels.Review;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
-    using static CinemaCritique.Extensions.ClaimsExtensions;
 
+    using static CinemaCritique.Extensions.ClaimsExtensions;
+    using static CinemaCritique.Common.ResultMessages.Review;
     [Authorize]
     [AutoValidateAntiforgeryToken]
     public class ReviewController : Controller
@@ -24,16 +25,31 @@
         [HttpPost]
         public async Task<IActionResult> AddReview([FromBody] AddReviewViewModel review)
         {
-            string message = string.Empty;
             var userId = this.User.GetId();
+
+            if (string.IsNullOrEmpty(userId))
+            {
+                return Json(new { success = false, message = FailedUserIdNull });
+            }
+
             review.UserId = userId;
+
             if (!review.IsValid())
             {
-                return Json(new { success = false, message = "The review is not in a valid format!" });
+                return Json(new { success = false, message = FailedReviewIsInvalid });
             }
-            await this.service.AddReviewAsync(review);
-            return View();
 
+            string message = string.Empty;
+
+            try
+            {
+                message = await this.service.AddReviewAsync(review);
+                return Json(new { success = true, message });
+            }
+            catch (Exception e)
+            {
+                return Json(new { success = false, e.Message });
+            }
         }
     }
 }

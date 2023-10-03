@@ -3,6 +3,6 @@
     using CinemaCritique.ViewModels.Review;
     public interface IReviewService
     {
-        public Task AddReviewAsync(AddReviewViewModel model);
+        public Task<string> AddReviewAsync(AddReviewViewModel model);
     }
 }

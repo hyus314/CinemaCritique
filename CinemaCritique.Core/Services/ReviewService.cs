@@ -5,7 +5,10 @@
     using CinemaCritique.Data.Models;
     using CinemaCritique.Security;
     using CinemaCritique.ViewModels.Review;
+    using Microsoft.EntityFrameworkCore;
     using System.Net;
+
+    using static CinemaCritique.Common.ResultMessages.Review;
     public class ReviewService : IReviewService
     {
         private readonly CritiqueDbContext data;
@@ -15,8 +18,30 @@
             this.data = data;
             this.dataProtector = dataProtector;
         }
-        public async Task AddReviewAsync(AddReviewViewModel model)
+        public async Task<string> AddReviewAsync(AddReviewViewModel model)
         {
+            string message = String.Empty;
+
+            if (string.IsNullOrEmpty(model.Content) || string.IsNullOrWhiteSpace(model.Content))
+            {
+                throw new InvalidDataException(FailedContentIsNull);
+            }
+
+            if (model.Rating == 0)
+            {
+                throw new InvalidOperationException(FailedRatingIsZero);
+            }
+
+            if (this.data.Users.FirstOrDefaultAsync(x => x.Id == model.UserId) == null)
+            {
+                throw new InvalidOperationException(FailedUserIdNull);
+            }
+
+            if (string.IsNullOrEmpty(model.MovieId) || string.IsNullOrWhiteSpace(model.MovieId))
+            {
+                throw new InvalidOperationException(FailedMovieIdNull);
+            }
+
             var content = WebUtility.HtmlEncode(model.Content);
 
             var review = new Review()
@@ -27,10 +52,16 @@
                 Content = content,
                 Rating = model.Rating
             };
-
-            await this.data.Reviews.AddAsync(review);
-            await this.data.SaveChangesAsync();
-
+            try
+            {
+                await this.data.Reviews.AddAsync(review);
+                await this.data.SaveChangesAsync();
+            }
+            catch (Exception)
+            {
+                throw new Exception(FailedCannotSaveReview);
+            }
+            return SuccessfullyAddedReview;
         }
     }
 }

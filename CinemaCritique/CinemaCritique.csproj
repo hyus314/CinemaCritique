@@ -28,6 +28,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CinemaCritique.Common\CinemaCritique.Common.csproj" />
     <ProjectReference Include="..\CinemaCritique.Core\CinemaCritique.Core.csproj" />
     <ProjectReference Include="..\CinemaCritique.Data.Models\CinemaCritique.Data.Models.csproj" />
     <ProjectReference Include="..\CinemaCritique.Data\CinemaCritique.Data.csproj" />
