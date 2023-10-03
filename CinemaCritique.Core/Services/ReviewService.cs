@@ -6,7 +6,6 @@
     using CinemaCritique.Security;
     using CinemaCritique.ViewModels.Review;
     using System.Net;
-
     public class ReviewService : IReviewService
     {
         private readonly CritiqueDbContext data;
@@ -16,7 +15,7 @@
             this.data = data;
             this.dataProtector = dataProtector;
         }
-        public async Task AddReview(AddReviewViewModel model)
+        public async Task AddReviewAsync(AddReviewViewModel model)
         {
             var content = WebUtility.HtmlEncode(model.Content);
 
@@ -31,6 +30,7 @@
 
             await this.data.Reviews.AddAsync(review);
             await this.data.SaveChangesAsync();
+
         }
     }
 }

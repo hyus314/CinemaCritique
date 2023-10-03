@@ -24,13 +24,14 @@
         [HttpPost]
         public async Task<IActionResult> AddReview([FromBody] AddReviewViewModel review)
         {
+            string message = string.Empty;
             var userId = this.User.GetId();
             review.UserId = userId;
             if (!review.IsValid())
             {
-                return BadRequest("The review is invalid");
+                return Json(new { success = false, message = "The review is not in a valid format!" });
             }
-            await this.service.AddReview(review);
+            await this.service.AddReviewAsync(review);
             return View();
 
         }

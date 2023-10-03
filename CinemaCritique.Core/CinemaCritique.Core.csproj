@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CinemaCritique.Common\CinemaCritique.Common.csproj" />
     <ProjectReference Include="..\CinemaCritique.Data\CinemaCritique.Data.csproj" />
     <ProjectReference Include="..\CinemaCritique.Security\CinemaCritique.Security.csproj" />
     <ProjectReference Include="..\CinemaCritique.ViewModels\CinemaCritique.ViewModels.csproj" />
