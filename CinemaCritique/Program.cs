@@ -44,6 +44,13 @@ namespace CinemaCritique
                 .AddEntityFrameworkStores<CritiqueDbContext>();
             builder.Services.AddControllersWithViews();
 
+            builder.Services.AddAntiforgery(options =>
+            {
+                options.FormFieldName = "__RequestVerificationToken";
+                options.HeaderName = "X-CSRF-VERIFICATION-TOKEN-C-Critique";
+                options.SuppressXFrameOptionsHeader = false;
+            });
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

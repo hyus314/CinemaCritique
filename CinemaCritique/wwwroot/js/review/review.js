@@ -57,8 +57,11 @@ $(document).ready(function () {
 
         $.ajax({
             type: 'POST',
-            url: '/Review/AddReview', 
+            url: '/Review/AddReview',
             contentType: 'application/json;charset=utf-8',
+            headers: {
+                "X-CSRF-VERIFICATION-TOKEN-C-Critique": $('#__RequestVerificationToken').val()
+            },
             data: JSON.stringify(reviewData),
             success: function (response) {
                 alert('Review submitted successfully');

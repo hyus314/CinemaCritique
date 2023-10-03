@@ -1,5 +1,11 @@
 ﻿@model SelectedMovieViewModel;
+@inject Microsoft.AspNetCore.Antiforgery.IAntiforgery Antiforgery
 
+@{
+    var requestToken = Antiforgery.GetAndStoreTokens(Context).RequestToken;
+}
+
+<input id="__RequestVerificationToken" type="hidden" value="@requestToken" />
 
 <link rel="stylesheet" href="~/css/movie/selectedMovie.css" asp-append-version="true" />
 

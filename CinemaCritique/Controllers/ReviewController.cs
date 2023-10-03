@@ -7,6 +7,7 @@
     using static CinemaCritique.Extensions.ClaimsExtensions;
 
     [Authorize]
+    [AutoValidateAntiforgeryToken]
     public class ReviewController : Controller
     {
         private readonly IReviewService service;
