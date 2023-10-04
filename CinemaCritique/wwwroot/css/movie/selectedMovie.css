@@ -169,3 +169,21 @@ textarea {
     text-align: left;
     padding: 0 10px;
 }
+
+#message-box {
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+    #message-box.success {
+        background-color: #4CAF50; /* Green */
+        color: white;
+    }
+
+    #message-box.error {
+        background-color: #f44336; /* Red */
+        color: white;
+    }

@@ -64,7 +64,15 @@ $(document).ready(function () {
             },
             data: JSON.stringify(reviewData),
             success: function (response) {
-                alert('Review submitted successfully');
+                var messageBox = $("#message-box");
+                if (response.success) {
+                    messageBox.text('Review submitted successfully').removeClass('error').addClass('success').fadeIn();
+                } else {
+                    messageBox.text(response.message).removeClass('success').addClass('error').fadeIn();
+                }
+                setTimeout(function () {
+                    messageBox.fadeOut();
+                }, 3000);  // This will hide the message after 3 seconds.
             },
             error: function (jqXHR, textStatus, errorThrown) {
                 if (jqXHR.status === 401) { // if unauthorized
@@ -79,7 +87,10 @@ $(document).ready(function () {
                     var url = "/Identity/Account/Login?fromReview=true&returnUrl=" + encodeURIComponent(returnUrl);
                     window.location.href = url;
                 } else {
-                    alert('Error in submitting review');
+                    $("#message-box").text('An unexpected error occurred.').removeClass('success').addClass('error').fadeIn();
+                    setTimeout(function () {
+                        $("#message-box").fadeOut();
+                    }, 3000);
                 }
             }
 

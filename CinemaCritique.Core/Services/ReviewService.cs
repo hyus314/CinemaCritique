@@ -44,16 +44,16 @@
 
             var content = WebUtility.HtmlEncode(model.Content);
 
-            var review = new Review()
-            {
-                UserId = model.UserId,
-                DatePublished = DateTime.UtcNow,
-                MovieId = dataProtector.Decrypt(model.MovieId),
-                Content = content,
-                Rating = model.Rating
-            };
             try
             {
+                var review = new Review()
+                {
+                    UserId = model.UserId,
+                    DatePublished = DateTime.UtcNow,
+                    MovieId = dataProtector.Decrypt(model.MovieId),
+                    Content = content,
+                    Rating = model.Rating
+                };
                 await this.data.Reviews.AddAsync(review);
                 await this.data.SaveChangesAsync();
             }

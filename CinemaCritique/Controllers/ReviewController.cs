@@ -34,21 +34,15 @@
 
             review.UserId = userId;
 
-            if (!review.IsValid())
-            {
-                return Json(new { success = false, message = FailedReviewIsInvalid });
-            }
-
-            string message = string.Empty;
 
             try
             {
-                message = await this.service.AddReviewAsync(review);
-                return Json(new { success = true, message });
+                var message = await this.service.AddReviewAsync(review);
+                return Json(new { success = true, message = message });
             }
             catch (Exception e)
             {
-                return Json(new { success = false, e.Message });
+                return Json(new { success = false, message = e.Message });
             }
         }
     }
