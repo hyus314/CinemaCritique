@@ -1,0 +1,53 @@
+﻿body {
+}
+
+.review-container {
+    width: 80%;
+    margin: 2em auto;
+}
+
+.review-card {
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.review-content {
+    margin: 20px 0;
+}
+
+.review-footer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.rating-review {
+    display: flex;
+    font-size: 3em;
+}
+
+    .rating-review span {
+        opacity: 0.3;
+    }
+
+    .rating-review[data-rating="2"] span:nth-child(-n+2),
+    .rating-review[data-rating="1"] span:nth-child(-n+1),
+    .rating-review[data-rating="3"] span:nth-child(-n+3),
+    .rating-review[data-rating="4"] span:nth-child(-n+4),
+    .rating-review[data-rating="5"] span:nth-child(-n+5),
+    .rating-review[data-rating="6"] span:nth-child(-n+6),
+    .rating-review[data-rating="7"] span:nth-child(-n+7),
+    .rating-review[data-rating="8"] span:nth-child(-n+8),
+    .rating-review[data-rating="9"] span:nth-child(-n+9),
+    .rating-review[data-rating="10"] span {
+        opacity: 1;
+        color: gold;
+    }

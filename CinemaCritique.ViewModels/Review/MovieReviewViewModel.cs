@@ -6,6 +6,5 @@
         public string DatePublished { get; set; } = null!;
         public string Content { get; set; } = null!;
         public byte Rating { get; set; }
-        public int MyProperty { get; set; }
     }
 }

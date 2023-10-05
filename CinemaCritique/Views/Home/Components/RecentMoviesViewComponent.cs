@@ -1,8 +1,7 @@
-﻿using CinemaCritique.Core.Contracts;
-using Microsoft.AspNetCore.Mvc;
-
-namespace CinemaCritique.Views.ViewComponents
+﻿namespace CinemaCritique.Views.ViewComponents
 {
+    using CinemaCritique.Core.Contracts;
+    using Microsoft.AspNetCore.Mvc;
     public class RecentMoviesViewComponent : ViewComponent
     {
         private readonly IMovieService service;

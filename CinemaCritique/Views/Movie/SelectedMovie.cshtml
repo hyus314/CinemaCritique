@@ -53,6 +53,11 @@
     <h2 id="movie-id" data-value="@Model.Id" hidden></h2>
     <button id="submit-review">Submit Review</button>
 </div>
+
+
+@await Component.InvokeAsync("ReviewsForMovie", new {movieId = Model.Id});
+
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="~/js/review/review.js"></script>
 

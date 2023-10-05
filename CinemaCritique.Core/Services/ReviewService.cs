@@ -72,7 +72,21 @@
 
         public async Task<ICollection<MovieReviewViewModel>> GetReviewsForMovie(string movieId)
         {
-            throw new NotImplementedException();
+            var decryptedMovieId = this.dataProtector.Decrypt(movieId);
+
+            var reviews = await this.data.Reviews
+                .AsNoTracking()
+                .Where(r => r.MovieId == decryptedMovieId)
+                .Select(x => new MovieReviewViewModel()
+                {
+                    Username = x.User.UserName,
+                    DatePublished = x.DatePublished.ToString("D"),
+                    Rating = x.Rating,
+                    Content = x.Content,
+                })
+                .ToArrayAsync();
+
+            return reviews;
         }
     }
 }
