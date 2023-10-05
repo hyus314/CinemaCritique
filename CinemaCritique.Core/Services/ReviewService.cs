@@ -74,17 +74,40 @@
         {
             var decryptedMovieId = this.dataProtector.Decrypt(movieId);
 
-            var reviews = await this.data.Reviews
-                .AsNoTracking()
-                .Where(r => r.MovieId == decryptedMovieId)
-                .Select(x => new MovieReviewViewModel()
-                {
-                    Username = x.User.UserName,
-                    DatePublished = x.DatePublished.ToString("D"),
-                    Rating = x.Rating,
-                    Content = x.Content,
-                })
-                .ToArrayAsync();
+            ICollection<MovieReviewViewModel> reviews;
+
+            if (this.data.Reviews.Where(x => x.MovieId == decryptedMovieId).Count() >= 5)
+            {
+                 reviews = await this.data.Reviews
+                    .AsNoTracking()
+                    .Where(r => r.MovieId == decryptedMovieId)
+                    .OrderByDescending(x => x.DatePublished)
+                    .Select(x => new MovieReviewViewModel()
+                    {
+                        Username = x.User.UserName,
+                        DatePublished = x.DatePublished.ToString("D"),
+                        Rating = x.Rating,
+                        Content = x.Content,
+                    })
+                    .Take(5)
+                    .ToArrayAsync();
+            }
+            else
+            {
+                 reviews = await this.data.Reviews
+                    .AsNoTracking()
+                    .Where(r => r.MovieId == decryptedMovieId)
+                    .OrderByDescending(x => x.DatePublished)
+                    .Select(x => new MovieReviewViewModel()
+                    {
+                        Username = x.User.UserName,
+                        DatePublished = x.DatePublished.ToString("D"),
+                        Rating = x.Rating,
+                        Content = x.Content,
+                    })
+                    .ToArrayAsync();
+
+            }
 
             return reviews;
         }

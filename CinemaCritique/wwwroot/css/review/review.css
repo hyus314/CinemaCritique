@@ -1,41 +1,79 @@
 ﻿body {
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Comic+Sans+MS&display=swap');
+
 .review-container {
     width: 80%;
     margin: 2em auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .review-card {
+    position: relative;
+    overflow: hidden;
     background-color: #f9f9f9;
     border: 1px solid #e0e0e0;
     border-radius: 5px;
-    padding: 20px;
     margin-bottom: 20px;
+    flex: 0 0 calc(48% - 10px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .review-header {
+    background-color: #F78D34;
+    color: #fff;
+    margin: 0;
+    padding: 10px; /* Added padding */
+    width: 100%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border: 2px solid #FF5E0E;
+    position: relative;
+    box-shadow: inset 0 -5px 5px rgba(0,0,0,0.1); /* Added inner shadow for a bit depth */
 }
+
+    .review-header::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        height: 100%;
+        background-color: #4CAF50;
+        z-index: -1;
+    }
 
 .review-content {
-    margin: 20px 0;
-}
-
-.review-footer {
-    display: flex;
-    justify-content: flex-end;
+    margin-top: 10px;
+    margin-inline: 20px;
+    padding: 10px; /* Added padding */
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-size: 1.1em;
+    background-color: #fff; /* White bg for content */
+    border: 1px dashed #e0e0e0; /* Dashed border for a unique touch */
+    border-radius: 5px;
 }
 
 .rating-review {
     display: flex;
-    font-size: 3em;
+    font-size: 3.6em; /* Increased size */
+    margin-left: auto; /* To push it to the right */
+    padding-inline:  20px; /* Added padding */
+    background-color: #f9f9f9; /* Added a light bg */
+    border-radius: 20px; /* Rounded corners for a unique touch */
 }
 
     .rating-review span {
         opacity: 0.3;
+        margin-right: 5px; /* Spaced out stars */
     }
 
     .rating-review[data-rating="2"] span:nth-child(-n+2),
