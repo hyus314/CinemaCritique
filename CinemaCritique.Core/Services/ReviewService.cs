@@ -6,6 +6,7 @@
     using CinemaCritique.Security;
     using CinemaCritique.ViewModels.Review;
     using Microsoft.EntityFrameworkCore;
+    using System.Collections.Generic;
     using System.Net;
 
     using static CinemaCritique.Common.ResultMessages.Review;
@@ -67,6 +68,11 @@
                 throw new Exception(FailedCannotSaveReview);
             }
             return SuccessfullyAddedReview;
+        }
+
+        public async Task<ICollection<MovieReviewViewModel>> GetReviewsForMovie(string movieId)
+        {
+            throw new NotImplementedException();
         }
     }
 }
