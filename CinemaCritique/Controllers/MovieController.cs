@@ -21,6 +21,8 @@
             var ratingValue = HttpContext.Request.Query["ratingValue"] != 0 ? HttpContext.Request.Query["ratingValue"].ToString() : null;
             ViewData["InitialReviewText"] = reviewText;
             ViewData["InitialRatingValue"] = ratingValue;
+
+
             var model = await this.service.GetSelectedMoviePageAsync(id);
             return View(model);
         }

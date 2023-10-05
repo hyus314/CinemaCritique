@@ -42,6 +42,17 @@ $(document).ready(function () {
     });
 });
 
+function updateCharacterCount() {
+    var maxLength = 300;
+    var length = $('#review-text').val().length;
+    var charactersRemaining = maxLength - length;
+    $('#char-counter').text(charactersRemaining + ' characters remaining');
+}
+
+$(document).ready(function () {
+    $('#review-text').on('input', updateCharacterCount);
+});
+
 $(document).ready(function () {
     $("#submit-review").on('click', function () {
         var reviewText = $("#review-text").val();
@@ -69,7 +80,7 @@ $(document).ready(function () {
                     messageBox.text('Review submitted successfully').removeClass('error').addClass('success').fadeIn();
                     $("#review-text").val('');
                     $(".star").removeClass('selected');
-
+                    updateCharacterCount();
                 } else {
                     messageBox.text(response.message).removeClass('success').addClass('error').fadeIn();
                 }
