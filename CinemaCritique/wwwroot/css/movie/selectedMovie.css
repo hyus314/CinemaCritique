@@ -86,7 +86,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 50em;
+    width: 80%;
 }
 
     .review-section h3 {
@@ -121,7 +121,7 @@
     cursor: pointer;
     color: grey;
     padding: 5px;
-    font-size: 4.3em; /* Reduced font size */
+    font-size: 7.1em; /* Reduced font size */
 }
 
     .star.hover {
@@ -143,7 +143,7 @@ textarea {
     background: linear-gradient(to right, #FF5E0E, #F78D34);
     color: white;
     border: none;
-    margin-left: 30em;
+    margin-left: 45em;
     padding: 10px 20px;
     cursor: pointer;
     border-radius: 5px;
