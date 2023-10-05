@@ -19,6 +19,9 @@
             public const string FailedRatingIsZero =
                 "The review cannot have a rating with the value of 0!";
 
+            public const string FailedRatingMoreThanTen =
+                "The review cannot have a rating more than ten!";
+
             public const string FailedContentIsNull =
                 "The review cannot have empty content!";
 

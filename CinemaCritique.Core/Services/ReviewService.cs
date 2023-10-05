@@ -32,6 +32,11 @@
                 throw new InvalidOperationException(FailedRatingIsZero);
             }
 
+            if (model.Rating > 10)
+            {
+                throw new InvalidOperationException(FailedRatingMoreThanTen);
+            }
+
             if (this.data.Users.FirstOrDefaultAsync(x => x.Id == model.UserId) == null)
             {
                 throw new InvalidOperationException(FailedUserIdNull);

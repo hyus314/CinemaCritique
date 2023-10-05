@@ -67,6 +67,9 @@ $(document).ready(function () {
                 var messageBox = $("#message-box");
                 if (response.success) {
                     messageBox.text('Review submitted successfully').removeClass('error').addClass('success').fadeIn();
+                    $("#review-text").val('');
+                    $(".star").removeClass('selected');
+
                 } else {
                     messageBox.text(response.message).removeClass('success').addClass('error').fadeIn();
                 }
