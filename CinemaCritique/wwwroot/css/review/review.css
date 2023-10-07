@@ -89,3 +89,42 @@
         opacity: 1;
         color: gold;
     }
+
+.no-reviews-message {
+    text-align: center;
+    background-color: #F78D34;
+    color: #fff;
+    padding: 20px 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 1.2em;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    position: relative;
+    max-width: 80%;
+    margin: 20px auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+    .no-reviews-message::before, .no-reviews-message::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: #4CAF50;
+        z-index: -1;
+    }
+
+    .no-reviews-message::before {
+        left: -10px;
+    }
+
+    .no-reviews-message::after {
+        right: -10px;
+    }
+
+    .no-reviews-message:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    }
