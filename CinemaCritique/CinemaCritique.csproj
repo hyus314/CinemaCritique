@@ -36,4 +36,9 @@
     <ProjectReference Include="..\CinemaCritique.ViewModels\CinemaCritique.ViewModels.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\Home\Components\" />
+    <Folder Include="Views\Movie\Components\" />
+  </ItemGroup>
+
 </Project>

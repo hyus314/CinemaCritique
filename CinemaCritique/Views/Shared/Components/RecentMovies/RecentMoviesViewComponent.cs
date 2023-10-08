@@ -1,4 +1,4 @@
-﻿namespace CinemaCritique.Views.ViewComponents
+﻿namespace CinemaCritique.Views.Shared.Components.RecentMovies
 {
     using CinemaCritique.Core.Contracts;
     using Microsoft.AspNetCore.Mvc;
@@ -13,7 +13,7 @@
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var recentMovies = await this.service.GetMostRecentFilmsAsync();
+            var recentMovies = await service.GetMostRecentFilmsAsync();
             return View(recentMovies);
         }
     }

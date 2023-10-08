@@ -45,5 +45,11 @@
                 return Json(new { success = false, message = e.Message });
             }
         }
+
+        [HttpGet]
+        public IActionResult GetUpdatedReviews(string movieId)
+        {
+            return ViewComponent("ReviewsForMovieViewComponent", new { movieId = movieId });
+        }
     }
 }

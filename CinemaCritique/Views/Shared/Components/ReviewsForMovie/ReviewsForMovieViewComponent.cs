@@ -1,4 +1,4 @@
-﻿namespace CinemaCritique.Views.Movie
+﻿namespace CinemaCritique.Views.Shared.Components.ReviewsForMovie
 {
     using CinemaCritique.Core.Contracts;
     using Microsoft.AspNetCore.Mvc;
@@ -13,7 +13,7 @@
 
         public async Task<IViewComponentResult> InvokeAsync(string movieId)
         {
-            var reviews = await this.service.GetReviewsForMovie(movieId);
+            var reviews = await service.GetReviewsForMovie(movieId);
 
             return View(reviews);
         }

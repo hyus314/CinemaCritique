@@ -81,6 +81,7 @@ $(document).ready(function () {
                     $("#review-text").val('');
                     $(".star").removeClass('selected');
                     updateCharacterCount();
+                    fetchUpdatedReviews(movieId);
                 } else {
                     messageBox.text(response.message).removeClass('success').addClass('error').fadeIn();
                 }
@@ -124,3 +125,17 @@ $(document).ready(function () {
         });
     });
 });
+
+function fetchUpdatedReviews(movieId) {
+    $.ajax({
+        type: 'GET',
+        url: '/Review/GetUpdatedReviews',
+        data: { movieId: movieId },
+        success: function (response) {
+         
+        },
+        error: function (error) {
+            console.error("Error fetching updated reviews:", error);
+        }
+    });
+}
