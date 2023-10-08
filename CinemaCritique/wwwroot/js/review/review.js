@@ -132,7 +132,7 @@ function fetchUpdatedReviews(movieId) {
         url: '/Review/GetUpdatedReviews',
         data: { movieId: movieId },
         success: function (response) {
-         
+            $('#reviewsContainer').html(response); // Inject the updated reviews into the container
         },
         error: function (error) {
             console.error("Error fetching updated reviews:", error);

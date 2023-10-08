@@ -49,7 +49,7 @@
         [HttpGet]
         public IActionResult GetUpdatedReviews(string movieId)
         {
-            return ViewComponent("ReviewsForMovieViewComponent", new { movieId = movieId });
+            return ViewComponent("ReviewsForMovie", new { movieId = movieId });
         }
     }
 }
