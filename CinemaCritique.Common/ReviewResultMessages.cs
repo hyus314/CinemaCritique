@@ -29,7 +29,10 @@
                 "The movie id cannot be null!";
 
             public const string FailedCannotSaveReview =
-                "An unexpected error occured. Try again.";
+                "An unexpected error occured. Try again. Cannot save the review.";
+
+            public const string FailedCannotCreateReview =
+                "Cannot create the review.";
         }
 
     }

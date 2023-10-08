@@ -13,14 +13,18 @@
     public class ReviewService : IReviewService
     {
         private readonly CritiqueDbContext data;
+        private readonly CritiqueDbContextFactory dataFactory;
         private readonly MovieDataProtector dataProtector;
-        public ReviewService(CritiqueDbContext data, MovieDataProtector dataProtector)
+        public ReviewService(CritiqueDbContext data, MovieDataProtector dataProtector, CritiqueDbContextFactory dataFactory)
         {
             this.data = data;
             this.dataProtector = dataProtector;
+            this.dataFactory = dataFactory;
+
         }
         public async Task<string> AddReviewAsync(AddReviewViewModel model)
         {
+            
             string message = String.Empty;
 
             if (string.IsNullOrEmpty(model.Content) || string.IsNullOrWhiteSpace(model.Content))
@@ -50,9 +54,11 @@
 
             var content = WebUtility.HtmlEncode(model.Content);
 
+            Review review;
+
             try
             {
-                var review = new Review()
+                review = new Review()
                 {
                     UserId = model.UserId,
                     DatePublished = DateTime.Now,
@@ -60,12 +66,21 @@
                     Content = content,
                     Rating = model.Rating
                 };
-                await this.data.Reviews.AddAsync(review);
-                await this.data.SaveChangesAsync();
+
             }
             catch (Exception)
             {
-                throw new Exception(FailedCannotSaveReview);
+                throw new InvalidProgramException(FailedCannotCreateReview);
+            }
+            try
+            {
+                using var context = dataFactory.Create();
+                await context.Reviews.AddAsync(review);
+                await context.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
             }
             return SuccessfullyAddedReview;
         }
@@ -78,34 +93,34 @@
 
             if (this.data.Reviews.Where(x => x.MovieId == decryptedMovieId).Count() >= 5)
             {
-                 reviews = await this.data.Reviews
-                    .AsNoTracking()
-                    .Where(r => r.MovieId == decryptedMovieId)
-                    .OrderByDescending(x => x.DatePublished)
-                    .Select(x => new MovieReviewViewModel()
-                    {
-                        Username = x.User.UserName,
-                        DatePublished = x.DatePublished.ToString("D"),
-                        Rating = x.Rating,
-                        Content = x.Content,
-                    })
-                    .Take(5)
-                    .ToArrayAsync();
+                reviews = await this.data.Reviews
+                   .AsNoTracking()
+                   .Where(r => r.MovieId == decryptedMovieId)
+                   .OrderByDescending(x => x.DatePublished)
+                   .Select(x => new MovieReviewViewModel()
+                   {
+                       Username = x.User.UserName,
+                       DatePublished = x.DatePublished.ToString("D"),
+                       Rating = x.Rating,
+                       Content = x.Content,
+                   })
+                   .Take(5)
+                   .ToArrayAsync();
             }
             else
             {
-                 reviews = await this.data.Reviews
-                    .AsNoTracking()
-                    .Where(r => r.MovieId == decryptedMovieId)
-                    .OrderByDescending(x => x.DatePublished)
-                    .Select(x => new MovieReviewViewModel()
-                    {
-                        Username = x.User.UserName,
-                        DatePublished = x.DatePublished.ToString("D"),
-                        Rating = x.Rating,
-                        Content = x.Content,
-                    })
-                    .ToArrayAsync();
+                reviews = await this.data.Reviews
+                   .AsNoTracking()
+                   .Where(r => r.MovieId == decryptedMovieId)
+                   .OrderByDescending(x => x.DatePublished)
+                   .Select(x => new MovieReviewViewModel()
+                   {
+                       Username = x.User.UserName,
+                       DatePublished = x.DatePublished.ToString("D"),
+                       Rating = x.Rating,
+                       Content = x.Content,
+                   })
+                   .ToArrayAsync();
 
             }
 

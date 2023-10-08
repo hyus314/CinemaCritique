@@ -18,7 +18,6 @@ namespace CinemaCritique
             var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
             builder.Services.AddDbContext<CritiqueDbContext>(options =>
                 options.UseSqlServer(connectionString));
-            builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
             builder.Services.AddSingleton(provider =>
             {
@@ -27,7 +26,7 @@ namespace CinemaCritique
             });
 
             builder.Services.AddSingleton<MovieDataProtector>();
-
+            builder.Services.AddTransient<CritiqueDbContextFactory>();
             builder.Services.AddScoped<IMovieService, MovieService>();
             builder.Services.AddScoped<IReviewService, ReviewService>();
 
