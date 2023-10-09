@@ -44,11 +44,29 @@
 }
 
 .cover-photo {
-    max-width: 40%;
+    /* Set a fixed width for larger screens */
+    width: 400px;
     border-radius: 10px;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    object-fit: cover; /* If it's an img element, this will ensure the image covers the dimensions without stretching */
 }
 
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .cover-photo {
+        /* Adjust to a smaller size for tablets */
+        width: 200px;
+        height: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cover-photo {
+        /* Adjust to an even smaller size for mobile phones */
+        width: 150px;
+        height: 225px;
+    }
+}
 .movie-info {
     max-width: 55%;
 }
