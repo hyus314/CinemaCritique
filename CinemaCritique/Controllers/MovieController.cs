@@ -22,8 +22,8 @@
         [HttpGet]
         public async Task<IActionResult> MoviesForAllPage(int page = 1, int pageSize = 10)
         {
-
-            return View();
+            var movies = await this.service.GetMoviesForAllPage(page, pageSize);
+            return Json(movies);
         }
 
         public async Task<IActionResult> SelectedMovie(string id)

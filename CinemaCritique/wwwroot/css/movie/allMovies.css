@@ -1,0 +1,40 @@
+﻿body {
+}
+.movie-card {
+    flex-direction: column;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    margin: 10px;
+    width: auto;
+    max-width: 200px;
+    height: auto;
+    height: 25em;
+    flex: 0 1 auto; /* This ensures that the movie card doesn't grow or shrink, but is based on its auto size */
+}
+
+.movie-cover {
+    width: 100%;
+    height: 20em;
+    object-fit: cover;
+}
+
+.movie-details {
+    padding: 10px;
+}
+
+.movie-title {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin: 0;
+}
+
+.movie-year {
+    color: gray;
+}
+
+#moviesContainer{
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+}

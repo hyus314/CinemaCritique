@@ -56,6 +56,25 @@ namespace CinemaCritique.Core.Services
             return model;
         }
 
+        public async Task<ICollection<AllMovieViewModel>> GetMoviesForAllPage(int page, int pageSize)
+        {
+            var movies = await this.data
+                .Movies
+                .AsNoTracking()
+                .Select(x => new AllMovieViewModel()
+                {
+                    Id = dataProtector.Encrypt(x.Id),
+                    CoverPhotoURL = x.CoverPhotoURL,
+                    Title = x.Title,
+                    YearPublished = x.YearPublished.ToString()
+                })
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .ToArrayAsync();
+
+            return movies;
+        }
+
         public async Task<ICollection<HomePageMovieViewModel>> GetMoviesForHomePageAsync()
         {
             var model = await this.data.Movies

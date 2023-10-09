@@ -56,7 +56,6 @@
     .cover-photo {
         /* Adjust to a smaller size for tablets */
         width: 200px;
-        height: 300px;
     }
 }
 
@@ -64,7 +63,6 @@
     .cover-photo {
         /* Adjust to an even smaller size for mobile phones */
         width: 150px;
-        height: 225px;
     }
 }
 .movie-info {
