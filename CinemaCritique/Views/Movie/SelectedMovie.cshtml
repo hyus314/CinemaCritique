@@ -25,6 +25,14 @@
             <p>@Model.Description</p>
             <h4>Genre: @Model.Genre</h4>
             <h4>Main Roles: @Model.MainRoles</h4>
+            @if (Model.HasReviews)
+            {
+                <h4>Rating: @Model.Rating</h4>
+            }
+            else
+            {
+                <h4>@Model.Rating</h4>
+            }
         </div>
 
         <div class="trailer">

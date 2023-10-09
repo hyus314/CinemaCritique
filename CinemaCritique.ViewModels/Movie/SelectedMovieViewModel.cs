@@ -11,6 +11,8 @@
         public string TrailerURL { get; set; } = null!;
         public string Genre { get; set; } = null!;
         public string ScenePhotoURL { get; set; } = null!;
+        public string Rating { get; set; } = null!;
+        public bool HasReviews { get; set; }
         public string MainRoles { get; set; } = null!;
 
         public bool IsValid()

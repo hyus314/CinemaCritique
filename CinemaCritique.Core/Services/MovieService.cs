@@ -91,6 +91,19 @@ namespace CinemaCritique.Core.Services
                 throw new ArgumentNullException("There is no movie with this id!");
             }
 
+            string rating;
+            bool hasReviews = false;
+            var reviewsOfEntity = await this.data.Reviews.Where(x => x.MovieId == decryptedId).ToListAsync();
+            if (reviewsOfEntity.Count > 0)
+            {
+                rating = Math.Round(entity.Reviews.Average(x => x.Rating), 1).ToString() + "/10";
+                hasReviews = true;
+            }
+            else
+            {
+                rating = "This movie is yet to be reviewed!";
+            }
+
             var model = new SelectedMovieViewModel()
             {
                 Id = dataProtector.Encrypt(entity.Id),
@@ -99,10 +112,12 @@ namespace CinemaCritique.Core.Services
                 Description = entity.Description,
                 YearPublished = entity.YearPublished.ToString(),
                 CoverPhotoURL = entity.CoverPhotoURL,
+                Rating = rating,
                 TrailerURL = entity.TrailerURL,
                 Genre = genre!.Name,
                 ScenePhotoURL = entity.ScenePhotoUrl,
-                MainRoles = entity.MainRoles
+                MainRoles = entity.MainRoles,
+                HasReviews = hasReviews
             };
 
             if (!model.IsValid())
