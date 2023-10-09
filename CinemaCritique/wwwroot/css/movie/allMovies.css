@@ -8,7 +8,6 @@
     width: auto;
     max-width: 200px;
     height: auto;
-    height: 25em;
     flex: 0 1 auto; /* This ensures that the movie card doesn't grow or shrink, but is based on its auto size */
 }
 
@@ -19,7 +18,9 @@
 }
 
 .movie-details {
+    height:auto;
     padding: 10px;
+    overflow: auto;
 }
 
 .movie-title {
