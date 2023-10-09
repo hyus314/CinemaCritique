@@ -1,5 +1,22 @@
 ﻿body {
 }
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+.recent-movies-text {
+    margin-left: 7em;
+    font-family: 'Roboto', sans-serif; 
+    font-weight: 700; 
+    font-size: 2em; 
+    letter-spacing: 1px; 
+    text-transform: uppercase; 
+    color: #E57224;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); 
+    transition: color 0.3s ease; 
+}
+
+    .recent-movies-text:hover {
+        color: #F78D34; 
+    }
 
 #recentMoviesContainer {
     display: flex;
