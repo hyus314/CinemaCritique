@@ -7,5 +7,6 @@ namespace CinemaCritique.Core.Contracts
         public Task<ICollection<HomePageMovieViewModel>> GetMoviesForHomePageAsync();
         public Task<ICollection<RecentMovieViewModel>> GetMostRecentFilmsAsync();
         public Task<SelectedMovieViewModel> GetSelectedMoviePageAsync(string id);
+        public Task<>
     }
 }
