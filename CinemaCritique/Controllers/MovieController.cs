@@ -15,6 +15,17 @@
             return View();
         }
 
+        public IActionResult AllMovies()
+        {
+            return View();
+        }
+        [HttpGet]
+        public async Task<IActionResult> MoviesForAllPage(int page = 1, int pageSize = 10)
+        {
+
+            return View();
+        }
+
         public async Task<IActionResult> SelectedMovie(string id)
         {
             var reviewText = HttpContext.Request.Query["reviewText"].ToString();
