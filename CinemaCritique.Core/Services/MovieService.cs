@@ -59,15 +59,16 @@ namespace CinemaCritique.Core.Services
         public async Task<ICollection<HomePageMovieViewModel>> GetMoviesForHomePageAsync()
         {
             var model = await this.data.Movies
-                .AsNoTracking()
-                .Select(x => new HomePageMovieViewModel()
-                {
-                    Id = this.dataProtector.Encrypt(x.Id),
-                    Title = x.Title,
-                    CoverPhotoUrl = x.CoverPhotoURL
-                })
-                .Take(10)
-                .ToArrayAsync();
+               .AsNoTracking()
+               .OrderBy(r => Guid.NewGuid())
+               .Select(x => new HomePageMovieViewModel()
+               {
+                   Id = this.dataProtector.Encrypt(x.Id),
+                   Title = x.Title,
+                   CoverPhotoUrl = x.CoverPhotoURL
+               })
+               .Take(10)
+               .ToArrayAsync();
 
             return model;
         }
