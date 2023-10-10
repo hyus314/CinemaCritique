@@ -65,6 +65,29 @@ namespace CinemaCritique.Core.Services
                 moviesQuery = moviesQuery.Where(x => x.Genre.Name == filters["genre"]);
             }
 
+            if (!string.IsNullOrEmpty(filters["rating"]))
+            {
+                switch (filters["rating"])
+                {
+                    case "unrated":
+                        moviesQuery = moviesQuery
+                            .Where(x => x.Reviews.Count == 0);
+                        break;
+                    case "desc":
+                        moviesQuery = moviesQuery
+                         .Where(x => x.Reviews.Count > 0)
+                         .OrderByDescending(x => x.Reviews.Average(r => r.Rating)); 
+                        break;
+                    case "asc":
+                        moviesQuery = moviesQuery
+                        .Where(x => x.Reviews.Count > 0)
+                        .OrderBy(x => x.Reviews.Average(r => r.Rating));
+                        break;
+                    default:
+                        break;
+                }
+            }
+
             var movies = await moviesQuery
                 .AsNoTracking()
                 .Select(x => new AllMovieViewModel()
