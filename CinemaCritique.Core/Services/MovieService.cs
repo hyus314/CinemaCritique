@@ -71,6 +71,7 @@ namespace CinemaCritique.Core.Services
                 {
                     Id = dataProtector.Encrypt(x.Id),
                     CoverPhotoURL = x.CoverPhotoURL,
+                    Rating = x.Reviews.Count > 0 ?Math.Round(x.Reviews.Average(x => x.Rating), 1).ToString() + " ☆" : "",
                     Title = x.Title,
                     YearPublished = x.YearPublished.ToString()
                 })

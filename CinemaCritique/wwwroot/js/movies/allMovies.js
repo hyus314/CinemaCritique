@@ -28,6 +28,7 @@ function loadMoreMovies() {
                 <a href="/Movie/SelectedMovie/${movie.id}" class="movie-link">
                     <img src="${movie.coverPhotoURL}" alt="${movie.title}" class="movie-cover">
                     <p class="movie-title">${movie.title}</p>
+                    <div class="movie-rating">${movie.rating}</div>
                 </a>
             </li>`;
             movieList.append(movieItem);
