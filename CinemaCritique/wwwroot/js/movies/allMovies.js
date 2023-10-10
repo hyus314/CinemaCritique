@@ -6,24 +6,25 @@ function loadMoreMovies() {
     isLoading = true;
 
     $.get('/Movie/MoviesForAllPage', { page: page }, function (data) {
-        // Append movies to your container
+        var movieList = $('<ul class="home-page-movies"></ul>');
+
         data.forEach(movie => {
-            var movieCard = `
-               <a href="/Movie/SelectedMovie/${movie.id}" class="movie-link">
-                    <div class="movie-card">
-                        <img src="${movie.coverPhotoURL}" alt="${movie.title}" class="movie-cover">
-                        <div class="movie-details">
-                            <h3 class="movie-title">${movie.title}</h3>
-                            <p class="movie-year">${movie.yearPublished}</p>
-                        </div>
-                    </div>
-                </a>`;
-            $('#moviesContainer').append(movieCard);
+            var movieItem = `
+            <li class="movie-element">
+                <a href="/Movie/SelectedMovie/${movie.id}" class="movie-link">
+                    <img src="${movie.coverPhotoURL}" alt="${movie.title}" class="movie-cover">
+                    <p class="movie-title">${movie.title}</p>
+                </a>
+            </li>`;
+            movieList.append(movieItem);
         });
+
+        $('#moviesContainer').append(movieList);
 
         page++; // Increment page number
         isLoading = false;
     });
+
 }
 
 $(window).scroll(function () {
