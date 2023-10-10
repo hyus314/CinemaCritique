@@ -20,12 +20,12 @@
             return View();
         }
         [HttpGet]
-        public async Task<IActionResult> MoviesForAllPage(int page = 1, int pageSize = 10)
+        public async Task<IActionResult> MoviesForAllPage(int page, Dictionary<string, string> filters)
         {
-            var movies = await this.service.GetMoviesForAllPage(page, pageSize);
+            var movies = await this.service.GetMoviesForAllPage(page, filters);
             return Json(movies);
         }
-
+        
         public async Task<IActionResult> SelectedMovie(string id)
         {
             var reviewText = HttpContext.Request.Query["reviewText"].ToString();

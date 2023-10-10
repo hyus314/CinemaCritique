@@ -56,10 +56,16 @@ namespace CinemaCritique.Core.Services
             return model;
         }
 
-        public async Task<ICollection<AllMovieViewModel>> GetMoviesForAllPage(int page, int pageSize)
+        public async Task<ICollection<AllMovieViewModel>> GetMoviesForAllPage(int page, Dictionary<string, string> filters)
         {
-            var movies = await this.data
-                .Movies
+            var moviesQuery = this.data.Movies.AsQueryable();
+
+            if (!string.IsNullOrEmpty(filters["genre"]))
+            {
+                moviesQuery = moviesQuery.Where(x => x.Genre.Name == filters["genre"]);
+            }
+
+            var movies = await moviesQuery
                 .AsNoTracking()
                 .Select(x => new AllMovieViewModel()
                 {
@@ -68,8 +74,8 @@ namespace CinemaCritique.Core.Services
                     Title = x.Title,
                     YearPublished = x.YearPublished.ToString()
                 })
-                .Skip((page - 1) * pageSize)
-                .Take(pageSize)
+                .Skip((page - 1) * 10)
+                .Take(10)
                 .ToArrayAsync();
 
             return movies;

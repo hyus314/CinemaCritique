@@ -1,13 +1,25 @@
-﻿var page = 1; // keep track of the current page
-var isLoading = false; // to avoid multiple requests
+﻿var page = 1; 
+var isLoading = false; 
 
+$('#genreDropdown').change(function () {
+    clearMovies();    
+    page = 1;         
+    loadMoreMovies(); 
+});
+function clearMovies() {
+    $('#moviesContainer').empty();
+}
 function loadMoreMovies() {
     if (isLoading) return;
     isLoading = true;
 
     var selectedGenre = $('#genreDropdown').val();
 
-    $.get('/Movie/MoviesForAllPage', { page: page, genre: selectedGenre }, function (data) {
+    var filters = {
+        genre: selectedGenre
+    }
+
+    $.get('/Movie/MoviesForAllPage', { page: page, filters: filters }, function (data) {
         var movieList = $('<ul class="home-page-movies"></ul>');
 
         data.forEach(movie => {
