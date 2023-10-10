@@ -23,14 +23,14 @@
     margin: 20px auto; 
 }
 
-.genre-filtering p {
-    margin-right: 20px; 
-    display: inline-block; 
-    font-weight: 600; 
-    color: #333; 
+.filtering-subsection p {
+    margin-right: 20px;
+    display: inline-block;
+    font-weight: 600;
+    color: #333;
 }
 
-.genre-filtering select {
+.filtering-subsection select {
     padding: 10px 20px; 
     border: none;
     border-radius: 5px;
@@ -41,9 +41,9 @@
     cursor: pointer; 
 }
 
-    .genre-filtering select:focus {
-        outline: none; 
-        box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.2); 
+    .filtering-subsection select:focus {
+        outline: none;
+        box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.2);
     }
 
 .home-page-movies {
