@@ -1,9 +1,25 @@
 ﻿
 
 <link rel="stylesheet" href="~/css/movie/allMovies.css" asp-append-version="true" />
-
+<div class="filtering-movies-section">
+    <div class="genre-filtering">
+        <p>Genre:</p>
+        <select id="genreDropdown">
+            <option value="">Select Genre</option>
+            <option value="Drama">Drama</option>
+            <option value="Comedy">Comedy</option>
+            <option value="Action">Action</option>
+            <option value="Romance">Romance</option>
+            <option value="Horror">Horror</option>
+            <option value="Science Fiction">Science Fiction</option>
+            <option value="Documentary">Documentary</option>
+            <option value="Musical">Musical</option>
+            <option value="Fantasy">Fantasy</option>
+            <option value="Adventure">Adventure</option>
+        </select>
+    </div>
+</div>
 <div id="moviesContainer">
-
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 

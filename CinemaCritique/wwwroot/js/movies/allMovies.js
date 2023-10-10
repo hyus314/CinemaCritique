@@ -5,7 +5,9 @@ function loadMoreMovies() {
     if (isLoading) return;
     isLoading = true;
 
-    $.get('/Movie/MoviesForAllPage', { page: page }, function (data) {
+    var selectedGenre = $('#genreDropdown').val();
+
+    $.get('/Movie/MoviesForAllPage', { page: page, genre: selectedGenre }, function (data) {
         var movieList = $('<ul class="home-page-movies"></ul>');
 
         data.forEach(movie => {
