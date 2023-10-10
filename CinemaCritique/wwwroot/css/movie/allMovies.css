@@ -39,3 +39,14 @@
     text-align: center;
     justify-content: center;
 }
+
+.movie-link {
+    text-decoration: none; 
+    color: inherit; 
+}
+
+    .movie-link:hover .movie-card {
+        color: #E57224;
+        transform: scale(1.05);
+        transition: transform 0.3s ease;
+    }

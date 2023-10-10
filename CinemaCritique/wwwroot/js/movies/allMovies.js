@@ -9,13 +9,15 @@ function loadMoreMovies() {
         // Append movies to your container
         data.forEach(movie => {
             var movieCard = `
-                <div class="movie-card">
-                    <img src="${movie.coverPhotoURL}" alt="${movie.title}" class="movie-cover">
-                    <div class="movie-details">
-                        <h3 class="movie-title">${movie.title}</h3>
-                        <p class="movie-year">${movie.yearPublished}</p>
+               <a href="/Movie/SelectedMovie/${movie.id}" class="movie-link">
+                    <div class="movie-card">
+                        <img src="${movie.coverPhotoURL}" alt="${movie.title}" class="movie-cover">
+                        <div class="movie-details">
+                            <h3 class="movie-title">${movie.title}</h3>
+                            <p class="movie-year">${movie.yearPublished}</p>
+                        </div>
                     </div>
-                </div>`;
+                </a>`;
             $('#moviesContainer').append(movieCard);
         });
 
