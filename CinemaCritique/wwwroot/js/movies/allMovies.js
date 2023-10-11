@@ -1,6 +1,6 @@
 ﻿var page = 1; 
 var isLoading = false; 
-
+var allMoviesLoaded = false;
 $('#genreDropdown, #ratingDropdown').change(function () {
     clearMovies();
     page = 1;
@@ -26,6 +26,12 @@ function loadMoreMovies() {
     $.get('/Movie/MoviesForAllPage', { page: page, filters: filters }, function (data) {
         var movieList = $('<ul class="home-page-movies"></ul>');
 
+        if (data.length == 0) {
+            allMoviesLoaded = true;
+        } else {
+            allMoviesLoaded = false;
+        }
+
         data.forEach(movie => {
             var movieItem = `
             <li class="movie-element">
@@ -47,7 +53,7 @@ function loadMoreMovies() {
 }
 
 $(window).scroll(function () {
-    if ($(window).scrollTop() + $(window).height() >= $(document).height() - 100) { // 100 is a threshold, change as required
+    if (!allMoviesLoaded && $(window).scrollTop() + $(window).height() >= $(document).height() - 100) {
         loadMoreMovies();
     }
 });
