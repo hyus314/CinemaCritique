@@ -64,7 +64,7 @@ namespace CinemaCritique.Core.Services
             {
                 case "new":
                     moviesQuery = moviesQuery.OrderByDescending(x => x.DateAdded);
-                        break;
+                    break;
 
                 case "old":
                     moviesQuery = moviesQuery.OrderBy(x => x.DateAdded);
@@ -87,14 +87,36 @@ namespace CinemaCritique.Core.Services
                             .Where(x => x.Reviews.Count == 0);
                         break;
                     case "desc":
-                        moviesQuery = moviesQuery
-                         .Where(x => x.Reviews.Count > 0)
-                         .OrderByDescending(x => x.Reviews.Average(r => r.Rating)); 
+                        if (filters["date"] == "new")
+                        {
+                            moviesQuery = moviesQuery
+                             .Where(x => x.Reviews.Count > 0)
+                             .OrderByDescending(x => x.Reviews.Average(r => r.Rating))
+                             .ThenByDescending(x => x.DateAdded);
+                        }
+                        else
+                        {
+                            moviesQuery = moviesQuery
+                            .Where(x => x.Reviews.Count > 0)
+                            .OrderByDescending(x => x.Reviews.Average(r => r.Rating))
+                            .ThenBy(x => x.DateAdded);
+                        }
                         break;
                     case "asc":
-                        moviesQuery = moviesQuery
-                        .Where(x => x.Reviews.Count > 0)
-                        .OrderBy(x => x.Reviews.Average(r => r.Rating));
+                        if (filters["date"] == "new")
+                        {
+                            moviesQuery = moviesQuery
+                             .Where(x => x.Reviews.Count > 0)
+                             .OrderBy(x => x.Reviews.Average(r => r.Rating))
+                             .ThenByDescending(x => x.DateAdded);
+                        }
+                        else
+                        {
+                            moviesQuery = moviesQuery
+                            .Where(x => x.Reviews.Count > 0)
+                            .OrderBy(x => x.Reviews.Average(r => r.Rating))
+                            .ThenBy(x => x.DateAdded);
+                        }
                         break;
                     default:
                         break;
@@ -107,7 +129,7 @@ namespace CinemaCritique.Core.Services
                 {
                     Id = dataProtector.Encrypt(x.Id),
                     CoverPhotoURL = x.CoverPhotoURL,
-                    Rating = x.Reviews.Count > 0 ?Math.Round(x.Reviews.Average(x => x.Rating), 1).ToString() + " ☆" : "",
+                    Rating = x.Reviews.Count > 0 ? Math.Round(x.Reviews.Average(x => x.Rating), 1).ToString() + " ☆" : "",
                     Title = x.Title,
                     YearPublished = x.YearPublished.ToString()
                 })
