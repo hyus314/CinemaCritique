@@ -60,6 +60,19 @@ namespace CinemaCritique.Core.Services
         {
             var moviesQuery = this.data.Movies.AsQueryable();
 
+            switch (filters["date"])
+            {
+                case "new":
+                    moviesQuery = moviesQuery.OrderByDescending(x => x.DateAdded);
+                        break;
+
+                case "old":
+                    moviesQuery = moviesQuery.OrderBy(x => x.DateAdded);
+                    break;
+                default:
+                    break;
+            }
+
             if (!string.IsNullOrEmpty(filters["genre"]))
             {
                 moviesQuery = moviesQuery.Where(x => x.Genre.Name == filters["genre"]);
