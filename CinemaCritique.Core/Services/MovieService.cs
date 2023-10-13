@@ -1,5 +1,6 @@
 ﻿using CinemaCritique.Core.Contracts;
 using CinemaCritique.Data;
+using CinemaCritique.Data.Models;
 using CinemaCritique.Security;
 using CinemaCritique.ViewModels.Movie;
 using Microsoft.EntityFrameworkCore;
@@ -60,6 +61,11 @@ namespace CinemaCritique.Core.Services
         {
             var moviesQuery = this.data.Movies.AsQueryable();
 
+            if (!string.IsNullOrEmpty(filters["search"]))
+            {
+                moviesQuery =  FilerMoviesBySearchTermAsync(filters["search"]);
+            }
+
             switch (filters["date"])
             {
                 case "new":
@@ -80,47 +86,7 @@ namespace CinemaCritique.Core.Services
 
             if (!string.IsNullOrEmpty(filters["rating"]))
             {
-                switch (filters["rating"])
-                {
-                    case "unrated":
-                        moviesQuery = moviesQuery
-                            .Where(x => x.Reviews.Count == 0);
-                        break;
-                    case "desc":
-                        if (filters["date"] == "new")
-                        {
-                            moviesQuery = moviesQuery
-                             .Where(x => x.Reviews.Count > 0)
-                             .OrderByDescending(x => x.Reviews.Average(r => r.Rating))
-                             .ThenByDescending(x => x.DateAdded);
-                        }
-                        else
-                        {
-                            moviesQuery = moviesQuery
-                            .Where(x => x.Reviews.Count > 0)
-                            .OrderByDescending(x => x.Reviews.Average(r => r.Rating))
-                            .ThenBy(x => x.DateAdded);
-                        }
-                        break;
-                    case "asc":
-                        if (filters["date"] == "new")
-                        {
-                            moviesQuery = moviesQuery
-                             .Where(x => x.Reviews.Count > 0)
-                             .OrderBy(x => x.Reviews.Average(r => r.Rating))
-                             .ThenByDescending(x => x.DateAdded);
-                        }
-                        else
-                        {
-                            moviesQuery = moviesQuery
-                            .Where(x => x.Reviews.Count > 0)
-                            .OrderBy(x => x.Reviews.Average(r => r.Rating))
-                            .ThenBy(x => x.DateAdded);
-                        }
-                        break;
-                    default:
-                        break;
-                }
+                moviesQuery = FilterMoviesByRating(filters, moviesQuery);
             }
 
             var movies = await moviesQuery
@@ -138,6 +104,70 @@ namespace CinemaCritique.Core.Services
                 .ToArrayAsync();
 
             return movies;
+        }
+
+        private static IQueryable<Movie> FilterMoviesByRating(Dictionary<string, string> filters, IQueryable<Movie> moviesQuery)
+        {
+            switch (filters["rating"])
+            {
+                case "unrated":
+                    moviesQuery = moviesQuery
+                        .Where(x => x.Reviews.Count == 0);
+                    break;
+                case "desc":
+                    if (filters["date"] == "new")
+                    {
+                        moviesQuery = moviesQuery
+                         .Where(x => x.Reviews.Count > 0)
+                         .OrderByDescending(x => x.Reviews.Average(r => r.Rating))
+                         .ThenByDescending(x => x.DateAdded);
+                    }
+                    else
+                    {
+                        moviesQuery = moviesQuery
+                        .Where(x => x.Reviews.Count > 0)
+                        .OrderByDescending(x => x.Reviews.Average(r => r.Rating))
+                        .ThenBy(x => x.DateAdded);
+                    }
+                    break;
+                case "asc":
+                    if (filters["date"] == "new")
+                    {
+                        moviesQuery = moviesQuery
+                         .Where(x => x.Reviews.Count > 0)
+                         .OrderBy(x => x.Reviews.Average(r => r.Rating))
+                         .ThenByDescending(x => x.DateAdded);
+                    }
+                    else
+                    {
+                        moviesQuery = moviesQuery
+                        .Where(x => x.Reviews.Count > 0)
+                        .OrderBy(x => x.Reviews.Average(r => r.Rating))
+                        .ThenBy(x => x.DateAdded);
+                    }
+                    break;
+                default:
+                    break;
+            }
+
+            return moviesQuery;
+        }
+
+        private  IQueryable<Movie> FilerMoviesBySearchTermAsync(string searchTerm)
+        {
+            var moviesQuery = data.Movies.AsQueryable();
+
+            if (string.IsNullOrWhiteSpace(searchTerm))
+                return moviesQuery;
+
+            searchTerm = searchTerm.ToLower();
+
+            moviesQuery = moviesQuery.Where(x =>
+                x.Director.ToLower().Contains(searchTerm) ||
+                x.MainRoles.ToLower().Contains(searchTerm) ||
+                x.Title.ToLower().Contains(searchTerm));
+
+            return moviesQuery;
         }
 
         public async Task<ICollection<HomePageMovieViewModel>> GetMoviesForHomePageAsync()

@@ -15,7 +15,7 @@ function clearMovies() {
 $('#searchButton').on('click', function () {
     currentSearchTerm = $('#movieSearchInput').val().trim();
 
-    $('#moviesContainer').emtpy();
+    $('#moviesContainer').empty();
 
     page = 1;
 
