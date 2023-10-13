@@ -10,6 +10,45 @@
     width: 90%;
     justify-content: center;
 }
+.searching-movies-section {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 70%;
+    margin: 20px auto;
+}
+
+#movieSearchInput {
+    width: 80vh;
+    margin-right: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#searchButton {
+    margin-left: 10px;
+    padding: 10px 15px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    #searchButton:hover {
+        background-color: #555;
+    }
+
+    /* If you're using Font Awesome, this will style the magnifying glass icon */
+    #searchButton .fa {
+        margin-right: 5px;
+    }
 
 .filtering-movies-section {
     padding: 20px;
@@ -31,6 +70,7 @@
 }
 
 .filtering-subsection select {
+    width: 25vh;
     padding: 10px 20px; 
     border: none;
     border-radius: 5px;
