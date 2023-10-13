@@ -1,6 +1,7 @@
 ﻿var page = 1; 
 var isLoading = false; 
 var allMoviesLoaded = false;
+var currentSearchTerm = '';
 $('#dateDropdown, #genreDropdown, #ratingDropdown').change(function () {
     clearMovies();
     page = 1;
@@ -10,6 +11,17 @@ $('#dateDropdown, #genreDropdown, #ratingDropdown').change(function () {
 function clearMovies() {
     $('#moviesContainer').empty();
 }
+
+$('#searchButton').on('click', function () {
+    currentSearchTerm = $('#movieSearchInput').val().trim();
+
+    $('#moviesContainer').emtpy();
+
+    page = 1;
+
+    loadMoreMovies();
+})
+
 function loadMoreMovies() {
     if (isLoading) return;
     isLoading = true;
@@ -22,7 +34,8 @@ function loadMoreMovies() {
     var filters = {
         genre: selectedGenre,
         rating: selectedRatingFilter,
-        date: selectedDateFilter
+        date: selectedDateFilter,
+        search: currentSearchTerm
     }
 
     $.get('/Movie/MoviesForAllPage', { page: page, filters: filters }, function (data) {

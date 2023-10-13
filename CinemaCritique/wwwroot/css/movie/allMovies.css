@@ -22,8 +22,15 @@
     margin: 20px auto;
 }
 
+    .searching-movies-section p {
+        font-size: 20px;
+        font-weight: 700;
+        margin-top: 1rem;    
+    }
+
 #movieSearchInput {
-    width: 80vh;
+    margin-left: auto;
+    width: 90vh;
     margin-right: 20px;
     padding: 10px;
     border: 1px solid #ccc;
@@ -31,7 +38,7 @@
 }
 
 #searchButton {
-    margin-left: 10px;
+    margin-left: auto;
     padding: 10px 15px;
     background-color: #333;
     color: #fff;
@@ -45,7 +52,6 @@
         background-color: #555;
     }
 
-    /* If you're using Font Awesome, this will style the magnifying glass icon */
     #searchButton .fa {
         margin-right: 5px;
     }
@@ -70,7 +76,6 @@
 }
 
 .filtering-subsection select {
-    width: 25vh;
     padding: 10px 20px; 
     border: none;
     border-radius: 5px;
