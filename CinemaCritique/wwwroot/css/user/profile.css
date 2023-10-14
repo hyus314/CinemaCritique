@@ -1,0 +1,42 @@
+﻿body {
+}
+.manage{
+    margin-left: 40px;
+}
+/* Adding higher specificity */
+.manage .nav {
+    margin-top: 20px;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+}
+
+.manage .nav-item {
+    list-style-type: none;
+}
+
+.manage .nav-link {
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #333 !important;
+    border-bottom: 1px solid #ddd;
+}
+
+    .manage .nav-link:hover, .manage .nav-link:focus {
+        background-color: #eaeaea;
+        color: #111 !important;
+        text-decoration: none;
+    }
+
+    .manage .nav-link.active {
+        background-color: #007bff;
+        color: #fff !important;
+        border: 1px solid #004999;
+        box-shadow: inset 0 0 3px #004999;
+    }
+
+    .manage .nav-link:last-child {
+        border-bottom: none;
+    }
