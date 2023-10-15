@@ -28,5 +28,6 @@
         [MaxLength(MainRolesMaxLength)]
         public string MainRoles { get; set; } = null!;
         public ICollection<Review> Reviews { get; set; } = new HashSet<Review>();
+        public ICollection<WatchListItem> WatchLists { get; set; } = new HashSet<WatchListItem>();
     }
 }

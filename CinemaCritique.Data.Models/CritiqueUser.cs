@@ -10,5 +10,6 @@
         [MaxLength(LastNameMaxLength)]
         public string LastName { get; set; } = null!;
         public ICollection<Review> Reviews { get; set; } = null!;
+        public ICollection<WatchListItem> WatchLists { get; set; } = null!;
     }
 }
