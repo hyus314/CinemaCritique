@@ -1,8 +1,9 @@
 ﻿namespace CinemaCritique.Core.Contracts
 {
-    using CinemaCritique.Data.Models;
+    using CinemaCritique.ViewModels.Watchlist;
+
     public interface IWatchlistService
     {
-        public Task<ICollection<WatchListItem>> GetAllWatchlistItemsForUserAsync(string userId);
+        public Task<ICollection<WatchlistItemViewModel>> GetAllWatchlistItemsForUserAsync(string userId);
     }
 }
