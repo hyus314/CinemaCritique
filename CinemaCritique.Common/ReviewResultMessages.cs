@@ -35,5 +35,26 @@
                 "Cannot create the review.";
         }
 
+        public static class Watchlist
+        {
+            public const string SuccessfullyAddedMovieToUsersWatchList =
+                "Added to your watchlist.";
+
+            public const string FailedUserDoesNotExist =
+                "The user trying to add this item to their watchlist does not exist!";
+
+            public const string FailedMovieDoesNotExist =
+                "The movie with this ID does not exist!";
+
+            public const string FailedCannotCreateWatchlistItem =
+                "Cannot create a Watchlist Item with this data!";
+
+            public const string FailedWatchlistItemAlreadyExists =
+                "Cannot save this Watchlist Item because it already exists in the database!";
+
+            public const string FailedCannotSaveChanges =
+                "Cannot save this Watchlist Item in the database!";
+        }
+
     }
 }

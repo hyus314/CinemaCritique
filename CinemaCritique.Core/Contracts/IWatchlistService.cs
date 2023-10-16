@@ -5,5 +5,6 @@
     public interface IWatchlistService
     {
         public Task<ICollection<WatchlistItemViewModel>> GetAllWatchlistItemsForUserAsync(string userId);
+        public Task<string> AddMovieToWatchlistAsync(string userId, string movieId);
     }
 }
