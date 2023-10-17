@@ -1,4 +1,31 @@
 ﻿$(document).ready(function () {
+    var movieId = $("#hiddenMovieId").val();
+
+    $.ajax({
+        url: '/Watchlist/IsMovieInWatchlist',
+        type: 'GET',
+        data: { movieId: movieId },
+        success: function (isInWatchlist) {
+            if (isInWatchlist) {
+                $("#addToWatchlist")
+                    .prop("disabled", true)
+                    .text("Added to Watchlist")
+                    .css("background-color", "#888") 
+                    .css("cursor", "not-allowed");
+            } else {
+
+                $("#addToWatchlist")
+                    .prop("disabled", false)
+                    .text("Add to Watchlist")
+                    .css("background-color", "#FFA500") 
+                    .css("cursor", "pointer");
+            }
+        }
+    });
+});
+
+
+$(document).ready(function () {
 
     $('#addToWatchlist').click(function () {
         var movieId = $("#hiddenMovieId").val();

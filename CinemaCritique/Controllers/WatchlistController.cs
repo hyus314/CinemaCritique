@@ -2,9 +2,9 @@
 namespace CinemaCritique.Controllers
 {
     using CinemaCritique.Core.Contracts;
+    using CinemaCritique.Extensions;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
-    [Authorize]
     public class WatchlistController : Controller
     {
         private readonly IWatchlistService service;
@@ -12,7 +12,7 @@ namespace CinemaCritique.Controllers
         {
             this.service = service;
         }
-
+        [Authorize]
         public async Task<IActionResult> MyWatchlist(string userId)
         {
             try
@@ -27,9 +27,19 @@ namespace CinemaCritique.Controllers
 
         }
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> AddToWatchlist(string movieId)
         {
-            return Json(new { success = true});
+            return Json(new { success = true });
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> IsMovieInWatchlist(string movieId)
+        {
+            var userId = this.User.GetId();
+            var result = await this.service.IsMovieInUsersWatchlistAsync(userId, movieId);
+
+            return Json(result);
         }
     }
 }
