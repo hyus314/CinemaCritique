@@ -26,5 +26,10 @@ namespace CinemaCritique.Controllers
             }
 
         }
+        [HttpPost]
+        public async Task<IActionResult> AddToWatchlist(string movieId)
+        {
+            return Json(new { success = true});
+        }
     }
 }

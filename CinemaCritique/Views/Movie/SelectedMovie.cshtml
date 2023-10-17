@@ -8,6 +8,10 @@
 <input id="__RequestVerificationToken" type="hidden" value="@requestToken" />
 
 <link rel="stylesheet" href="~/css/movie/selectedMovie.css" asp-append-version="true" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<input type="hidden" id="hiddenMovieId" value="@Model.Id" />
+
 
 <div class="movie-detail-container">
     <div class="movie-header" style="background-image: url('@Model.ScenePhotoURL')">
@@ -33,7 +37,7 @@
             {
                 <h4>@Model.Rating</h4>
             }
-            <button id="addToWatchlist">Add To Watchlist</button>
+            <button id="addToWatchlist"><i id="watchlistIcon" class="fa-solid fa-clapperboard"></i>Add To Watchlist</button>
         </div>
 
 
@@ -71,7 +75,7 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="~/js/review/review.js"></script>
-
+<script src="~/js/movies/selectedMovie.js"></script>
 <script>
     $(document).ready(function () {
         var initialRatingValue = @Html.Raw(Json.Serialize(ViewData["InitialRatingValue"] ?? "null"));

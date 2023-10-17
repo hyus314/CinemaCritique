@@ -220,3 +220,7 @@ textarea {
     #addToWatchlist:hover {
         background-color: #ff6f00; /* Slightly darker on hover */
     }
+
+    #watchlistIcon{
+        margin-right: 0.5em;
+    }
