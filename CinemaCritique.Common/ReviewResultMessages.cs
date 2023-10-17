@@ -40,8 +40,11 @@
             public const string SuccessfullyAddedMovieToUsersWatchList =
                 "Added to your watchlist.";
 
-            public const string FailedUserDoesNotExist =
+            public const string FailedUserDoesNotExistAdding =
                 "The user trying to add this item to their watchlist does not exist!";
+
+            public const string FailedUserDoesNotExistWatchlist =
+                "The user trying to access their watchlist does not exist!";
 
             public const string FailedMovieDoesNotExist =
                 "The movie with this ID does not exist!";

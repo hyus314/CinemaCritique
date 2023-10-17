@@ -31,7 +31,7 @@ namespace CinemaCritique.Core.Services
 
             if (await this.data.Users.FirstOrDefaultAsync(x => x.Id == userId) == null)
             {
-                throw new InvalidOperationException(FailedUserDoesNotExist);
+                throw new InvalidOperationException(FailedUserDoesNotExistAdding);
             }
 
             if (await this.data.WatchListItems.FirstOrDefaultAsync(x => x.MovieId == movieIdDecrypted && x.UserId == userId) != null)
@@ -71,6 +71,10 @@ namespace CinemaCritique.Core.Services
 
         public async Task<ICollection<WatchlistItemViewModel>> GetAllWatchlistItemsForUserAsync(string userId)
         {
+            if (userId == null || await this.data.Users.FirstOrDefaultAsync(x => x.Id == userId) == null)
+            {
+                throw new InvalidOperationException(FailedUserDoesNotExistWatchlist);
+            }
             var watchlistItems = await this.data
                 .WatchListItems
                 .Where(x => x.UserId == userId)

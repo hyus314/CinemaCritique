@@ -203,3 +203,20 @@ textarea {
         background-color: #f44336; /* Red */
         color: white;
     }
+
+
+#addToWatchlist {
+    background-color: #ff8c00; /* Orange-ish color */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10vh;
+    width: 30vw;
+}
+
+    #addToWatchlist:hover {
+        background-color: #ff6f00; /* Slightly darker on hover */
+    }

@@ -13,9 +13,18 @@ namespace CinemaCritique.Controllers
             this.service = service;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> MyWatchlist(string userId)
         {
-            return View();
+            try
+            {
+                var watchlist = await this.service.GetAllWatchlistItemsForUserAsync(userId);
+                return View(watchlist);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
         }
     }
 }
