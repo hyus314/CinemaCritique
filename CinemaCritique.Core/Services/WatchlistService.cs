@@ -83,5 +83,16 @@ namespace CinemaCritique.Core.Services
 
             return watchlistItems;
         }
+
+        public async Task<bool> IsMovieInUsersWatchlistAsynt(string userId, string movieId)
+        {
+            var decryptedMovieId = this.movieProtector.Decrypt(movieId);
+            if (await this.data.WatchListItems.FirstOrDefaultAsync(x => x.UserId == userId && x.MovieId == decryptedMovieId) != null)
+            {
+                return true;
+            }
+
+            return false;
+        }
     }
 }

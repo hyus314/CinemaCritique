@@ -32,6 +32,7 @@ namespace CinemaCritique
             builder.Services.AddTransient<CritiqueDbContextFactory>();
             builder.Services.AddScoped<IMovieService, MovieService>();
             builder.Services.AddScoped<IReviewService, ReviewService>();
+            builder.Services.AddScoped<IWatchlistService, WatchlistService>();
 
             builder.Services.AddDefaultIdentity<CritiqueUser>(opt =>
             {
