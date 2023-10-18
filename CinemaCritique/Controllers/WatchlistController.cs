@@ -14,8 +14,9 @@ namespace CinemaCritique.Controllers
             this.service = service;
         }
         [Authorize]
-        public async Task<IActionResult> MyWatchlist(string userId)
+        public async Task<IActionResult> MyWatchlist()
         {
+            var userId = this.User.GetId();
             try
             {
                 var watchlist = await this.service.GetAllWatchlistItemsForUserAsync(userId);

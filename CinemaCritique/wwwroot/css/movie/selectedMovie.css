@@ -212,15 +212,24 @@ textarea {
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease;
     margin-top: 10vh;
     width: 30vw;
 }
 
-    #addToWatchlist:hover {
-        background-color: #ff6f00; /* Slightly darker on hover */
+    #addToWatchlist:disabled {
+        background-color: #FFA858;
+        cursor: default;
     }
 
-    #watchlistIcon{
+        #addToWatchlist:disabled:hover {
+            background-color: #FFC359;
+        }
+
+    #addToWatchlist:hover {
+        background-color: #ff6f00;
+    }
+
+    #watchlistIcon, #addToWatchlist i{
         margin-right: 0.5em;
     }

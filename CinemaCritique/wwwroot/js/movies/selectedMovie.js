@@ -38,9 +38,7 @@ function updateWatchlistButtonState() {
             if (isInWatchlist) {
                 $("#addToWatchlist")
                     .prop("disabled", true)
-                    .text("Added to Watchlist")
-                    .css("background-color", "#888")
-                    .css("cursor", "not-allowed");
+                    .html('<i class="fa fa-check"></i> Added to Watchlist') 
             } else {
               
             }
