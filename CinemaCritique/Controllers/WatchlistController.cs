@@ -5,6 +5,7 @@ namespace CinemaCritique.Controllers
     using CinemaCritique.Extensions;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
+    [AutoValidateAntiforgeryToken]
     public class WatchlistController : Controller
     {
         private readonly IWatchlistService service;

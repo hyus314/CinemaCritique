@@ -71,7 +71,7 @@ $(document).ready(function () {
             url: '/Review/AddReview',
             contentType: 'application/json;charset=utf-8',
             headers: {
-                "X-CSRF-VERIFICATION-TOKEN-C-Critique": $('#__RequestVerificationToken').val()
+                "X-CSRF-VERIFICATION-TOKEN-C-Critique": $('#__RequestVerificationReviewToken').val()
             },
             data: JSON.stringify(reviewData),
             success: function (response) {
