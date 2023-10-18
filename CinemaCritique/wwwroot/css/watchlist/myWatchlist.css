@@ -1,0 +1,27 @@
+﻿body {
+}
+
+.watchlist-movies-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.watchlist-movie-item {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.watchlist-movie-cover {
+    max-width: 100px;
+    max-height: 100px;
+    margin-right: 20px;
+}
+
+.watchlist-movie-details h3 {
+    margin: 0;
+    padding: 0;
+}

@@ -1,0 +1,23 @@
+﻿@model ICollection<WatchlistItemViewModel>;
+
+<link rel="stylesheet" href="~/css/watchlist/myWatchlist.css" asp-append-version="true" />
+<h1>My Watchlist</h1>
+
+@if (!Model.Any())
+{
+    <p>Your watchlist is currently empty.</p>
+}
+else
+{
+    <ul class="watchlist-movies-list">
+        @foreach (var movie in Model)
+        {
+            <li class="watchlist-movie-item">
+                <img src="@movie.MovieCoverURL" alt="@movie.MovieTitle" class="watchlist-movie-cover" />
+                <div class="watchlist-movie-details">
+                    <h3>@movie.MovieTitle</h3>
+                </div>
+            </li>
+        }
+    </ul>
+}

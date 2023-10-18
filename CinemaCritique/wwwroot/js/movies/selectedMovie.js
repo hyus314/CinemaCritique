@@ -13,7 +13,6 @@ $(document).ready(function () {
             data: { 'movieId': movieId },
             success: function (response) {
                 updateWatchlistButtonState();
-                alert('Added to watchlist successfully!');
             },
             error: function (error) {
                 console.error("Error adding to watchlist:", error);
