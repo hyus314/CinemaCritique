@@ -30,7 +30,17 @@ namespace CinemaCritique.Controllers
         [Authorize]
         public async Task<IActionResult> AddToWatchlist(string movieId)
         {
-            return Json(new { success = true });
+            var userId = this.User.GetId();
+            try
+            {
+                await this.service.AddMovieToWatchlistAsync(userId, movieId);
+                return Json(new { success = true });
+
+            }
+            catch (Exception e)
+            {
+                return Json(new { e.Message });
+            }
         }
 
         [HttpGet]

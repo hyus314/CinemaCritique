@@ -1,30 +1,4 @@
-﻿$(document).ready(function () {
-    var movieId = $("#hiddenMovieId").val();
-
-    $.ajax({
-        url: '/Watchlist/IsMovieInWatchlist',
-        type: 'GET',
-        data: { movieId: movieId },
-        success: function (isInWatchlist) {
-            if (isInWatchlist) {
-                $("#addToWatchlist")
-                    .prop("disabled", true)
-                    .text("Added to Watchlist")
-                    .css("background-color", "#888") 
-                    .css("cursor", "not-allowed");
-            } else {
-
-                $("#addToWatchlist")
-                    .prop("disabled", false)
-                    .text("Add to Watchlist")
-                    .css("background-color", "#FFA500") 
-                    .css("cursor", "pointer");
-            }
-        }
-    });
-});
-
-
+﻿
 $(document).ready(function () {
 
     $('#addToWatchlist').click(function () {
@@ -36,6 +10,7 @@ $(document).ready(function () {
             data: { 'movieId': movieId },
             success: function (response) {
                 // Handle the success - maybe show a message to the user or change the button state.
+                updateWatchlistButtonState();
                 alert('Added to watchlist successfully!');
             },
             error: function (error) {
@@ -46,3 +21,28 @@ $(document).ready(function () {
         });
     });
 });
+
+$(document).ready(function () {
+    updateWatchlistButtonState();
+});
+
+function updateWatchlistButtonState() {
+    var movieId = $("#hiddenMovieId").val();
+
+    $.ajax({
+        url: '/Watchlist/IsMovieInWatchlist',
+        type: 'GET',
+        data: { movieId: movieId },
+        success: function (isInWatchlist) {
+            if (isInWatchlist) {
+                $("#addToWatchlist")
+                    .prop("disabled", true)
+                    .text("Added to Watchlist")
+                    .css("background-color", "#888")
+                    .css("cursor", "not-allowed");
+            } else {
+              
+            }
+        }
+    });
+}
