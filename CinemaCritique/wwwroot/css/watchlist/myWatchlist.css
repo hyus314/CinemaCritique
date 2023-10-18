@@ -1,7 +1,17 @@
 ﻿body {
 }
 
+.items-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: auto;
+}
+
 .watchlist-movies-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    width: 90vw;
     list-style-type: none;
     padding: 0;
 }
@@ -13,15 +23,42 @@
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    width: 100%; 
+}
+
+.image-box {
+    width: 150px; 
+    height: 200px; 
+    overflow: hidden;
+    position: relative;
+    border-radius: 5px;
+    margin-right: 20px;
 }
 
 .watchlist-movie-cover {
-    max-width: 100px;
-    max-height: 100px;
-    margin-right: 20px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .watchlist-movie-details h3 {
     margin: 0;
     padding: 0;
+}
+
+.watchlist-movie-item a {
+    text-decoration: none; 
+    color: inherit; 
+    display: flex;
+    align-items: center; 
+    width: 100%; 
+}
+
+.watchlist-movie-item:hover {
+    background-color: #f7f7f7; 
+    cursor: pointer; 
 }

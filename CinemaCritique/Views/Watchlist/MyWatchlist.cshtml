@@ -9,15 +9,21 @@
 }
 else
 {
-    <ul class="watchlist-movies-list">
-        @foreach (var movie in Model)
-        {
-            <li class="watchlist-movie-item">
-                <img src="@movie.MovieCoverURL" alt="@movie.MovieTitle" class="watchlist-movie-cover" />
-                <div class="watchlist-movie-details">
-                    <h3>@movie.MovieTitle</h3>
-                </div>
-            </li>
-        }
-    </ul>
+    <div class="items-container">
+        <ul class="watchlist-movies-list">
+            @foreach (var movie in Model)
+            {
+                <li class="watchlist-movie-item">
+                    <a asp-action="SelectedMovie" asp-controller="Movie" asp-route-id="@movie.MovieId">
+                        <div class="image-box">
+                            <img src="@movie.MovieCoverURL" alt="@movie.MovieTitle" class="watchlist-movie-cover" />
+                        </div>
+                        <div class="watchlist-movie-details">
+                            <h3>@movie.MovieTitle</h3>
+                        </div>
+                    </a>
+                </li>
+            }
+        </ul>
+    </div>
 }
