@@ -16,7 +16,7 @@ $(document).ready(function () {
             },
             error: function (xhr, textStatus, errorThrown) {
                 if (xhr.status == 401) { // Check if status code is 401 Unauthorized
-                    window.location.href = '/Account/Login?message=' + encodeURIComponent('You need an account to add movies to your watchlist');
+                    window.location.href = '../../Identity/Account/Login?fromAddWatchlist=true';
                 } else {
                     console.error("Error adding to watchlist:", errorThrown);
                     alert('Failed to add to watchlist. Try again.');

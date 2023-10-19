@@ -14,8 +14,12 @@
                 var message = "Use a local account to log in.";
                 if (Request.Query.ContainsKey("fromReview"))
                 {
-                     returnUrl = Request.Query["returnUrl"].ToString(); 
+                    returnUrl = Request.Query["returnUrl"].ToString(); 
                     message = "You need an account to add a review.";
+                }
+                else if (Request.Query.ContainsKey("fromAddWatchlist"))
+                {
+                    message = "You need an account to add a movie to your Watchlist.";
                 }
             }
             <form id="account" method="post" class="bg-white p-3 rounded shadow" asp-page-handler="Login" asp-route-returnUrl="@returnUrl">
