@@ -19,6 +19,7 @@
                 }
                 else if (Request.Query.ContainsKey("fromAddWatchlist"))
                 {
+                    returnUrl = Request.Query["returnUrl"].ToString();
                     message = "You need an account to add a movie to your Watchlist.";
                 }
             }

@@ -16,7 +16,15 @@ $(document).ready(function () {
             },
             error: function (xhr, textStatus, errorThrown) {
                 if (xhr.status == 401) { // Check if status code is 401 Unauthorized
-                    window.location.href = '../../Identity/Account/Login?fromAddWatchlist=true';
+                    var currentPath = window.location.pathname;
+                    var currentQueryString = window.location.search;
+
+                    // Check if currentQueryString exists or not
+                    var separator = currentQueryString ? "&" : "?";
+                    var returnUrl = currentPath + currentQueryString + separator + "fromAddWatchlist=true";
+
+                    var returnPath = "/Identity/Account/Login?fromAddWatchlist=true&returnUrl=" + encodeURIComponent(returnUrl);
+                    window.location.href = returnPath;
                 } else {
                     console.error("Error adding to watchlist:", errorThrown);
                     alert('Failed to add to watchlist. Try again.');

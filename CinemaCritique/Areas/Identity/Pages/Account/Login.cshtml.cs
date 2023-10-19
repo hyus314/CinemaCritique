@@ -117,19 +117,16 @@ namespace CinemaCritique.Areas.Identity.Pages.Account
                 {
                     if (!String.IsNullOrWhiteSpace(returnUrl) && Url.IsLocalUrl(returnUrl))
                     {
-
-                        // Check for existing reviewText and ratingValue in Query String
-                        if (HttpContext.Request.Query.ToString().Contains("reviewText"))
+                        if (returnUrl.Contains("fromReview=true"))
                         {
-
                             var reviewText = HttpContext.Request.Query["reviewText"].ToString();
                             var ratingValue = HttpContext.Request.Query["ratingValue"].ToString();
                             if (!string.IsNullOrEmpty(reviewText) || !string.IsNullOrEmpty(ratingValue))
                             {
                                 returnUrl += (returnUrl.Contains("?") ? "&" : "?") + "reviewText=" + reviewText + "&ratingValue=" + ratingValue;
                             }
-                            return LocalRedirect(returnUrl);
                         }
+                        return LocalRedirect(returnUrl);
                     }
                     return LocalRedirect(Url.Content("~/"));
                 }

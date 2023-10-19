@@ -86,7 +86,7 @@ $(document).ready(function () {
                     messageBox.text(response.message).removeClass('success').addClass('error').fadeIn();
                 }
                 setTimeout(function () {
-                    messageBox.fadeOut();
+                    messageBox.fadeOut();9876543
                 }, 3000);  // This will hide the message after 3 seconds.
             },
             error: function (jqXHR, textStatus, errorThrown) {
@@ -98,7 +98,7 @@ $(document).ready(function () {
                     var newQueryString = currentQueryString
                         ? currentQueryString + "&reviewText=" + encodeURIComponent(reviewText) + "&ratingValue=" + ratingValue
                         : "?reviewText=" + encodeURIComponent(reviewText) + "&ratingValue=" + ratingValue;
-                    var returnUrl = currentPath + newQueryString; // This will be a local URL.
+                    var returnUrl = currentPath + newQueryString + "&fromReview=true"; // This will be a local URL.
                     var url = "/Identity/Account/Login?fromReview=true&returnUrl=" + encodeURIComponent(returnUrl);
                     window.location.href = url;
                 } else {
