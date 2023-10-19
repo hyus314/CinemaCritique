@@ -5,7 +5,7 @@ $(document).ready(function () {
         var movieId = $("#hiddenMovieId").val();
 
         $.ajax({
-            url: '/Watchlist/AddToWatchlist', 
+            url: '/Watchlist/AddToWatchlist',
             method: 'POST',
             headers: {
                 "X-CSRF-VERIFICATION-TOKEN-C-Critique": $('#__RequestVerificationWatchlistToken').val()
@@ -14,9 +14,13 @@ $(document).ready(function () {
             success: function (response) {
                 updateWatchlistButtonState();
             },
-            error: function (error) {
-                console.error("Error adding to watchlist:", error);
-                alert('Failed to add to watchlist. Try again.');
+            error: function (xhr, textStatus, errorThrown) {
+                if (xhr.status == 401) { // Check if status code is 401 Unauthorized
+                    window.location.href = '/Account/Login?message=' + encodeURIComponent('You need an account to add movies to your watchlist');
+                } else {
+                    console.error("Error adding to watchlist:", errorThrown);
+                    alert('Failed to add to watchlist. Try again.');
+                }
             }
         });
     });
@@ -37,9 +41,9 @@ function updateWatchlistButtonState() {
             if (isInWatchlist) {
                 $("#addToWatchlist")
                     .prop("disabled", true)
-                    .html('<i class="fa fa-check"></i> Added to Watchlist') 
+                    .html('<i class="fa fa-check"></i> Added to Watchlist')
             } else {
-              
+
             }
         }
     });

@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Manrope&family=Raleway&family=Work+Sans:wght@600&display=swap');
+
+body {
+    font-family: 'Manrope', sans-serif;
+}
+
 html {
     font-size: 14px;
 }
