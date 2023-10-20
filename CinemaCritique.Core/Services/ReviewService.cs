@@ -102,6 +102,7 @@
                    .OrderByDescending(x => x.DatePublished)
                    .Select(x => new MovieReviewViewModel()
                    {
+                       ReviewId = this.dataProtector.Encrypt(x.Id),
                        Username = x.User.UserName,
                        DatePublished = x.DatePublished.ToString("D"),
                        Rating = x.Rating,
@@ -118,6 +119,7 @@
                    .OrderByDescending(x => x.DatePublished)
                    .Select(x => new MovieReviewViewModel()
                    {
+                       ReviewId = this.dataProtector.Encrypt(x.Id),
                        Username = x.User.UserName,
                        DatePublished = x.DatePublished.ToString("D"),
                        Rating = x.Rating,
@@ -128,6 +130,29 @@
             }
 
             return reviews;
+        }
+
+        public async Task<bool> DidUserWriteThisReview(string reviewId, CritiqueUser user)
+        {
+            if (string.IsNullOrWhiteSpace(reviewId) || user == null)
+            {
+                return false;
+            }
+
+            var decryptedId = this.dataProtector.Decrypt(reviewId);
+
+            if (decryptedId == 0 || await this.data.Reviews.FirstOrDefaultAsync(x => x.Id == decryptedId) == null)
+            {
+                return false;
+            }
+
+
+            if (user.Reviews.Any(x => x.Id == decryptedId))
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }
