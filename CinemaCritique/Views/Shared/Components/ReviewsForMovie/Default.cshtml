@@ -18,6 +18,13 @@
             <div class="review-card">
                 <div class="review-header">
                     <h3>@review.Username</h3>
+                    @if (await service.DidUserWriteThisReview(review.ReviewId, user))
+                    {
+                        <div class="btn-container">
+                            <button id="editButton"><i class="fa-regular fa-pen-to-square"></i></button>
+                            <button id="removeButton"><i class="fa-solid fa-trash"></i></button>
+                        </div>
+                    }
                     <span>@review.DatePublished</span>
                 </div>
                 <div class="review-content">
@@ -29,13 +36,6 @@
                         <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
                     </div>
                 </div>
-                @if (await service.DidUserWriteThisReview(review.ReviewId, user))
-                {
-                    <div class="btn-container">
-                        <button id="editButton">Edit</button>
-                        <button id="removeButton">Remove</button>
-                    </div>
-                }
             </div>
         }
     }
