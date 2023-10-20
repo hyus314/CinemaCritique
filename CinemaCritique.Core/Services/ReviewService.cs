@@ -147,7 +147,7 @@
             }
 
 
-            if (user.Reviews.Any(x => x.Id == decryptedId))
+            if (user.Reviews != null && user.Reviews.Any(x => x.Id == decryptedId))
             {
                 return true;
             }

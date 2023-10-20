@@ -44,6 +44,7 @@ namespace CinemaCritique
                 opt.Password.RequireLowercase = true;
                 opt.Password.RequireNonAlphanumeric = false;
             })
+                .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<CritiqueDbContext>();
             builder.Services.AddControllersWithViews();
 
