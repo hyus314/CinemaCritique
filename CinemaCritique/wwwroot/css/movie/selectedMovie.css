@@ -44,24 +44,20 @@
 }
 
 .cover-photo {
-    /* Set a fixed width for larger screens */
     width: 400px;
     border-radius: 10px;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
-    object-fit: cover; /* If it's an img element, this will ensure the image covers the dimensions without stretching */
+    object-fit: cover; 
 }
 
-/* Responsive adjustments for smaller screens */
 @media (max-width: 768px) {
     .cover-photo {
-        /* Adjust to a smaller size for tablets */
         width: 200px;
     }
 }
 
 @media (max-width: 480px) {
     .cover-photo {
-        /* Adjust to an even smaller size for mobile phones */
         width: 150px;
     }
 }
@@ -111,6 +107,7 @@
         margin: 0;
         padding: 20px;
         width: 100%;
+        height: auto;
         text-align: left;
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
@@ -129,15 +126,15 @@
         }
 
 .rating, textarea, #submit-review {
-    width: 90%; /* Reduced width */
-    margin-bottom: 1em; /* Added margin for better spacing */
+    width: 90%;
+    margin-bottom: 1em; 
 }
 
 .star {
     cursor: pointer;
     color: grey;
     padding: 5px;
-    font-size: 7.1em; /* Reduced font size */
+    font-size: 7.1em;
 }
 
     .star.hover {
@@ -204,7 +201,7 @@ textarea {
         color: white;
     }
 
-
+    
 #addToWatchlist {
     background-color: #ff8c00; /* Orange-ish color */
     color: white;

@@ -31,7 +31,10 @@
                 </div>
                 @if (await service.DidUserWriteThisReview(review.ReviewId, user))
                 {
-                    <button id="editButton">Edit</button>
+                    <div class="btn-container">
+                        <button id="editButton">Edit</button>
+                        <button id="removeButton">Remove</button>
+                    </div>
                 }
             </div>
         }
