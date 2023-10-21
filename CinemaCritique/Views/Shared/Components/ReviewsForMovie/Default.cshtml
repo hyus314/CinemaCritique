@@ -8,6 +8,8 @@
     var user = await UserManager.GetUserAsync(User);
 }
 <link rel="stylesheet" href="~/css/review/review.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/review/reviewOperations.css" asp-append-version="true" />
+
 
 <div class="review-container">
     @if (Model.Count > 0)
@@ -22,7 +24,7 @@
                     {
                         <div class="btn-container">
                             <button id="editButton"><i class="fa-regular fa-pen-to-square"></i></button>
-                            <button id="removeButton" onclick="showConfirmationModal()"><i class="fa-solid fa-trash"></i></button>
+                            <button id="removeButton" onclick="showDeleteModal()"><i class="fa-solid fa-trash"></i></button>
 
                         </div>
                     }
@@ -44,6 +46,14 @@
     {
         <h3 class="no-reviews-message">This film has not been reviewed yet! Be the first to leave a review.</h3>
     }
+</div>
+
+<div id="deleteModal" class="delete-modal">
+    <div class="delete-modal-content">
+        <p>Are you sure you want to delete your review?</p>
+        <button id="confirmDelete">Yes</button>
+        <button id="cancelDelete">No</button>
+    </div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

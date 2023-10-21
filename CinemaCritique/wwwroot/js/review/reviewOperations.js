@@ -1,20 +1,20 @@
-﻿function showConfirmationModal() {
-    $(document).ready(function () {
+﻿function showDeleteModal() {
+       $(document).ready(function () {
         $("#removeButton").click(function () {
-            $("#confirmationModal").show();
+            $("#deleteModal").show();
         });
 
         $("#confirmDelete").click(function () {
             // Execute your delete logic here
             // For instance, make an AJAX call to delete the review
 
-            $("#confirmationModal").hide();
+            $("#deleteModal").hide();
         });
 
         $("#cancelDelete").click(function () {
-            $("#confirmationModal").hide();
+            $("#deleteModal").hide();
         });
     });
 
-    document.getElementById("confirmationModal").style.display = "block";
+    document.getElementById("deleteModal").style.display = "block";
 }

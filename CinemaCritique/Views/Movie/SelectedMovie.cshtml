@@ -74,8 +74,8 @@
 <div id="reviewsContainer">
     @await Component.InvokeAsync("ReviewsForMovie", new {movieId = Model.Id});
 </div>
-<div id="confirmationModal" class="modal">
-    <div class="modal-content">
+<div id="deleteModal" class="delete-modal">
+    <div class="delete-modal-content">
         <p>Are you sure you want to delete your review?</p>
         <button id="confirmDelete">Yes</button>
         <button id="cancelDelete">No</button>
