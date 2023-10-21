@@ -139,3 +139,4 @@ function fetchUpdatedReviews(movieId) {
         }
     });
 }
+

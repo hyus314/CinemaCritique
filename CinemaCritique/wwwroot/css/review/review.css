@@ -135,25 +135,26 @@
     justify-content:end;
     display: flex;
     flex-direction:row;
-    gap: 1em;
+    gap: 0.5em;
     margin-left: auto;
     margin-right: 1em;
 }
 
 #editButton, #removeButton {
-    border: none; 
-    color: white; 
-    padding: 5px 20px; 
+    border: none;
+    color: white;
     text-align: center;
-    text-decoration: none; 
+    text-decoration: none;
     display: inline-block;
-    font-size: 16px; 
+    font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 100%;
-    height: 3em;
+    border: 1px solid #FF5E0E;
+    height: 2.3em;
+    width: 2.3em;
     background-color: #ddd;
-    transition: background-color 0.3s, transform 0.3s; 
+    transition: background-color 0.3s, transform 0.3s;
     color: black;
 }
 
@@ -162,10 +163,10 @@
     }
 
     #editButton:hover {
-        background-color: #45a049;
+        background-color: #5C86FA;
     }
 
 
     #removeButton:hover {
-        background-color: #d32f2f; 
+        background-color: #FA5E46;
     }

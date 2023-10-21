@@ -9,10 +9,16 @@
 
   <ItemGroup>
     <Content Remove="wwwroot\favicon.png" />
+    <Content Remove="wwwroot\js\review\reviewOperations.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="wwwroot\js\review\reviewOperations.js" />
   </ItemGroup>
 
   <ItemGroup>
     <None Include="wwwroot\favicon.png" />
+    <None Include="wwwroot\js\review\reviewOperations.js" />
   </ItemGroup>
 
   <ItemGroup>

@@ -22,7 +22,8 @@
                     {
                         <div class="btn-container">
                             <button id="editButton"><i class="fa-regular fa-pen-to-square"></i></button>
-                            <button id="removeButton"><i class="fa-solid fa-trash"></i></button>
+                            <button id="removeButton" onclick="showConfirmationModal()"><i class="fa-solid fa-trash"></i></button>
+
                         </div>
                     }
                     <span>@review.DatePublished</span>
@@ -44,3 +45,8 @@
         <h3 class="no-reviews-message">This film has not been reviewed yet! Be the first to leave a review.</h3>
     }
 </div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="~/js/review/reviewOperations.js"></script>
+
+             
