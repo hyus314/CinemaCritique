@@ -3,6 +3,13 @@
 @model ICollection<MovieReviewViewModel>;
 @inject UserManager<CritiqueUser> UserManager
 @inject IReviewService Service
+@inject Microsoft.AspNetCore.Antiforgery.IAntiforgery Antiforgery
+
+@{
+    var requestDeleteToken = Antiforgery.GetAndStoreTokens(Context).RequestToken;
+}
+
+<input id="__RequestVerificationReviewToken" type="hidden" value="@requestDeleteToken" />
 @{
     var service = Service;
     var user = await UserManager.GetUserAsync(User);
@@ -24,7 +31,7 @@
                     {
                         <div class="btn-container">
                             <button id="editButton"><i class="fa-regular fa-pen-to-square"></i></button>
-                            <button id="removeButton" onclick="showDeleteModal()"><i class="fa-solid fa-trash"></i></button>
+                            <button id="removeButton" onclick="showDeleteModal('@review.ReviewId')"><i class="fa-solid fa-trash"></i></button>
 
                         </div>
                     }

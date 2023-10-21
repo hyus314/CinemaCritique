@@ -17,13 +17,15 @@
 
         private readonly CritiqueDbContext data;
         private readonly CritiqueDbContextFactory dataFactory;
-        private readonly MovieDataProtector dataProtector;
-        public ReviewService(CritiqueDbContext data, MovieDataProtector dataProtector, CritiqueDbContextFactory dataFactory)
+        private readonly MovieDataProtector movieDataProtector;
+        private readonly ReviewDataProtector reviewDataProtector;
+
+        public ReviewService(CritiqueDbContext data, MovieDataProtector movieDataProtector, CritiqueDbContextFactory dataFactory, ReviewDataProtector reviewDataProtector)
         {
             this.data = data;
-            this.dataProtector = dataProtector;
+            this.movieDataProtector = movieDataProtector;
             this.dataFactory = dataFactory;
-
+            this.reviewDataProtector = reviewDataProtector;
         }
         public async Task<string> AddReviewAsync(AddReviewViewModel model)
         {
@@ -65,7 +67,7 @@
                 {
                     UserId = model.UserId,
                     DatePublished = DateTime.Now,
-                    MovieId = dataProtector.Decrypt(model.MovieId),
+                    MovieId = movieDataProtector.Decrypt(model.MovieId),
                     Content = content,
                     Rating = model.Rating
                 };
@@ -90,7 +92,7 @@
 
         public async Task<ICollection<MovieReviewViewModel>> GetReviewsForMovie(string movieId)
         {
-            var decryptedMovieId = this.dataProtector.Decrypt(movieId);
+            var decryptedMovieId = this.movieDataProtector.Decrypt(movieId);
 
             ICollection<MovieReviewViewModel> reviews;
 
@@ -102,7 +104,7 @@
                    .OrderByDescending(x => x.DatePublished)
                    .Select(x => new MovieReviewViewModel()
                    {
-                       ReviewId = this.dataProtector.Encrypt(x.Id),
+                       ReviewId = this.reviewDataProtector.Encrypt(x.Id),
                        Username = x.User.UserName,
                        DatePublished = x.DatePublished.ToString("D"),
                        Rating = x.Rating,
@@ -119,7 +121,7 @@
                    .OrderByDescending(x => x.DatePublished)
                    .Select(x => new MovieReviewViewModel()
                    {
-                       ReviewId = this.dataProtector.Encrypt(x.Id),
+                       ReviewId = this.reviewDataProtector.Encrypt(x.Id),
                        Username = x.User.UserName,
                        DatePublished = x.DatePublished.ToString("D"),
                        Rating = x.Rating,
@@ -139,7 +141,7 @@
                 return false;
             }
 
-            var decryptedId = this.dataProtector.Decrypt(reviewId);
+            var decryptedId = this.movieDataProtector.Decrypt(reviewId);
 
             if (decryptedId == 0 || await this.data.Reviews.FirstOrDefaultAsync(x => x.Id == decryptedId) == null)
             {
@@ -153,6 +155,31 @@
             }
 
             return false;
+        }
+
+        public async Task DeleteReviewAsync(string reviewId, string userId)
+        {
+            var decryptedReviewId = this.reviewDataProtector.Decrypt(reviewId);
+            var review = await this.data.Reviews.FirstOrDefaultAsync(x => x.Id == decryptedReviewId);
+            var user = await this.data.Users.FirstOrDefaultAsync(x => x.Id == userId);
+
+            if (review == null)
+            {
+                throw new InvalidOperationException(FailedReviewDoesNotExist);
+            }
+
+            if (user == null)
+            {
+                throw new InvalidOperationException(FailedUserDoesNotExist);
+            }
+
+            if (review.UserId != user.Id)
+            {
+                throw new InvalidOperationException(FailedReviewDoesNotBelongToUser);
+            }
+
+            this.data.Reviews.Remove(review);
+            await this.data.SaveChangesAsync();
         }
     }
 }

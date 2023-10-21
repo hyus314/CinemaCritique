@@ -33,6 +33,15 @@
 
             public const string FailedCannotCreateReview =
                 "Cannot create the review.";
+
+            public const string FailedReviewDoesNotExist =
+                "This review does not exist in the database!";
+
+            public const string FailedReviewDoesNotBelongToUser =
+                "This review does not belong to this user!";
+
+            public const string FailedUserDoesNotExist =
+                "This user trying to delete a review does not exist!";
         }
 
         public static class Watchlist

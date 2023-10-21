@@ -51,5 +51,22 @@
         {
             return ViewComponent("ReviewsForMovie", new { movieId = movieId });
         }
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteReview(string reviewId)
+        {
+
+            try
+            {
+                var userId = this.User.GetId();
+                await this.service.DeleteReviewAsync(reviewId, userId);
+
+                return Json(new { success = true });
+            }
+            catch (Exception e)
+            {
+                return Json(new { success = false, message = e.Message });
+            }
+        }
     }
 }

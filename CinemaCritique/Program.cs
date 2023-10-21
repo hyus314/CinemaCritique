@@ -27,8 +27,15 @@ namespace CinemaCritique
                 var dataProtectionProvider = provider.GetService<IDataProtectionProvider>();
                 return dataProtectionProvider.CreateProtector("ProtectMovieData");
             });
-
             builder.Services.AddSingleton<MovieDataProtector>();
+
+            builder.Services.AddSingleton(provider =>
+            {
+                var dataProtectionProvider = provider.GetService<IDataProtectionProvider>();
+                return dataProtectionProvider.CreateProtector("ProtectReviewData");
+            });
+            builder.Services.AddSingleton<ReviewDataProtector>();
+
             builder.Services.AddTransient<CritiqueDbContextFactory>();
             builder.Services.AddScoped<IMovieService, MovieService>();
             builder.Services.AddScoped<IReviewService, ReviewService>();
