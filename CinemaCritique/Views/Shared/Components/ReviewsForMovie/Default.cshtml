@@ -31,7 +31,7 @@
                     {
                         <div class="btn-container">
                             <button id="editButton"><i class="fa-regular fa-pen-to-square"></i></button>
-                            <button id="removeButton" onclick="showDeleteModal('@review.ReviewId')"><i class="fa-solid fa-trash"></i></button>
+                            <button id="removeButton" onclick="showDeleteModal('@review.MovieId', '@review.ReviewId')"><i class="fa-solid fa-trash"></i></button>
 
                         </div>
                     }
@@ -65,5 +65,6 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="~/js/review/reviewOperations.js"></script>
+<script src="~/js/review/review.js"></script>
 
              

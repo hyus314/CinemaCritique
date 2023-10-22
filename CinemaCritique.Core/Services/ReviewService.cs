@@ -104,6 +104,7 @@
                    .OrderByDescending(x => x.DatePublished)
                    .Select(x => new MovieReviewViewModel()
                    {
+                       MovieId = this.movieDataProtector.Encrypt(x.Id),
                        ReviewId = this.reviewDataProtector.Encrypt(x.Id),
                        Username = x.User.UserName,
                        DatePublished = x.DatePublished.ToString("D"),
@@ -121,6 +122,7 @@
                    .OrderByDescending(x => x.DatePublished)
                    .Select(x => new MovieReviewViewModel()
                    {
+                       MovieId = this.movieDataProtector.Encrypt(x.Id),
                        ReviewId = this.reviewDataProtector.Encrypt(x.Id),
                        Username = x.User.UserName,
                        DatePublished = x.DatePublished.ToString("D"),

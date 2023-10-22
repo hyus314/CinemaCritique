@@ -1,8 +1,9 @@
-﻿function showDeleteModal(reviewId) {
+﻿function showDeleteModal(movieId, reviewId) {
     $(document).ready(function () {
         $("#removeButton").click(function () {
             $("#deleteModal").show();
         });
+
 
         $("#confirmDelete").click(function () {
             $.ajax({
@@ -15,7 +16,7 @@
                 data: { reviewId: reviewId },
                 success: function (response) {
                     if (response.success) {
-                        alert('Review deleted successfully!');
+                        fetchUpdatedReviews(movieId);
                     } else {
                         alert('Error deleting review: ' + response.message);
                     }
@@ -34,3 +35,18 @@
 
     document.getElementById("deleteModal").style.display = "block";
 }
+
+function fetchUpdatedReviews(movieId) {
+    $.ajax({
+        type: 'GET',
+        url: '/Review/GetUpdatedReviews',
+        data: { movieId: movieId },
+        success: function (response) {
+            $('#reviewsContainer').html(response); 
+        },
+        error: function (error) {
+            console.error("Error fetching updated reviews:", error);
+        }
+    });
+}
+
