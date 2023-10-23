@@ -12,19 +12,15 @@
     using static CinemaCritique.Common.ResultMessages.Review;
     public class ReviewService : IReviewService
     {
-        //This Context Factory ensures that after every single HTTP request a fresh object of our database is created.
-        //This way there are no collisions in the database and one user can submit more than one review without a problem.
-
+      
         private readonly CritiqueDbContext data;
-        private readonly CritiqueDbContextFactory dataFactory;
         private readonly MovieDataProtector movieDataProtector;
         private readonly ReviewDataProtector reviewDataProtector;
 
-        public ReviewService(CritiqueDbContext data, MovieDataProtector movieDataProtector, CritiqueDbContextFactory dataFactory, ReviewDataProtector reviewDataProtector)
+        public ReviewService(CritiqueDbContext data, MovieDataProtector movieDataProtector, ReviewDataProtector reviewDataProtector)
         {
             this.data = data;
             this.movieDataProtector = movieDataProtector;
-            this.dataFactory = dataFactory;
             this.reviewDataProtector = reviewDataProtector;
         }
         public async Task<string> AddReviewAsync(AddReviewViewModel model)
@@ -71,9 +67,8 @@
                     Rating = model.Rating
                 };
 
-                using var context = dataFactory.Create();
-                await context.Reviews.AddAsync(review);
-                await context.SaveChangesAsync();
+                await this.data.Reviews.AddAsync(review);
+                await this.data.SaveChangesAsync();
 
             }
             catch (Exception)
