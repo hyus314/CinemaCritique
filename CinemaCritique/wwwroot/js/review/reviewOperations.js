@@ -50,3 +50,10 @@ function fetchUpdatedReviews(movieId) {
     });
 }
 
+function showEditModal(movieId, reviewId) {
+    var modal = document.getElementById('editModal');
+    modal.style.display = 'block';
+
+    document.getElementById('editMovieId').value = movieId;
+    document.getElementById('editReviewId').value = reviewId;
+}

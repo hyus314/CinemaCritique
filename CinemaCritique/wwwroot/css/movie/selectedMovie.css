@@ -47,7 +47,7 @@
     width: 400px;
     border-radius: 10px;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
-    object-fit: cover; 
+    object-fit: cover;
 }
 
 @media (max-width: 768px) {
@@ -61,6 +61,7 @@
         width: 150px;
     }
 }
+
 .movie-info {
     max-width: 55%;
 }
@@ -127,7 +128,7 @@
 
 .rating, textarea, #submit-review {
     width: 90%;
-    margin-bottom: 1em; 
+    margin-bottom: 1em;
 }
 
 .star {
@@ -137,10 +138,12 @@
     font-size: 7.1em;
 }
 
+    .edit-star.hover,
     .star.hover {
         color: yellow;
     }
 
+    .edit-star.selected,
     .star.selected {
         color: orange;
     }
@@ -176,6 +179,7 @@ textarea {
         transform: translateY(1px);
         box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
     }
+
 #char-counter {
     font-size: 0.8em;
     color: grey;
@@ -201,7 +205,7 @@ textarea {
         color: white;
     }
 
-    
+
 #addToWatchlist {
     background-color: #ff8c00; /* Orange-ish color */
     color: white;
@@ -227,7 +231,6 @@ textarea {
         background-color: #ff6f00;
     }
 
-    #watchlistIcon, #addToWatchlist i{
+    #watchlistIcon, #addToWatchlist i {
         margin-right: 0.5em;
     }
-

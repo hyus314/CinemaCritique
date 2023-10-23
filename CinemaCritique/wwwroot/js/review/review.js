@@ -5,10 +5,10 @@
 
 $(document).ready(function () {
     var selectedRating = 0;
-    $('.star').hover(
+    $('.star, .edit-star').hover(
         function () {
             var index = $(this).index();
-            $('.star').each(function (i) {
+            $('.star, .edit-star').each(function (i) {
                 if (i <= index) {
                     $(this).addClass('hover');
                 }
@@ -19,14 +19,14 @@ $(document).ready(function () {
         }
     );
 
-    $('.star').on('click', function () {
+    $('.star, .edit-star').on('click', function () {
         var index = $(this).index();
         selectedRating = index + 1;
         updateStars(selectedRating);
     });
 
     function updateStars(rating) {
-        $('.star').each(function (i) {
+        $('.star, .edit-star').each(function (i) {
             if (i < rating) {
                 $(this).removeClass('hover').addClass('selected');
             } else {
@@ -126,9 +126,9 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
-    $(".star").on('click', function () {
+    $(".star, .edit-star").on('click', function () {
         var value = $(this).data('value');
-        $(".star").each(function () {
+        $(".star, .edit-star").each(function () {
             var $star = $(this);
             $star.removeClass('selected');
             if ($star.data('value') <= value) {

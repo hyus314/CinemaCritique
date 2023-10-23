@@ -30,9 +30,12 @@
                     @if (await service.DidUserWriteThisReview(review.ReviewId, user))
                     {
                         <div class="btn-container">
-                            <button id="editButton"><i class="fa-regular fa-pen-to-square"></i></button>
-                            <button id="removeButton" onclick="showDeleteModal('@review.MovieId', '@review.ReviewId')"><i class="fa-solid fa-trash"></i></button>
-
+                            <button id="editButton" onclick="showEditModal('@review.MovieId', '@review.ReviewId')">
+                                <i class="fa-regular fa-pen-to-square"></i>
+                            </button>
+                            <button id="removeButton" onclick="showDeleteModal('@review.MovieId', '@review.ReviewId')">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
                         </div>
                     }
                     <span>@review.DatePublished</span>
@@ -62,6 +65,29 @@
         <button id="cancelDelete">No</button>
     </div>
 </div>
+
+<div id="editModal" class="edit-modal">
+    <div class="edit-modal-content">
+        <span class="close">&times;</span>
+        <h2>Edit Review</h2>
+        <div class="edit-rating">
+            <span class="edit-star" data-value="1">☆</span>
+            <span class="edit-star" data-value="2">☆</span>
+            <span class="edit-star" data-value="3">☆</span>
+            <span class="edit-star" data-value="4">☆</span>
+            <span class="edit-star" data-value="5">☆</span>
+            <span class="edit-star" data-value="6">☆</span>
+            <span class="edit-star" data-value="7">☆</span>
+            <span class="edit-star" data-value="8">☆</span>
+            <span class="edit-star" data-value="9">☆</span>
+            <span class="edit-star" data-value="10">☆</span>
+        </div>
+        <label for="editReviewContent">Review Content:</label><br>
+        <textarea id="editReviewContent" name="editReviewContent" rows="4" cols="50"></textarea><br><br>
+        <button id="submitEdit">Submit Edit</button>
+    </div>
+</div>
+
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
