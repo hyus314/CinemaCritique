@@ -36,7 +36,6 @@ namespace CinemaCritique
             });
             builder.Services.AddSingleton<ReviewDataProtector>();
 
-            builder.Services.AddTransient<CritiqueDbContextFactory>();
             builder.Services.AddScoped<IMovieService, MovieService>();
             builder.Services.AddScoped<IReviewService, ReviewService>();
             builder.Services.AddScoped<IWatchlistService, WatchlistService>();
