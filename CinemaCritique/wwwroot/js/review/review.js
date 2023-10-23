@@ -1,6 +1,10 @@
-﻿$(document).ready(function () {
-    var selectedRating = 0;
+﻿document.addEventListener('DOMContentLoaded', function () {
+    console.log('The page has finished loading.');
+});
 
+
+$(document).ready(function () {
+    var selectedRating = 0;
     $('.star').hover(
         function () {
             var index = $(this).index();
@@ -59,12 +63,16 @@ $(document).ready(function () {
         var movieId = $("#movie-id").data("value"); 
         var ratingValue = $('.star.selected').last().data('value') || 0; 
 
+        $("#submit-review").prop("disabled", true);
+
         // Form a JSON object
         var reviewData = {
             movieId: movieId,
             content: reviewText,
             rating: ratingValue
         };
+
+        console.log('Started Adding review');
 
         $.ajax({
             type: 'POST',
@@ -79,15 +87,18 @@ $(document).ready(function () {
                 if (response.success) {
                     messageBox.text('Review submitted successfully').removeClass('error').addClass('success').fadeIn();
                     $("#review-text").val('');
-                    $(".star").removeClass('selected');
                     updateCharacterCount();
                     fetchUpdatedReviews(movieId);
+                    $(".star").removeClass('selected');
                 } else {
                     messageBox.text(response.message).removeClass('success').addClass('error').fadeIn();
                 }
                 setTimeout(function () {
                     messageBox.fadeOut();9876543
-                }, 3000);  // This will hide the message after 3 seconds.
+                }, 3000);  
+
+                $("#submit-review").prop("disabled", false);
+
             },
             error: function (jqXHR, textStatus, errorThrown) {
                 if (jqXHR.status === 401) { // if unauthorized
@@ -107,6 +118,7 @@ $(document).ready(function () {
                         $("#message-box").fadeOut();
                     }, 3000);
                 }
+                $("#submit-review").prop("disabled", false);
             }
 
         });

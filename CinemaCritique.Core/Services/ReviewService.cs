@@ -29,7 +29,7 @@
         }
         public async Task<string> AddReviewAsync(AddReviewViewModel model)
         {
-            
+
             string message = String.Empty;
 
             if (string.IsNullOrEmpty(model.Content) || string.IsNullOrWhiteSpace(model.Content))
@@ -59,11 +59,10 @@
 
             var content = WebUtility.HtmlEncode(model.Content);
 
-            Review review;
 
             try
             {
-                review = new Review()
+                Review review = new Review()
                 {
                     UserId = model.UserId,
                     DatePublished = DateTime.Now,
@@ -72,20 +71,14 @@
                     Rating = model.Rating
                 };
 
+                using var context = dataFactory.Create();
+                await context.Reviews.AddAsync(review);
+                await context.SaveChangesAsync();
+
             }
             catch (Exception)
             {
                 throw new InvalidProgramException(FailedCannotCreateReview);
-            }
-            try
-            {
-                using var context = dataFactory.Create();
-                await context.Reviews.AddAsync(review);
-                await context.SaveChangesAsync();
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
             }
             return SuccessfullyAddedReview;
         }

@@ -38,10 +38,13 @@
             try
             {
                 var message = await this.service.AddReviewAsync(review);
+
+
                 return Json(new { success = true, message = message });
             }
             catch (Exception e)
             {
+
                 return Json(new { success = false, message = e.Message });
             }
         }
