@@ -1,6 +1,6 @@
 ﻿$(document).ready(function () {
     var selectedRating = 0;
-    $('.star,').hover(
+    $('.star').hover(
         function () {
             var index = $(this).index();
             $('.star').each(function (i) {

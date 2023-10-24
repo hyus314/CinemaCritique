@@ -76,9 +76,12 @@
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="~/js/review/review.js"></script>
+
 <script src="~/js/movies/selectedMovie.js"></script>
-<script src="~/js/review/reviewOperations.js"></script>
+
+<script src="~/js/review/addReview.js"></script>
+<script src="~/js/review/editReview.js"></script>
+<script src="~/js/review/deleteReview.js"></script>
 <script>
     $(document).ready(function () {
         var initialRatingValue = @Html.Raw(Json.Serialize(ViewData["InitialRatingValue"] ?? "null"));
