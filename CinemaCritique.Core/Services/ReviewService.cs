@@ -171,5 +171,35 @@
             this.data.Reviews.Remove(review);
             await this.data.SaveChangesAsync();
         }
+
+        public async Task<EditReviewViewModel> GetEditReviewModelAsync(string reviewId, string userId)
+        {
+            var decryptedId = this.reviewDataProtector.Decrypt(reviewId);
+
+            var review = await this.data.Reviews.FirstOrDefaultAsync(x => x.Id == decryptedId);
+
+            if (review == null)
+            {
+                throw new InvalidOperationException(FailedReviewDoesNotExist);
+            }
+
+            if (review.UserId != userId)
+            {
+                throw new InvalidOperationException(FailedReviewDoesNotBelongToUser);
+            }
+
+            if (string.IsNullOrEmpty(userId) || string.IsNullOrWhiteSpace(userId))
+            {
+                throw new InvalidOperationException(FailedUserIdNull);
+            }
+
+            return new EditReviewViewModel()
+            {
+                ReviewId = reviewId,
+                ReviewRating = review.Rating,
+                ReviewText = review.Content
+            };
+
+        }
     }
 }

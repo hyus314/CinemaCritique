@@ -9,5 +9,6 @@
         public Task<bool> DidUserWriteThisReview(string reviewId, CritiqueUser user);
 
         public Task DeleteReviewAsync(string reviewId, string userId);
+        public Task<EditReviewViewModel> GetEditReviewModelAsync(string reviewId, string userId);
     }
 }
