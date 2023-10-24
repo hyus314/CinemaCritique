@@ -144,19 +144,11 @@
 
 
 .edit-rating {
-    font-size: 10px;
+    font-size: 40px;
 }
 
     .edit-rating span {
         cursor: pointer;
     }
 
-     /*   .edit-rating span:hover:before,
-        .edit-rating span:hover ~ span:before,
-        .edit-rating span.selected:before,
-        .edit-rating span.selected ~ span:before {
-            content: "\2605";
-            position: absolute;
-            color: gold;
-        }
-*/
+     

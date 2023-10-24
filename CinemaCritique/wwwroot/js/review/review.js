@@ -1,14 +1,9 @@
-﻿document.addEventListener('DOMContentLoaded', function () {
-    console.log('The page has finished loading.');
-});
-
-
-$(document).ready(function () {
+﻿$(document).ready(function () {
     var selectedRating = 0;
-    $('.star, .edit-star').hover(
+    $('.star,').hover(
         function () {
             var index = $(this).index();
-            $('.star, .edit-star').each(function (i) {
+            $('.star').each(function (i) {
                 if (i <= index) {
                     $(this).addClass('hover');
                 }
@@ -19,14 +14,14 @@ $(document).ready(function () {
         }
     );
 
-    $('.star, .edit-star').on('click', function () {
+    $('.star').on('click', function () {
         var index = $(this).index();
         selectedRating = index + 1;
         updateStars(selectedRating);
     });
 
     function updateStars(rating) {
-        $('.star, .edit-star').each(function (i) {
+        $('.star').each(function (i) {
             if (i < rating) {
                 $(this).removeClass('hover').addClass('selected');
             } else {
@@ -126,9 +121,9 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
-    $(".star, .edit-star").on('click', function () {
+    $(".star").on('click', function () {
         var value = $(this).data('value');
-        $(".star, .edit-star").each(function () {
+        $(".star").each(function () {
             var $star = $(this);
             $star.removeClass('selected');
             if ($star.data('value') <= value) {
