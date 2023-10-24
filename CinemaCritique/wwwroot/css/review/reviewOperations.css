@@ -71,7 +71,6 @@
     #cancelDelete:hover {
         background-color: #757575;
     }
-
 .edit-modal {
     display: none;
     position: fixed;
@@ -90,11 +89,12 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding: 20px;
     background-color: #fff;
-    border: 1px solid #888;
-    width: auto;
+    border: 1px solid #ccc;
+    width: 400px; /* Adjust the width to your preference */
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border-radius: 1em;
+    height: 65%;
 }
 
     .edit-modal-content button {
@@ -104,21 +104,12 @@
         justify-content: center;
     }
 
-.edit-modal-content {
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
 /* Button styling */
 #submitEdit {
     background-color: #4CAF50;
     color: #ffffff;
     border: none;
     padding: 10px 20px;
-    margin: 5px;
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s;
@@ -130,25 +121,58 @@
 
 .close {
     position: absolute;
-    top: -10px;
+    top: -25px;
     right: 10px;
-    font-size: 60px;
+    font-size: 80px;
     cursor: pointer;
-    color: #888;
+    color: white;
     transition: color 0.3s;
 }
 
     .close:hover {
-        color: #000;
+        color: #ffffff80;
     }
 
+.edit-modal-header {
+    box-shadow: inset 0 -5px 5px rgba(0,0,0,0.1);
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+    padding: 1em 1em 0.4em 1em;
+    background-color: #F78D34;
+    width: 100%;
+    border: 2px solid #dd8338;
+    outline: 2px solid #FF5E0E;
+}
+
+.edit-modal h2 {
+    text-align: left;
+    color: white;
+}
 
 .edit-rating {
-    font-size: 40px;
+    outline: 2px black;
+    text-align: center;
+    font-size: 35px;
+}
+
+.edit-review-content-line{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
     .edit-rating span {
         cursor: pointer;
+        color: #ccc; /* Default star color */
+        transition: color 0.3s;
     }
 
-     
+        .edit-rating span.selected {
+            color: goldenrod;/* Selected star color (gold) */
+        }
+
+        .edit-rating span.hover {
+            color:greenyellow /* Selected star color (gold) */
+        }
+       
