@@ -63,13 +63,21 @@
             {
                 var userId = this.User.GetId();
                 await this.service.DeleteReviewAsync(reviewId, userId);
-
+               
                 return Json(new { success = true });
             }
             catch (Exception e)
             {
                 return Json(new { success = false, message = e.Message });
             }
+        }
+        [HttpGet]
+        public async Task<IActionResult> GetEditViewModel(string reviewId)
+        {
+            var userId = this.User.GetId();
+
+            var viewModel = await this.service.GetEditReviewModelAsync(reviewId, userId);
+            return Json(viewModel);
         }
     }
 }
