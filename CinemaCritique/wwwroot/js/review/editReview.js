@@ -11,10 +11,8 @@ function showEditModal(movieId, reviewId) {
         type: 'GET',
         data: { reviewId: reviewId },
         success: function (response) {
-            // Populate the modal with the data
             document.getElementById('editReviewContent').value = response.reviewText;
 
-            // Set the rating stars based on ReviewRating value
             var ratingValue = response.reviewRating;
             $(".edit-star").each(function () {
                 var $star = $(this);
