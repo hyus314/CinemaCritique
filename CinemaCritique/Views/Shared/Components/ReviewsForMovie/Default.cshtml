@@ -7,8 +7,10 @@
 
 @{
     var requestDeleteToken = Antiforgery.GetAndStoreTokens(Context).RequestToken;
+    var requestEditToken = Antiforgery.GetAndStoreTokens(Context).RequestToken;
 }
 
+<input id="__RequestVerificationReviewToken" type="hidden" value="@requestDeleteToken" />
 <input id="__RequestVerificationReviewToken" type="hidden" value="@requestDeleteToken" />
 @{
     var service = Service;

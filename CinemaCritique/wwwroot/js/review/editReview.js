@@ -1,9 +1,11 @@
 ﻿var reviewText = '';
-
+var reviewIdforEdit = '';
 
 function showEditModal(movieId, reviewId) {
     var modal = document.getElementById('editModal');
     modal.style.display = 'block';
+
+    reviewIdforEdit = reviewId;
 
     $.ajax({
         url: '/Review/GetEditViewModel',
@@ -36,7 +38,7 @@ $(document).ready(function () {
     $("#submitEdit").on('click', function () {
         var reviewText = $("#editReviewContent").val();
         var ratingValue = getLastSelectedStarValue();
-        var reviewId = $("#editReviewId").val();
+        var reviewId = reviewIdforEdit;
 
         var reviewData = {
             reviewId: reviewId,
