@@ -1,11 +1,12 @@
 ﻿var reviewText = '';
 var reviewIdforEdit = '';
-
+var movieIdForEdit = '';
 function showEditModal(movieId, reviewId) {
     var modal = document.getElementById('editModal');
     modal.style.display = 'block';
 
     reviewIdforEdit = reviewId;
+    movieIdForEdit = movieId;
 
     $.ajax({
         url: '/Review/GetEditViewModel',
@@ -55,6 +56,20 @@ $(document).ready(function () {
             },
             data: JSON.stringify(reviewData),
             success: function (response) {
+                var successMessage = response.message;
+                var successBox = document.getElementById('success-message-box');
+                var successBoxText = document.getElementById('success-message-text');
+
+                successBoxText.textContent = successMessage;
+                successBox.style.display = 'flex';
+
+                setTimeout(function () {
+                    successBox.style.display = 'none'; 
+                }, 3000);  
+
+                var modal = document.getElementById('editModal');
+                modal.style.display = 'none';
+                fetchUpdatedReviews(movieIdForEdit);
             },
             error: function (jqXHR, textStatus, errorThrown) {
             }
@@ -62,6 +77,19 @@ $(document).ready(function () {
     });
 });
 
+function fetchUpdatedReviews(movieId) {
+    $.ajax({
+        type: 'GET',
+        url: '/Review/GetUpdatedReviews',
+        data: { movieId: movieId },
+        success: function (response) {
+            $('#reviewsContainer').html(response);
+        },
+        error: function (error) {
+            console.error("Error fetching updated reviews:", error);
+        }
+    });
+}
 function getLastSelectedStarValue() {
     var lastSelectedStar = $(".edit-star.selected").last();
     return lastSelectedStar.data('value');

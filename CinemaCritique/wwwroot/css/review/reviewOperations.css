@@ -193,3 +193,27 @@
             color:greenyellow 
         }
        
+
+        
+
+#success-message-box{
+    display: none;
+    background-color: #4caf50;
+    color: #fff;
+    border-radius: 5px;
+    position: relative;
+    margin-bottom: 20px;
+    width: 80%;
+    padding: 15px 30px;
+    margin: 30px auto 0 auto;
+    text-align: center;
+}
+
+.checkmark{
+    font-size: 20px;
+}
+
+#success-message-text {
+    margin-left: 1em;
+    font-size: 20px;
+}

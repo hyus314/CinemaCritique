@@ -17,6 +17,16 @@
                 success: function (response) {
                     if (response.success) {
                         fetchUpdatedReviews(movieId);
+                        var successMessage = response.message;
+                        var successBox = document.getElementById('success-message-box');
+                        var successBoxText = document.getElementById('success-message-text');
+
+                        successBoxText.textContent = successMessage;
+                        successBox.style.display = 'flex';
+
+                        setTimeout(function () {
+                            successBox.style.display = 'none';
+                        }, 3000);  
                     } else {
                         alert('Error deleting review: ' + response.message);
                     }

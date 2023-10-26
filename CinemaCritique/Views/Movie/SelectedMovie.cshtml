@@ -70,7 +70,10 @@
     <button id="submit-review">Submit Review</button>
 </div>
 
-
+<div id="success-message-box" class="success-message-box">
+    <span class="checkmark">&#10003;</span>
+    <span id="success-message-text"></span>
+</div>
 <div id="reviewsContainer">
     @await Component.InvokeAsync("ReviewsForMovie", new {movieId = Model.Id});
 </div>
