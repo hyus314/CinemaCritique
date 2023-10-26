@@ -8,6 +8,7 @@
     using static CinemaCritique.Extensions.ClaimsExtensions;
     using static CinemaCritique.Common.ResultMessages.Review;
     [Authorize]
+    [AutoValidateAntiforgeryToken]
     public class ReviewController : Controller
     {
         private readonly IReviewService service;
@@ -82,7 +83,24 @@
         [HttpPost]
         public async Task<IActionResult> EditReview([FromBody] EditReviewViewModel model)
         {
-            return Json(new { success = true});
+            var userId = this.User.GetId();
+
+            if (string.IsNullOrEmpty(userId))
+            {
+                return Json(new { success = false, message = FailedUserIdNull });
+            }
+
+            try
+            {
+                var message = await this.service.EditReviewAsync(model, userId);
+
+
+                return Json(new { success = true, message = message });
+            }
+            catch (Exception e)
+            {
+                return Json(new { success = false, message = e.Message });
+            }
         }
     }
 }

@@ -33,7 +33,7 @@
                 throw new InvalidDataException(FailedContentIsNull);
             }
 
-            if (model.Rating == 0)
+            if (model.Rating <= 0)
             {
                 throw new InvalidOperationException(FailedRatingIsZero);
             }
@@ -51,6 +51,11 @@
             if (string.IsNullOrEmpty(model.MovieId) || string.IsNullOrWhiteSpace(model.MovieId))
             {
                 throw new InvalidOperationException(FailedMovieIdNull);
+            }
+
+            if (model.Content.Length > 300)
+            {
+                throw new InvalidOperationException(FailedContentExceeds300Characters);
             }
 
             var content = WebUtility.HtmlEncode(model.Content);
@@ -200,6 +205,55 @@
                 ReviewText = review.Content
             };
 
+        }
+
+        public async Task<string> EditReviewAsync(EditReviewViewModel model, string userId)
+        {
+            var decryptedId = this.reviewDataProtector.Decrypt(model.ReviewId);
+            var review = await this.data.Reviews.FirstOrDefaultAsync(x => x.Id == decryptedId);
+
+            if (review == null)
+            {
+                throw new ArgumentNullException(FailedReviewDoesNotExist);
+            }
+
+            if (review.UserId != userId)
+            {
+                throw new InvalidOperationException(FailedReviewDoesNotBelongToUser);
+            }
+
+            if (review.Content == model.ReviewText && review.Rating == model.ReviewRating)
+            {
+                throw new InvalidOperationException(FailedReviewContentIsTheSame);
+            }
+
+            if (model.ReviewRating <= 0)
+            {
+                throw new InvalidOperationException(FailedRatingIsZero);
+            }
+
+            if (model.ReviewRating > 10)
+            {
+                throw new InvalidOperationException(FailedRatingMoreThanTen);
+            }
+
+            if (string.IsNullOrWhiteSpace(model.ReviewText))
+            {
+                throw new InvalidOperationException(FailedContentIsNull);
+            }
+
+            if (model.ReviewText.Length > 300)
+            {
+                throw new InvalidOperationException(FailedContentExceeds300Characters);
+            }
+
+            review.Content = WebUtility.HtmlEncode(model.ReviewText);
+            review.Rating = (byte)model.ReviewRating;
+
+
+            await this.data.SaveChangesAsync();
+
+            return SuccessfullyEditedReview;
         }
     }
 }

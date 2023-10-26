@@ -10,5 +10,6 @@
 
         public Task DeleteReviewAsync(string reviewId, string userId);
         public Task<EditReviewViewModel> GetEditReviewModelAsync(string reviewId, string userId);
+        public Task<string> EditReviewAsync(EditReviewViewModel model, string userId);
     }
 }

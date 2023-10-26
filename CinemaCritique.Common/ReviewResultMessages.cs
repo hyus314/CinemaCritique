@@ -7,6 +7,9 @@
             public const string SuccessfullyAddedReview =
                 "Review added successfully!";
 
+            public const string SuccessfullyEditedReview =
+                "Review edited successfully!";
+
             public const string FailedReviewIsInvalid =
                 "The review is not in a valid format!";
             
@@ -25,6 +28,9 @@
             public const string FailedContentIsNull =
                 "The review cannot have empty content!";
 
+            public const string FailedContentExceeds300Characters =
+                "The content of the review cannot have more than 300 characters!";
+
             public const string FailedMovieIdNull =
                 "The movie id cannot be null!";
 
@@ -42,6 +48,9 @@
 
             public const string FailedUserDoesNotExist =
                 "This user trying to delete a review does not exist!";
+
+            public const string FailedReviewContentIsTheSame =
+                "Cannot edit review with the same content.";
         }
 
         public static class Watchlist

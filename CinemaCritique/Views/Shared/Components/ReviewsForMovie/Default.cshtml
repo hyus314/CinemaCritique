@@ -10,8 +10,8 @@
     var requestEditToken = Antiforgery.GetAndStoreTokens(Context).RequestToken;
 }
 
-<input id="__RequestVerificationReviewToken" type="hidden" value="@requestDeleteToken" />
-<input id="__RequestVerificationReviewToken" type="hidden" value="@requestDeleteToken" />
+<input id="__RequestVerificationReviewTokenDelete" type="hidden" value="@requestDeleteToken" />
+<input id="__RequestVerificationReviewTokenEdit" type="hidden" value="@requestEditToken" />
 @{
     var service = Service;
     var user = await UserManager.GetUserAsync(User);

@@ -50,6 +50,9 @@ $(document).ready(function () {
             type: 'POST',
             url: '/Review/EditReview',
             contentType: 'application/json;charset=utf-8',
+            headers: {
+                "X-CSRF-VERIFICATION-TOKEN-C-Critique": $('#__RequestVerificationReviewTokenEdit').val()
+            },
             data: JSON.stringify(reviewData),
             success: function (response) {
             },
