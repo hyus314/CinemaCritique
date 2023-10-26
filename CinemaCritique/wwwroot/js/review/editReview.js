@@ -5,14 +5,17 @@ function showEditModal(movieId, reviewId) {
     var modal = document.getElementById('editModal');
     modal.style.display = 'block';
 
-   
     $.ajax({
-        url: '/Review/GetEditViewModel',  
+        url: '/Review/GetEditViewModel',
         type: 'GET',
         data: { reviewId: reviewId },
         success: function (response) {
             document.getElementById('editReviewContent').value = response.reviewText;
 
+            // Set the rating value
+            $("#selectedStarValue").val(response.reviewRating);
+
+            // Apply star ratings
             var ratingValue = response.reviewRating;
             $(".edit-star").each(function () {
                 var $star = $(this);
@@ -26,6 +29,37 @@ function showEditModal(movieId, reviewId) {
             console.error("Error getting EditReviewViewModel:", errorThrown);
         }
     });
+}
+
+
+$(document).ready(function () {
+    $("#submitEdit").on('click', function () {
+        var reviewText = $("#editReviewContent").val();
+        var ratingValue = getLastSelectedStarValue();
+        var reviewId = $("#editReviewId").val();
+
+        var reviewData = {
+            reviewId: reviewId,
+            reviewText: reviewText,
+            reviewRating: ratingValue
+        };
+
+        $.ajax({
+            type: 'POST',
+            url: '/Review/EditReview',
+            contentType: 'application/json;charset=utf-8',
+            data: JSON.stringify(reviewData),
+            success: function (response) {
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+            }
+        });
+    });
+});
+
+function getLastSelectedStarValue() {
+    var lastSelectedStar = $(".edit-star.selected").last();
+    return lastSelectedStar.data('value');
 }
 
 
