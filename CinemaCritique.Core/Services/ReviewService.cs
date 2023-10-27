@@ -12,7 +12,7 @@
     using static CinemaCritique.Common.ResultMessages.Review;
     public class ReviewService : IReviewService
     {
-      
+
         private readonly CritiqueDbContext data;
         private readonly MovieDataProtector movieDataProtector;
         private readonly ReviewDataProtector reviewDataProtector;
@@ -43,7 +43,7 @@
                 throw new InvalidOperationException(FailedRatingMoreThanTen);
             }
 
-            if (this.data.Users.FirstOrDefaultAsync(x => x.Id == model.UserId) == null)
+            if (await this.data.Users.FirstOrDefaultAsync(x => x.Id == model.UserId) == null)
             {
                 throw new InvalidOperationException(FailedUserIdNull);
             }
@@ -73,12 +73,20 @@
                 };
 
                 await this.data.Reviews.AddAsync(review);
-                await this.data.SaveChangesAsync();
 
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+                throw new InvalidProgramException("When Adding");
+            }
+            try
+            {
+                await this.data.SaveChangesAsync();
             }
             catch (Exception)
             {
-                throw new InvalidProgramException(FailedCannotCreateReview);
+                throw new InvalidProgramException("When saving");
             }
             return SuccessfullyAddedReview;
         }
