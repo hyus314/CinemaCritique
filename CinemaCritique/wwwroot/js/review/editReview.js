@@ -56,23 +56,36 @@ $(document).ready(function () {
             },
             data: JSON.stringify(reviewData),
             success: function (response) {
-                var successMessage = response.message;
-                var successBox = document.getElementById('success-message-box');
-                var successBoxText = document.getElementById('success-message-text');
+                if (response == true) {
+                    var successMessage = response.message;
+                    var successBox = document.getElementById('success-message-box');
+                    var successBoxText = document.getElementById('success-message-text');
 
-                successBoxText.textContent = successMessage;
-                successBox.style.display = 'flex';
+                    successBoxText.textContent = successMessage;
+                    successBox.style.display = 'flex';
 
-                setTimeout(function () {
-                    successBox.style.display = 'none'; 
-                }, 3000);  
+                    setTimeout(function () {
+                        successBox.style.display = 'none';
+                    }, 3000);
 
-                var modal = document.getElementById('editModal');
-                modal.style.display = 'none';
-                fetchUpdatedReviews(movieIdForEdit);
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
+                    var modal = document.getElementById('editModal');
+                    modal.style.display = 'none';
+                    fetchUpdatedReviews(movieIdForEdit);
+                }
+                else {
+                    var errorMessage = response.message;
+                    var errorMessageBox = document.getElementById('error-message-box');
+                    var errorMessageText = document.getElementById('error-message-text');
+
+                    errorMessageText.textContent = errorMessage;
+                    errorMessageBox.style.display = 'flex';
+
+                    setTimeout(function () {
+                        errorMessageBox.style.display = 'none';
+                    }, 3000);
+                }
             }
+            
         });
     });
 });

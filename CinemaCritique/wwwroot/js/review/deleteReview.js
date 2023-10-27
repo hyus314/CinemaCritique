@@ -21,14 +21,14 @@
                         var successBox = document.getElementById('success-message-box');
                         var successBoxText = document.getElementById('success-message-text');
 
-                        successBoxText.textContent = successMessage;
+                        successBoxText.textContent = 'Review deleted successfully!';
                         successBox.style.display = 'flex';
 
                         setTimeout(function () {
                             successBox.style.display = 'none';
                         }, 3000);  
                     } else {
-                        alert('Error deleting review: ' + response.message);
+                        alert('Error deleting review');
                     }
                 },
                 error: function (jqXHR, textStatus, errorThrown) {

@@ -94,7 +94,8 @@
     width: 400px; /* Adjust the width to your preference */
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     border-radius: 1em;
-    height: 65%;
+    height: auto;
+    overflow: auto;
 }
 
     .edit-modal-content button {
@@ -217,3 +218,37 @@
     margin-left: 1em;
     font-size: 20px;
 }
+
+.error-message-box {
+    border-radius: 0.5em;
+    width: 90%;
+    margin: 1em auto 0.1em auto;
+    color: white;
+    display: none;
+    flex-direction: row;
+    text-align: left;
+    outline: 1px solid black;
+    background-color: #F78D34;
+    box-shadow: inset 0 -5px 5px rgba(0.3,0.3,0.3,0.3);
+}
+
+.error-mark-section {
+    display: flex;
+    background-color: #F5300A;
+    justify-content: center;
+    border-top-left-radius: 0.4em;
+    border-bottom-left-radius: 0.4em;
+    box-shadow: inset 0 -5px 5px rgba(0.3,0.3,0.3,0.3);
+}
+
+.error-message-box i {
+    align-self: center;
+    padding-inline: 0.5em;
+    font-size: 1.5em;
+}
+
+    .error-message-box span {
+        border-left: 1px solid black;
+        padding: 1em;
+        padding-left: 1em;
+    }
