@@ -56,7 +56,7 @@ $(document).ready(function () {
             },
             data: JSON.stringify(reviewData),
             success: function (response) {
-                if (response == true) {
+                if (response.success == true) {
                     var successMessage = response.message;
                     var successBox = document.getElementById('success-message-box');
                     var successBoxText = document.getElementById('success-message-text');
