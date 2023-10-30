@@ -1,6 +1,23 @@
+## The Project is under active development!
+
+```c#
+static void Main(string[] args)
+{
+    Project project = new Project();
+
+    while (project.IsFinished == false)
+    {
+        project.Develop();
+    }
+
+    Console.WriteLine("Project is Finished!");
+}
+```
+
 # CinemaCritique
 
 This platform is a haven for cinema fans to share their expertise and insights on influential films in the cinema industry.
+
 
 ## Overview:
 
