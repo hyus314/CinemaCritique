@@ -34,12 +34,19 @@
 $(document).ready(function () {
     $('#review-text').on('input', function () {
         var maxLength = 300;
+        var text = $(this).val();
+
+        if (text.length > maxLength) {
+            $(this).val(text.slice(0, maxLength));
+        }
+
         var length = $(this).val().length;
         var charactersRemaining = maxLength - length;
 
         $('#char-counter').text(charactersRemaining + ' characters remaining');
     });
 });
+
 
 function updateCharacterCount() {
     var maxLength = 300;
