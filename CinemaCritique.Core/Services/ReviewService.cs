@@ -97,7 +97,7 @@
 
             ICollection<MovieReviewViewModel> reviews;
 
-            if (this.data.Reviews.Where(x => x.MovieId == decryptedMovieId).Count() >= 5)
+            if (this.data.Reviews.Where(x => x.MovieId == decryptedMovieId).Count() >= 4)
             {
                 reviews = await this.data.Reviews
                    .AsNoTracking()
@@ -112,7 +112,7 @@
                        Rating = x.Rating,
                        Content = x.Content,
                    })
-                   .Take(5)
+                   .Take(4)
                    .ToArrayAsync();
             }
             else

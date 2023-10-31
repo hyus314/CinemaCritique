@@ -170,3 +170,29 @@
     #removeButton:hover {
         background-color: #FA5E46;
     }
+
+.load-more-reviews-line{
+    margin-top: 4em;
+    width: 100%;
+    position: static;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#loadMoreReviews {
+    background-color: #F78D34;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+    #loadMoreReviews:hover {
+        background-color: #F7934E;
+        transform: scale(1.05);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
