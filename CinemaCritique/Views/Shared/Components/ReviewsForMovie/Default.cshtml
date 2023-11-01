@@ -1,6 +1,6 @@
 ﻿@using CinemaCritique.Core.Contracts;
 @using Microsoft.AspNetCore.Identity;
-@model ICollection<MovieReviewViewModel>;
+@model ReviewsForMovieViewModel;
 @inject UserManager<CritiqueUser> UserManager
 @inject IReviewService Service
 @inject Microsoft.AspNetCore.Antiforgery.IAntiforgery Antiforgery
@@ -9,7 +9,7 @@
     var requestDeleteToken = Antiforgery.GetAndStoreTokens(Context).RequestToken;
     var requestEditToken = Antiforgery.GetAndStoreTokens(Context).RequestToken;
 }
-
+<input type="hidden" id="hiddenMovieId" value="@Model.MovieId" />
 <input id="__RequestVerificationReviewTokenDelete" type="hidden" value="@requestDeleteToken" />
 <input id="__RequestVerificationReviewTokenEdit" type="hidden" value="@requestEditToken" />
 @{
@@ -24,7 +24,7 @@
 
 <div class="review-container">
 
-    @if (Model.Count > 0)
+    @if (Model.Reviews.Count > 0)
     {
         <div class="filtering-reviews-section">
             <div class="filtering-subsection">
@@ -46,7 +46,7 @@
         </div>
 
 
-        @foreach (var review in Model)
+        @foreach (var review in Model.Reviews)
         {
             <div class="review-card">
                 <div class="review-header">
@@ -76,8 +76,12 @@
             </div>
         }
 
-        <div class="load-more-reviews-line">
-            <button id="loadMoreReviews">Load More Reviews</button>
+        <div class="pagination-container">
+            <button id="previousPage">Previous</button>
+            <div class="pagination-pages" id="paginationPages">
+                <!-- Page numbers will be generated here -->
+            </div>
+            <button id="nextPage">Next</button>
         </div>
 
     }
@@ -132,3 +136,4 @@
 
 <script src="~/js/review/editReview.js"></script>
 <script src="~/js/review/deleteReview.js"></script>
+<script src="~/js/review/reviewFunctionalities.js"></script>

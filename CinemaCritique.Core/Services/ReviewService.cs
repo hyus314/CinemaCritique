@@ -91,51 +91,43 @@
             return SuccessfullyAddedReview;
         }
 
-        public async Task<ICollection<MovieReviewViewModel>> GetReviewsForMovie(string movieId)
+        public async Task<ReviewsForMovieViewModel> GetReviewsForMovie(string movieId, int page)
         {
+            if (page == 0) page++;
+
             var decryptedMovieId = this.movieDataProtector.Decrypt(movieId);
 
-            ICollection<MovieReviewViewModel> reviews;
+            int pageSize = 4;
 
-            if (this.data.Reviews.Where(x => x.MovieId == decryptedMovieId).Count() >= 4)
+            var reviewsQuery = this.data.Reviews
+                .AsNoTracking()
+                .Where(r => r.MovieId == decryptedMovieId)
+                .OrderByDescending(x => x.DatePublished);
+
+            var totalReviews = await reviewsQuery.CountAsync();
+            var totalPages = (int)Math.Ceiling((double)totalReviews / pageSize);
+
+            var reviews = await reviewsQuery
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .Select(x => new MovieReviewViewModel()
+                {
+                    MovieId = this.movieDataProtector.Encrypt(x.MovieId),
+                    ReviewId = this.reviewDataProtector.Encrypt(x.Id),
+                    Username = x.User.UserName,
+                    DatePublished = x.DatePublished.ToString("D"),
+                    Rating = x.Rating,
+                    Content = x.Content,
+                })
+                .ToArrayAsync();
+
+            return new ReviewsForMovieViewModel()
             {
-                reviews = await this.data.Reviews
-                   .AsNoTracking()
-                   .Where(r => r.MovieId == decryptedMovieId)
-                   .OrderByDescending(x => x.DatePublished)
-                   .Select(x => new MovieReviewViewModel()
-                   {
-                       MovieId = this.movieDataProtector.Encrypt(x.MovieId),
-                       ReviewId = this.reviewDataProtector.Encrypt(x.Id),
-                       Username = x.User.UserName,
-                       DatePublished = x.DatePublished.ToString("D"),
-                       Rating = x.Rating,
-                       Content = x.Content,
-                   })
-                   .Take(4)
-                   .ToArrayAsync();
-            }
-            else
-            {
-                reviews = await this.data.Reviews
-                   .AsNoTracking()
-                   .Where(r => r.MovieId == decryptedMovieId)
-                   .OrderByDescending(x => x.DatePublished)
-                   .Select(x => new MovieReviewViewModel()
-                   {
-                       MovieId = this.movieDataProtector.Encrypt(x.MovieId),
-                       ReviewId = this.reviewDataProtector.Encrypt(x.Id),
-                       Username = x.User.UserName,
-                       DatePublished = x.DatePublished.ToString("D"),
-                       Rating = x.Rating,
-                       Content = x.Content,
-                   })
-                   .ToArrayAsync();
-
-            }
-
-            return reviews;
+                MovieId = movieId,
+                Reviews = reviews
+            };
         }
+
 
         public async Task<bool> DidUserWriteThisReview(string reviewId, CritiqueUser user)
         {
@@ -262,6 +254,18 @@
             await this.data.SaveChangesAsync();
 
             return SuccessfullyEditedReview;
+        }
+
+        public async Task<int> GetTotalPagesForReviews(string movieId)
+        {
+            var decryptedMovieId = this.movieDataProtector.Decrypt(movieId);
+            var reviews = await this.data.Reviews.Where(x => x.MovieId == decryptedMovieId).ToListAsync();
+            var totalReviews = reviews.Count;
+
+            var pageSize = 4;
+            var totalPages = (int)Math.Ceiling((double)totalReviews / pageSize);
+            return totalPages;
+
         }
     }
 }

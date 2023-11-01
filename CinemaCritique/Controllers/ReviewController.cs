@@ -50,9 +50,9 @@
         }
 
         [HttpGet]
-        public IActionResult GetUpdatedReviews(string movieId)
+        public IActionResult GetUpdatedReviews(string movieId, int page = 1)
         {
-            return ViewComponent("ReviewsForMovie", new { movieId = movieId });
+            return ViewComponent("ReviewsForMovie", new { movieId = movieId, page = page });
         }
 
         [HttpPost]
@@ -101,6 +101,13 @@
             {
                 return Json(new { success = false, message = e.Message });
             }
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetTotalPages(string movieId)
+        {
+            var totalPages = await this.service.GetTotalPagesForReviews(movieId);
+            return Json(totalPages);
         }
     }
 }

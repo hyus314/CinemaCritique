@@ -1,0 +1,104 @@
+﻿@using CinemaCritique.Core.Contracts;
+@using Microsoft.AspNetCore.Identity;
+@model string; // Movie Id
+@inject UserManager<CritiqueUser> UserManager
+@inject IReviewService Service
+@inject Microsoft.AspNetCore.Antiforgery.IAntiforgery Antiforgery
+
+@{
+    var requestDeleteToken = Antiforgery.GetAndStoreTokens(Context).RequestToken;
+    var requestEditToken = Antiforgery.GetAndStoreTokens(Context).RequestToken;
+}
+
+<input id="__RequestVerificationReviewTokenDelete" type="hidden" value="@requestDeleteToken" />
+<input id="__RequestVerificationReviewTokenEdit" type="hidden" value="@requestEditToken" />
+@{
+    var service = Service;
+    var user = await UserManager.GetUserAsync(User);
+}
+<link rel="stylesheet" href="~/css/review/review.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/review/reviewOperations.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/review/reviewFunctionality.css" asp-append-version="true" />
+
+
+
+<div class="review-container" data-movieid="@Model">
+    <div class="filtering-reviews-section">
+        <div class="filtering-subsection">
+            <p>Rating:</p>
+            <select id="ratingDropdown" class="filter-dropdown">
+                <option value="">All</option>
+                <option value="desc">Highest to Lowest</option>
+                <option value="asc">Lowest to Highest</option>
+            </select>
+        </div>
+        <div class="filtering-subsection">
+            <p>Date Added:</p>
+            <select id="dateDropdown" class="filter-dropdown">
+                <option value="new">Newest To Oldest</option>
+                <option value="old">Oldest To Newest</option>
+            </select>
+        </div>
+    </div>
+
+    <div id="reviewsContainer">
+        <!-- Reviews will be loaded here dynamically -->
+    </div>
+
+    <div class="load-more-reviews-line">
+        <button id="loadMoreReviews">Load More Reviews</button>
+    </div>
+</div>
+
+<h3 class="no-reviews-message" id="noReviewsMessage">This film has not been reviewed yet! Be the first to leave a review.</h3>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="~/js/review/loadReviews.js"></script>
+
+
+<div id="deleteModal" class="delete-modal">
+    <div class="delete-modal-content">
+        <p>Are you sure you want to delete your review?</p>
+        <button id="confirmDelete">Yes</button>
+        <button id="cancelDelete">No</button>
+    </div>
+</div>
+
+<div id="editModal" class="edit-modal">
+    <div class="edit-modal-content">
+        <div class="edit-modal-header">
+            <span id="closeEditModal" class="close">&times;</span>
+            <h2>Edit Review</h2>
+        </div>
+        <div id="error-message-box" class="error-message-box">
+            <div class="error-mark-section">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+            <span id="error-message-text"></span>
+        </div>
+        <div class="edit-rating">
+            <span class="edit-star" data-value="1">☆</span>
+            <span class="edit-star" data-value="2">☆</span>
+            <span class="edit-star" data-value="3">☆</span>
+            <span class="edit-star" data-value="4">☆</span>
+            <span class="edit-star" data-value="5">☆</span>
+            <span class="edit-star" data-value="6">☆</span>
+            <span class="edit-star" data-value="7">☆</span>
+            <span class="edit-star" data-value="8">☆</span>
+            <span class="edit-star" data-value="9">☆</span>
+            <span class="edit-star" data-value="10">☆</span>
+        </div>
+        <div class="edit-review-content-line">
+            <label class="review-content-label" for="editReviewContent">Review Content:</label><br>
+            <textarea id="editReviewContent" name="editReviewContent" rows="4" cols="50"></textarea>
+            <button id="submitEdit">Submit Edit</button>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script src="~/js/review/editReview.js"></script>
+<script src="~/js/review/deleteReview.js"></script>
+<script src="~/js/review/reviewFunctionalities"></script>

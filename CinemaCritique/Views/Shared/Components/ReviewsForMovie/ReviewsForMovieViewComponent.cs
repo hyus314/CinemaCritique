@@ -11,11 +11,11 @@
             this.service = service;
         }
 
-        public async Task<IViewComponentResult> InvokeAsync(string movieId)
+        public async Task<IViewComponentResult> InvokeAsync(string movieId, int page)
         {
-            var reviews = await service.GetReviewsForMovie(movieId);
+            var model = await service.GetReviewsForMovie(movieId, page);
 
-            return View(reviews);
+            return View(model);
         }
     }
 }
