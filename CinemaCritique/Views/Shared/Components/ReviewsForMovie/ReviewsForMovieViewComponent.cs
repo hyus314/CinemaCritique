@@ -11,7 +11,7 @@
             this.service = service;
         }
 
-        public async Task<IViewComponentResult> InvokeAsync(string movieId, int page)
+        public async Task<IViewComponentResult> InvokeAsync(string movieId, int page = 1)
         {
             var model = await service.GetReviewsForMovie(movieId, page);
 

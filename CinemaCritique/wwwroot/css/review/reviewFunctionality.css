@@ -73,7 +73,6 @@
             background-color: #F78D34;
         }
 
-        .pagination-container .page-number .active {
-            background-color: black;
-            color: #fff;
-        }
+.page-number.selected {
+    background-color: #F78D34;
+}

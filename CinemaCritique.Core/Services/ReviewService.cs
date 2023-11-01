@@ -93,7 +93,6 @@
 
         public async Task<ReviewsForMovieViewModel> GetReviewsForMovie(string movieId, int page)
         {
-            if (page == 0) page++;
 
             var decryptedMovieId = this.movieDataProtector.Decrypt(movieId);
 

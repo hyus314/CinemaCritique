@@ -8,19 +8,6 @@ $(document).ready(function () {
     });
 });
 
-function fetchUpdatedReviews(movieId, currentPage) {
-    $.ajax({
-        type: 'GET',
-        url: '/Review/GetUpdatedReviews',
-        data: { movieId: movieId, page: currentPage },
-        success: function (response) {
-            $('#reviewsContainer').html(response);
-        },
-        error: function (error) {
-            console.error("Error fetching updated reviews:", error);
-        }
-    });
-}
 
 var movieId = $('#hiddenMovieId').val();
 
@@ -36,20 +23,36 @@ $.ajax({
     }
 });
 
+let paginationContainer = $('#paginationPages');
 function createPagination(totalPages) {
-    var paginationContainer = $('#paginationPages');
 
-    paginationContainer.empty(); 
+    paginationContainer.empty();
 
     for (var i = 1; i <= totalPages; i++) {
         var pageButton = $('<button class="page-number">' + i + '</button>');
         paginationContainer.append(pageButton);
     }
 
-    paginationContainer.on('click', '.page-number', function () {
-        $(this).addClass('active'); 
 
-        var pageNumber = $(this).text();
-        fetchUpdatedReviews(movieId, pageNumber);
+}
+paginationContainer.on('click', '.page-number', function () {
+    $('.page-number').removeClass('selected');
+    $(this).addClass('selected');
+
+    let pageNumber = $(this).text();
+    fetchUpdatedReviewsPagination(movieId, pageNumber);
+});
+
+function fetchUpdatedReviewsPagination(movieId, currentPage) {
+    $.ajax({
+        type: 'GET',
+        url: '/Review/GetUpdatedReviews',
+        data: { movieId: movieId, page: currentPage },
+        success: function (response) {
+            $('#reviewsContainer').html(response);
+        },
+        error: function (error) {
+            console.error("Error fetching updated reviews:", error);
+        }
     });
 }
