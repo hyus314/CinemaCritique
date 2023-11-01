@@ -10,6 +10,7 @@
 <input id="__RequestVerificationWatchlistToken" type="hidden" value="@requestWatchlistToken" />
 
 <link rel="stylesheet" href="~/css/movie/selectedMovie.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/review/reviewFunctionalities.css" asp-append-version="true" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 <input type="hidden" id="hiddenMovieId" value="@Model.Id" />
@@ -75,13 +76,43 @@
     <span id="success-message-text"></span>
 </div>
 <div id="reviewsContainer">
+    <div class="filtering-reviews-section">
+        <div class="filtering-subsection">
+            <p>Rating:</p>
+            <select id="ratingDropdown" class="filter-dropdown">
+                <option value="">All</option>
+                <option value="desc">Highest to Lowest</option>
+                <option value="asc">Lowest to Highest</option>
+            </select>
+        </div>
+        <div class="filtering-subsection">
+            <p>Date Added:</p>
+            <select id="dateDropdown" class="filter-dropdown">
+                <option value="new">Newest To Oldest</option>
+                <option value="old">Oldest To Newest</option>
+
+            </select>
+        </div>
+    </div>
+
     @await Component.InvokeAsync("ReviewsForMovie", new {movieId = Model.Id});
+    <div class="pagination-container">
+        <button id="previousPage">Previous</button>
+        <div class="pagination-pages" id="paginationPages">
+            <!-- Page numbers will be generated here -->
+        </div>
+        <button id="nextPage">Next</button>
+    </div>
+
 </div>
+
+
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script src="~/js/movies/selectedMovie.js"></script>
 <script src="~/js/review/addReview.js"></script>
+<script src="~/js/review/reviewFunctionalities.js"></script>
 
 
 <script>

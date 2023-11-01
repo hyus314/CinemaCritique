@@ -39,16 +39,17 @@ $.ajax({
 function createPagination(totalPages) {
     var paginationContainer = $('#paginationPages');
 
-    paginationContainer.empty(); // Clear previous page numbers
+    paginationContainer.empty(); 
 
     for (var i = 1; i <= totalPages; i++) {
         var pageButton = $('<button class="page-number">' + i + '</button>');
         paginationContainer.append(pageButton);
     }
 
-    // Add event listeners for page buttons
     paginationContainer.on('click', '.page-number', function () {
-        var pageNumber = $(this).text();
-    });
+        $(this).addClass('active'); 
 
+        var pageNumber = $(this).text();
+        fetchUpdatedReviews(movieId, pageNumber);
+    });
 }

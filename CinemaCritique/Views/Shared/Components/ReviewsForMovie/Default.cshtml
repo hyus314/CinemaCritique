@@ -26,25 +26,7 @@
 
     @if (Model.Reviews.Count > 0)
     {
-        <div class="filtering-reviews-section">
-            <div class="filtering-subsection">
-                <p>Rating:</p>
-                <select id="ratingDropdown" class="filter-dropdown">
-                    <option value="">All</option>
-                    <option value="desc">Highest to Lowest</option>
-                    <option value="asc">Lowest to Highest</option>
-                </select>
-            </div>
-            <div class="filtering-subsection">
-                <p>Date Added:</p>
-                <select id="dateDropdown" class="filter-dropdown">
-                    <option value="new">Newest To Oldest</option>
-                    <option value="old">Oldest To Newest</option>
-
-                </select>
-            </div>
-        </div>
-
+     
 
         @foreach (var review in Model.Reviews)
         {
@@ -76,20 +58,13 @@
             </div>
         }
 
-        <div class="pagination-container">
-            <button id="previousPage">Previous</button>
-            <div class="pagination-pages" id="paginationPages">
-                <!-- Page numbers will be generated here -->
-            </div>
-            <button id="nextPage">Next</button>
-        </div>
-
     }
     else
     {
         <h3 class="no-reviews-message">This film has not been reviewed yet! Be the first to leave a review.</h3>
     }
 </div>
+
 
 <div id="deleteModal" class="delete-modal">
     <div class="delete-modal-content">
