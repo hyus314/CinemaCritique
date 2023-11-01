@@ -29,7 +29,13 @@ function createPagination(totalPages) {
     paginationContainer.empty();
 
     for (var i = 1; i <= totalPages; i++) {
-        var pageButton = $('<button class="page-number">' + i + '</button>');
+        let pageButton;
+        if (i == 1) {
+            pageButton = $('<button class="page-number selected">' + i + '</button>');
+        }
+        else {
+            pageButton = $('<button class="page-number">' + i + '</button>');
+        }
         paginationContainer.append(pageButton);
     }
 
