@@ -91,6 +91,7 @@ $(document).ready(async function () {
                 $("#review-text").val('');
                 updateCharacterCount();
                 $(".star").removeClass('selected');
+                getPagesAfterAdd();
             } else {
                 messageBox.text(response.message).removeClass('success').addClass('error').fadeIn();
             }
@@ -150,3 +151,33 @@ async function fetchUpdatedReviews(movieId) {
     });
 }
 
+function getPagesAfterAdd() {
+    $.ajax({
+        url: '/Review/GetTotalPages',
+        type: 'GET',
+        data: { movieId: movieId },
+        success: function (response) {
+            createPagination(response);
+        },
+        error: function (error) {
+            console.error("Error fetching total pages:", error);
+        }
+    });
+}
+
+function createPagination(totalPages) {
+
+    paginationContainer.empty();
+
+    for (var i = 1; i <= totalPages; i++) {
+        let pageButton;
+        if (i == 1) {
+            pageButton = $('<button class="page-number selected">' + i + '</button>');
+        }
+        else {
+            pageButton = $('<button class="page-number">' + i + '</button>');
+        }
+        paginationContainer.append(pageButton);
+    }
+
+}

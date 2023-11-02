@@ -30,7 +30,6 @@ function createPagination(totalPages) {
         paginationContainer.append(pageButton);
     }
 
-
 }
 paginationContainer.on('click', '.page-number', function () {
     $('.page-number').removeClass('selected');
