@@ -17,8 +17,18 @@ function showDeleteModal(movieId, reviewId) {
                 data: { reviewId: reviewId },
                 success: function (response) {
                     if (response.success) {
-                        let pageNumberDelete = $('.page-number.selected').text();
-                        fetchUpdatedReviews(movieId, pageNumberDelete);
+                        let currentPageNumberSelected = $('.page-number.selected');
+                        let currentPageNumberSelectedValue = currentPageNumberSelected.text();
+                        let countOfCurrentPage = $('#reviewsCountOfPage').val();
+
+                        if (countOfCurrentPage == 1) {
+                            currentPageNumberSelected.removeClass('selected');
+                            currentPageNumberSelected.prev().addClass('selected');
+                            currentPageNumberSelectedValue = $('.page-number.selected').text();
+                            currentPageNumberSelected.remove(); // Assuming you want to remove the empty page button
+                        }
+
+                        fetchUpdatedReviews(movieId, currentPageNumberSelectedValue);
                         var successMessage = response.message;
                         var successBox = document.getElementById('success-message-box');
                         var successBoxText = document.getElementById('success-message-text');
@@ -28,7 +38,7 @@ function showDeleteModal(movieId, reviewId) {
 
                         setTimeout(function () {
                             successBox.style.display = 'none';
-                        }, 3000);  
+                        }, 3000);
                     } else {
                         alert('Error deleting review');
                     }

@@ -24,10 +24,9 @@
 
 <div class="review-container">
 
+    <input type="hidden" id="reviewsCountOfPage" value="@Model.Reviews.Count" />
     @if (Model.Reviews.Count > 0)
     {
-     
-
         @foreach (var review in Model.Reviews)
         {
             <div class="review-card">
