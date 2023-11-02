@@ -1,13 +1,4 @@
 ﻿
-$(document).ready(function () {
-    $('#loadMoreReviews').on('click', function () {
-        var movieId = $(this).data('movieid');
-        let currentPage = 1;
-        currentPage++;
-        fetchUpdatedReviews(movieId, currentPage);
-    });
-});
-
 
 var movieId = $('#hiddenMovieId').val();
 

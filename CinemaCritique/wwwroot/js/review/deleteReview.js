@@ -1,4 +1,5 @@
-﻿function showDeleteModal(movieId, reviewId) {
+﻿
+function showDeleteModal(movieId, reviewId) {
     $(document).ready(function () {
         $("#removeButton").click(function () {
             $("#deleteModal").show();
@@ -16,7 +17,8 @@
                 data: { reviewId: reviewId },
                 success: function (response) {
                     if (response.success) {
-                        fetchUpdatedReviews(movieId);
+                        let pageNumberDelete = $('.page-number.selected').text();
+                        fetchUpdatedReviews(movieId, pageNumberDelete);
                         var successMessage = response.message;
                         var successBox = document.getElementById('success-message-box');
                         var successBoxText = document.getElementById('success-message-text');
@@ -46,11 +48,11 @@
     document.getElementById("deleteModal").style.display = "block";
 }
 
-function fetchUpdatedReviews(movieId) {
+function fetchUpdatedReviews(movieId, pageNumber) {
     $.ajax({
         type: 'GET',
         url: '/Review/GetUpdatedReviews',
-        data: { movieId: movieId },
+        data: { movieId: movieId, page: pageNumber },
         success: function (response) {
             $('#reviewsContainer').html(response);
         },
