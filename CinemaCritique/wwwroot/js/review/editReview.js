@@ -67,10 +67,10 @@ $(document).ready(function () {
                     setTimeout(function () {
                         successBox.style.display = 'none';
                     }, 3000);
-
+                    let currentPageNumberSelected = $('.page-number.selected').text();
                     var modal = document.getElementById('editModal');
                     modal.style.display = 'none';
-                    fetchUpdatedReviews(movieIdForEdit);
+                    fetchUpdatedReviews(movieIdForEdit, currentPageNumberSelected);
                 }
                 else {
                     var errorMessage = response.message;
@@ -90,11 +90,11 @@ $(document).ready(function () {
     });
 });
 
-function fetchUpdatedReviews(movieId) {
+function fetchUpdatedReviews(movieId, pageNumber) {
     $.ajax({
         type: 'GET',
         url: '/Review/GetUpdatedReviews',
-        data: { movieId: movieId },
+        data: { movieId: movieId, page: pageNumber },
         success: function (response) {
             $('#reviewsContainer').html(response);
         },
