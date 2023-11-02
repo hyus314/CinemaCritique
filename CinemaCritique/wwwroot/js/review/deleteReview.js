@@ -32,7 +32,7 @@ function showDeleteModal(movieId, reviewId) {
                         var successMessage = response.message;
                         var successBox = document.getElementById('success-message-box');
                         var successBoxText = document.getElementById('success-message-text');
-
+                        getPagesAfterDelete();
                         successBoxText.textContent = 'Review deleted successfully!';
                         successBox.style.display = 'flex';
 
@@ -70,4 +70,39 @@ function fetchUpdatedReviews(movieId, pageNumber) {
             console.error("Error fetching updated reviews:", error);
         }
     });
+}
+
+function getPagesAfterDelete() {
+    $.ajax({
+        url: '/Review/GetTotalPages',
+        type: 'GET',
+        data: { movieId: movieId },
+        success: function (response) {
+            createPagination(response);
+        },
+        error: function (error) {
+            console.error("Error fetching total pages:", error);
+        }
+    });
+}
+
+function createPagination(totalPages) {
+    var currentPageNumberSelected = document.querySelector('.page-number.selected');
+
+    var selectedPageNumber = null;
+    if (currentPageNumberSelected) {
+        selectedPageNumber = currentPageNumberSelected.textContent;
+    }
+
+    paginationContainer.empty();
+
+    for (var i = 1; i <= totalPages; i++) {
+        let pageButton;
+        if (i == selectedPageNumber) { 
+            pageButton = $('<button class="page-number selected">' + i + '</button>');
+        } else {
+            pageButton = $('<button class="page-number">' + i + '</button>');
+        }
+        paginationContainer.append(pageButton);
+    }
 }
