@@ -1,38 +1,4 @@
-﻿.filtering-reviews-section {
-    padding: 20px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content:space-around;
-    width: 100%;
-    margin: 20px auto;
-}
-
-.filtering-subsection p {
-    margin-right: 20px;
-    display: inline-block;
-    font-weight: 600;
-    color: #333;
-}
-
-.filtering-subsection select {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    background-color: #fff;
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-    color: #555;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-    .filtering-subsection select:focus {
-        outline: none;
-        box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.2);
-    }
-
+﻿
 .pagination-container {
     position: static;
     display: flex;
@@ -74,5 +40,5 @@
         }
 
 .page-number.selected {
-    background-color: #F78D34;
+    background-color: #D3691E;
 }
