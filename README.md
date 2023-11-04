@@ -21,7 +21,7 @@ This platform is a haven for cinema fans to share their expertise and insights o
 
 ## Overview:
 
-Cinema Critique is developed using ASP.NET MVC, with interfaces designed using HTML, CSS, and JavaScript, and data managed efficiently through Entity Framework. It serves as a dynamic and user-friendly space for vivid fans of the cinema industry to explore, discuss, and review films.
+Cinema Critique is developed using ASP.NET MVC, with interfaces designed using HTML, CSS, and JavaScript, and data managed efficiently through Entity Framework. It serves as a dynamic and user-friendly space for vivid fans of the cinema industry to explore, discus and review films.
 
 ## Key Features:
 
