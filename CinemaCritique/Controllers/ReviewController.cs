@@ -7,7 +7,6 @@
 
     using static CinemaCritique.Extensions.ClaimsExtensions;
     using static CinemaCritique.Common.ResultMessages.Review;
-    [Authorize]
     [AutoValidateAntiforgeryToken]
     public class ReviewController : Controller
     {
@@ -23,6 +22,8 @@
             return View();
         }
         [HttpPost]
+        [Authorize]
+
         public async Task<IActionResult> AddReview([FromBody] AddReviewViewModel review)
         {
             var userId = this.User.GetId();
@@ -56,6 +57,8 @@
         }
 
         [HttpPost]
+        [Authorize]
+
         public async Task<IActionResult> DeleteReview(string reviewId)
         {
 
@@ -72,6 +75,8 @@
             }
         }
         [HttpGet]
+        [Authorize]
+
         public async Task<IActionResult> GetEditViewModel(string reviewId)
         {
             var userId = this.User.GetId();
@@ -81,6 +86,8 @@
         }
 
         [HttpPost]
+        [Authorize]
+
         public async Task<IActionResult> EditReview([FromBody] EditReviewViewModel model)
         {
             var userId = this.User.GetId();
