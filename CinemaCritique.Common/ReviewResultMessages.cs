@@ -75,6 +75,11 @@
 
             public const string FailedCannotSaveChanges =
                 "Cannot save this Watchlist Item in the database!";
+
+            public const string FailedWatchlistItemDoesNotExist =
+                "Cannot remove a Watchlist item that does not exist!";
+            public const string FailedRemoveWatchlistItem =
+                "Unable to remove from your watchlist. Try again.";
         }
 
     }

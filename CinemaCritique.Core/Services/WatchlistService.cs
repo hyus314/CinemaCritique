@@ -65,7 +65,7 @@ namespace CinemaCritique.Core.Services
             catch (Exception)
             {
                 throw new InvalidOperationException(FailedCannotSaveChanges);
-            }    
+            }
 
         }
 
@@ -97,6 +97,30 @@ namespace CinemaCritique.Core.Services
             }
 
             return false;
+        }
+
+        public async Task RemoveFromWatchlistAsync(string userId, string movieId)
+        {
+            var user = await this.data.Users.FirstOrDefaultAsync(x => x.Id == userId)
+                ?? throw new InvalidOperationException(FailedUserDoesNotExistWatchlist);
+            
+            var decryptedMovieId = this.movieProtector.Decrypt(movieId);
+
+            var movie = await this.data.Movies.FirstOrDefaultAsync(x => x.Id == decryptedMovieId)
+                ?? throw new InvalidOperationException(FailedMovieDoesNotExist);
+            
+            var watchlistItem = await this.data.WatchListItems.FirstOrDefaultAsync(x => x.MovieId == decryptedMovieId && x.UserId == userId) 
+                ?? throw new InvalidOperationException(FailedWatchlistItemDoesNotExist);
+
+            try
+            {
+                this.data.WatchListItems.Remove(watchlistItem);
+                await this.data.SaveChangesAsync();
+            }
+            catch (Exception)
+            {
+                throw new InvalidOperationException(FailedRemoveWatchlistItem);
+            }
         }
     }
 }
