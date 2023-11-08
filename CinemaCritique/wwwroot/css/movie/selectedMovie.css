@@ -206,6 +206,8 @@ textarea {
     }
 
 
+
+
 #addToWatchlist {
     background-color: #ff8c00; /* Orange-ish color */
     color: white;
@@ -233,4 +235,21 @@ textarea {
 
     #watchlistIcon, #addToWatchlist i {
         margin-right: 0.5em;
+    }
+
+#removeFromWatchlist {
+    display: none;
+    margin-left: 1em;
+    background-color: #FFA858;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10vh;
+}
+
+    #removeFromWatchlist:hover {
+        background-color: #FC635D;
     }
