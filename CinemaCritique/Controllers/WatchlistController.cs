@@ -53,5 +53,12 @@ namespace CinemaCritique.Controllers
 
             return Json(result);
         }
+
+        [HttpPost]
+        [Authorize]
+        public async Task<IActionResult> RemoveFromWatchlist(string movieId)
+        {
+            return Json(new { data = 'd'});
+        }
     }
 }

@@ -4,10 +4,12 @@
 @{
     var requestReviewToken = Antiforgery.GetAndStoreTokens(Context).RequestToken;
     var requestWatchlistToken = Antiforgery.GetAndStoreTokens(Context).RequestToken;
+    var requestRemoveWatchlistToken = Antiforgery.GetAndStoreTokens(Context).RequestToken;
 }
 
 <input id="__RequestVerificationReviewToken" type="hidden" value="@requestReviewToken" />
 <input id="__RequestVerificationWatchlistToken" type="hidden" value="@requestWatchlistToken" />
+<input id="__RequestVerificationWatchlistRemoveToken" type="hidden" value="@requestRemoveWatchlistToken" />
 
 <link rel="stylesheet" href="~/css/movie/selectedMovie.css" asp-append-version="true" />
 <link rel="stylesheet" href="~/css/review/reviewFunctionality.css" asp-append-version="true" />
