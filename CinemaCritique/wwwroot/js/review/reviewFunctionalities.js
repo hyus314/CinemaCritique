@@ -2,6 +2,43 @@
 
 var movieId = $('#hiddenMovieId').val();
 
+document.addEventListener('DOMContentLoaded', function () {
+    var previousButton = document.getElementById('previousPage');
+    var nextButton = document.getElementById('nextPage');
+
+    previousButton.addEventListener('click', function () {
+        var selectedPage = document.querySelector('.pagination-pages .selected');
+        var previousPage = selectedPage.previousElementSibling;
+
+        if (previousPage) {
+            selectedPage.classList.remove('selected');
+            previousPage.classList.add('selected');
+
+            var currentPage = previousPage.textContent;
+
+
+            fetchUpdatedReviewsPagination(movieId, currentPage);
+        }
+    });
+
+    // Add click event listener to the next button
+    nextButton.addEventListener('click', function () {
+        var selectedPage = document.querySelector('.pagination-pages .selected');
+        var nextPage = selectedPage.nextElementSibling;
+
+        if (nextPage) {
+            selectedPage.classList.remove('selected');
+            nextPage.classList.add('selected');
+
+            var currentPage = nextPage.textContent;
+
+
+            fetchUpdatedReviewsPagination(movieId, currentPage);
+        }
+    });
+});
+
+
 $.ajax({
     url: '/Review/GetTotalPages',
     type: 'GET',
