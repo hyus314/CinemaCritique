@@ -25,55 +25,72 @@
     color: black;
 }
 
+.items-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: auto;
+}
+
 .watchlist-movies-list {
     display: flex;
     flex-direction: row;
-    align-items: center; 
-    justify-content: space-around;
     width: 90vw;
     list-style-type: none;
     padding: 0;
     margin-bottom: 10em;
     flex-wrap: wrap;
-    gap: 1em;
+    justify-content: center;
+    gap: 2em;
 }
 
 .watchlist-movie-item {
     display: flex;
-    align-items: center;
     margin: 10px 0;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    width: 30%; 
+    width: 30%;
     transition: all 0.2s ease-in;
-    height: 20em;
+    height: 15em;
 }
 
-.image-box{
-    background-color: green;
-    justify-content: center;
-    height: 70%;
+.image-box {
+    height: 100%;
+    overflow: hidden;
+    border-radius: 5px;
+    margin-right: 20px;
+    flex-grow: 1;
+    border-radius: 2em;
+    width: 2em;
 }
 
 .watchlist-movie-cover {
     display: block;
-    width: 70%;
-    height: auto;
+    width: 100%;
+    height: 100%;
+    object-fit: contain; 
+}
+
+.watchlist-movie-details{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    color: red;
+    font-size: 18px;
+    background-color: pink;
+    width: 200px;
+    min-height: 100%;
 }
 
 
-.watchlist-movie-details h3 {
-    margin: 0;
-    padding: 0;
-}
 
 .watchlist-movie-item a {
-    text-decoration: none; 
-    color: inherit; 
+    text-decoration: none;
+    color: inherit;
     display: flex;
-    align-items: center; 
-    width: 100%; 
+    align-items: center;
+    width: 100%;
 }
 
 .watchlist-movie-item:hover {

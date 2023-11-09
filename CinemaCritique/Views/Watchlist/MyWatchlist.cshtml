@@ -24,9 +24,11 @@
                 {
                     <li class="watchlist-movie-item">
                         <a asp-action="SelectedMovie" asp-controller="Movie" asp-route-id="@movie.MovieId">
-                            <img src="@movie.MovieCoverURL" alt="@movie.MovieTitle" class="watchlist-movie-cover" />
+                            <div class="image-box">
+                                <img src="@movie.MovieCoverURL"  class="watchlist-movie-cover" />
+                            </div>
                             <div class="watchlist-movie-details">
-                                <h3>@movie.MovieTitle</h3>
+                                <h3>Some Text@* @movie.MovieTitle *@</h3>
                             </div>
                         </a>
                     </li>
