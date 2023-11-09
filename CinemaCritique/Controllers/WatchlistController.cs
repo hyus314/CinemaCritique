@@ -58,7 +58,16 @@ namespace CinemaCritique.Controllers
         [Authorize]
         public async Task<IActionResult> RemoveFromWatchlist(string movieId)
         {
-            return Json(new { data = 'd'});
+            var userId = this.User.GetId();
+            try
+            {
+                await this.service.RemoveFromWatchlistAsync(userId, movieId);
+                return Json(new { data = "" });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = ex.Message });
+            }
         }
     }
 }

@@ -55,7 +55,13 @@ function updateWatchlistButtonState() {
 
                 removeFromWatchlistBtn.style.display = 'inline-block';
             } else {
+                $("#addToWatchlist")
+                    .prop("disabled", false)
+                    .html(' <i id="watchlistIcon" class="fa-solid fa-clapperboard"></i>Add To Watchlist');
 
+                const removeFromWatchlistBtn = document.getElementById('removeFromWatchlist');
+
+                removeFromWatchlistBtn.style.display = 'none';
             }
         }
     });
@@ -89,8 +95,7 @@ $(document).ready(function () {
                     var returnPath = "/Identity/Account/Login?fromAddWatchlist=true&returnUrl=" + encodeURIComponent(returnUrl);
                     window.location.href = returnPath;
                 } else {
-                    console.error("Error adding to watchlist:", errorThrown);
-                    alert('Failed to add to watchlist. Try again.');
+                    alert('Unexpected error occured, try again.');
                 }
             }
         });
