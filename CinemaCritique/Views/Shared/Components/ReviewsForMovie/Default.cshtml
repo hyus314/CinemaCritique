@@ -1,9 +1,9 @@
 ﻿@using CinemaCritique.Core.Contracts;
 @using Microsoft.AspNetCore.Identity;
 @model ReviewsForMovieViewModel;
-@inject UserManager<CritiqueUser> UserManager
 @inject IReviewService Service
 @inject Microsoft.AspNetCore.Antiforgery.IAntiforgery Antiforgery
+@inject UserManager<CritiqueUser> UserManager
 
 @{
     var requestDeleteToken = Antiforgery.GetAndStoreTokens(Context).RequestToken;
