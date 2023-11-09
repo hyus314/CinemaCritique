@@ -6,13 +6,39 @@
 }
 
 .title-container {
-    background-color: #F0F0F0;
-    padding: 2em 3em;
+    background: url(https://img.freepik.com/premium-photo/part-yellow-black-clapper-board-movie-slate-popcorn-black-background_335640-4086.jpg?w=1380);
+    background-size: cover;
+    background-position: center;
+    padding: 5em 3em;
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-content: center;
     margin-block: 2em 4em;
     border-block: 1px groove #ABABAB;
+    position: relative; 
+}
+
+.background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px); 
+    border-radius: 5px; 
+}
+
+.title-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5); 
+    border-radius: 5px;
 }
 
 .items-container {
@@ -22,7 +48,13 @@
 }
 
 .title-container h1 {
-    color: black;
+    color: white;
+    font-size: 95px;
+}
+
+.watchlist-phrase {
+    color: orange;
+    text-shadow: -1px 3px 0 #000, -5px 2px 0 #000, -1px -3px 0 #000, 1px -2px 0 #000;
 }
 
 .items-container {
@@ -71,19 +103,20 @@
     object-fit: contain; 
 }
 
-.watchlist-movie-details{
+.watchlist-movie-details {
+    width: 13em;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
-    align-content: center;
+    align-items: flex-start;
     color: red;
     font-size: 18px;
-    background-color: pink;
-    width: 200px;
-    min-height: 100%;
+    height: 100%;
 }
 
-
+.watchlist-movie-details h3{
+    font-size: 18px;
+}
 
 .watchlist-movie-item a {
     text-decoration: none;
@@ -94,7 +127,7 @@
 }
 
 .watchlist-movie-item:hover {
-    background-color: lightgray;
+    background-color: #DB9460;
     cursor: pointer;
     transform: scale(1.05);
 }
