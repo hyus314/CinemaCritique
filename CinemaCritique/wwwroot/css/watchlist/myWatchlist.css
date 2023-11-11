@@ -20,6 +20,18 @@
     position: relative;
 }
 
+p {
+    font-size: 20px;
+    margin: 20px;
+    padding: 10px;
+    color: black;
+    border-radius: 5px;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.8);
+}
+
+    p:first-child {
+    }
+
 .background-overlay {
     position: absolute;
     top: 0;
