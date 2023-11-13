@@ -59,9 +59,12 @@
     padding: 10px;
     font-family: 'Comic Sans MS', cursive, sans-serif;
     font-size: 1.1em;
-    background-color: #fff; 
-    border: 1px dashed #e0e0e0; 
+    background-color: #fff;
+    width: auto;
+    height: auto;
+    border: 1px dashed #e0e0e0;
     border-radius: 5px;
+    word-wrap: break-word; /* set a maximum height to prevent excessive overflow */
 }
 
 .rating-review {

@@ -5,24 +5,43 @@ var movieId = $('#hiddenMovieId').val();
 document.addEventListener('DOMContentLoaded', function () {
     var previousButton = document.getElementById('previousPage');
     var nextButton = document.getElementById('nextPage');
+    var reviewsCount = parseInt(document.getElementById('reviewsCountOfPage').value);
 
-    function updatePaginationButtons() {
-        var selectedPage = document.querySelector('.pagination-pages .selected');
-        var previousPage = selectedPage.previousElementSibling;
-        var nextPage = selectedPage.nextElementSibling;
-
-        if (previousPage) {
+    function updatePaginationButtonsVisibility() {
+        if (reviewsCount > 0) {
             previousButton.classList.remove('hidden');
-        } else {
-            previousButton.classList.add('hidden');
-        }
-
-        if (nextPage) {
             nextButton.classList.remove('hidden');
         } else {
+            previousButton.classList.add('hidden');
             nextButton.classList.add('hidden');
         }
     }
+    function updatePaginationButtons() {
+        var selectedPage = document.querySelector('.pagination-pages .selected');
+
+        // Check if there is a selected page
+        if (selectedPage) {
+            var previousPage = selectedPage.previousElementSibling;
+            var nextPage = selectedPage.nextElementSibling;
+
+            if (previousPage) {
+                previousButton.classList.remove('hidden');
+            } else {
+                previousButton.classList.add('hidden');
+            }
+
+            if (nextPage) {
+                nextButton.classList.remove('hidden');
+            } else {
+                nextButton.classList.add('hidden');
+            }
+        } else {
+            // If there is no selected page, hide both buttons
+            previousButton.classList.add('hidden');
+            nextButton.classList.add('hidden');
+        }
+    }
+
 
     previousButton.addEventListener('click', function () {
         var selectedPage = document.querySelector('.pagination-pages .selected');
@@ -37,6 +56,7 @@ document.addEventListener('DOMContentLoaded', function () {
             fetchUpdatedReviewsPagination(movieId, currentPage);
             updatePaginationButtons();
         }
+        updatePaginationButtonsVisibility()
     });
 
     nextButton.addEventListener('click', function () {
@@ -52,10 +72,12 @@ document.addEventListener('DOMContentLoaded', function () {
             fetchUpdatedReviewsPagination(movieId, currentPage);
             updatePaginationButtons();
         }
+        updatePaginationButtonsVisibility()
     });
 
     // Initial button visibility check
     updatePaginationButtons();
+    updatePaginationButtonsVisibility()
 });
 
 
