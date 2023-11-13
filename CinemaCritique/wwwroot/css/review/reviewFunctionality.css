@@ -42,3 +42,7 @@
 .page-number.selected {
     background-color: #D3691E;
 }
+
+.hidden {
+    display: none;
+}

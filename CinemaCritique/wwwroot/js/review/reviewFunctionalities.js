@@ -6,6 +6,24 @@ document.addEventListener('DOMContentLoaded', function () {
     var previousButton = document.getElementById('previousPage');
     var nextButton = document.getElementById('nextPage');
 
+    function updatePaginationButtons() {
+        var selectedPage = document.querySelector('.pagination-pages .selected');
+        var previousPage = selectedPage.previousElementSibling;
+        var nextPage = selectedPage.nextElementSibling;
+
+        if (previousPage) {
+            previousButton.classList.remove('hidden');
+        } else {
+            previousButton.classList.add('hidden');
+        }
+
+        if (nextPage) {
+            nextButton.classList.remove('hidden');
+        } else {
+            nextButton.classList.add('hidden');
+        }
+    }
+
     previousButton.addEventListener('click', function () {
         var selectedPage = document.querySelector('.pagination-pages .selected');
         var previousPage = selectedPage.previousElementSibling;
@@ -16,12 +34,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
             var currentPage = previousPage.textContent;
 
-
             fetchUpdatedReviewsPagination(movieId, currentPage);
+            updatePaginationButtons();
         }
     });
 
-    // Add click event listener to the next button
     nextButton.addEventListener('click', function () {
         var selectedPage = document.querySelector('.pagination-pages .selected');
         var nextPage = selectedPage.nextElementSibling;
@@ -32,11 +49,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
             var currentPage = nextPage.textContent;
 
-
             fetchUpdatedReviewsPagination(movieId, currentPage);
+            updatePaginationButtons();
         }
     });
+
+    // Initial button visibility check
+    updatePaginationButtons();
 });
+
 
 
 $.ajax({
