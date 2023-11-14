@@ -7,10 +7,14 @@
 
     function activateItem(index) {
         items[currentIndex].classList.remove('active');
-        movieTitles[currentIndex].classList.remove('selected'); // Remove selected class from previous title
+        movieTitles[currentIndex].classList.remove('selected');
         currentIndex = index;
         items[currentIndex].classList.add('active');
-        movieTitles[currentIndex].classList.add('selected'); // Add selected class to current title
+        movieTitles[currentIndex].classList.add('selected');
+    }
+
+    function handleMovieTitleClick(i) {
+        activateItem(i);
     }
 
     document.getElementById('nextBtn').addEventListener('click', function () {
@@ -21,8 +25,14 @@
         activateItem((currentIndex - 1 + items.length) % items.length);
     });
 
+    for (let i = 0; i < movieTitles.length; i++) {
+        movieTitles[i].addEventListener('click', function () {
+            handleMovieTitleClick(i);
+        });
+    }
+
     if (items.length > 0) {
         items[0].classList.add('active');
-        movieTitles[0].classList.add('selected'); // Highlight the first title by default
+        movieTitles[0].classList.add('selected');
     }
 });
