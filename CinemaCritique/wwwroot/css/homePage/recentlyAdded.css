@@ -163,3 +163,8 @@
     .movie-item:hover {
         background-color: #eee;
     }
+
+    .movie-item.selected {
+        background-color: #E57224;
+        color: white;
+    }

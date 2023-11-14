@@ -1,12 +1,16 @@
 ﻿document.addEventListener('DOMContentLoaded', function () {
     const carousel = document.getElementById('movieCarousel');
     const items = carousel.getElementsByClassName('carousel-item');
+    const movieList = document.getElementById('movieList');
+    const movieTitles = movieList.getElementsByClassName('movie-item');
     let currentIndex = 0;
 
     function activateItem(index) {
         items[currentIndex].classList.remove('active');
+        movieTitles[currentIndex].classList.remove('selected'); // Remove selected class from previous title
         currentIndex = index;
         items[currentIndex].classList.add('active');
+        movieTitles[currentIndex].classList.add('selected'); // Add selected class to current title
     }
 
     document.getElementById('nextBtn').addEventListener('click', function () {
@@ -19,5 +23,6 @@
 
     if (items.length > 0) {
         items[0].classList.add('active');
+        movieTitles[0].classList.add('selected'); // Highlight the first title by default
     }
 });
