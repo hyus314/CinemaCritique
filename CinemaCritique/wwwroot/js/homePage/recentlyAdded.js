@@ -36,3 +36,4 @@
         movieTitles[0].classList.add('selected');
     }
 });
+

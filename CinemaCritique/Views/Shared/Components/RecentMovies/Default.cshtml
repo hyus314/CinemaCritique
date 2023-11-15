@@ -1,6 +1,11 @@
 ﻿@model ICollection<RecentMovieViewModel>;
 
 <link rel="stylesheet" href="~/css/homePage/recentlyAdded.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/homePage/recentlyAddedElements/buttonsFunctionality.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/homePage/recentlyAddedElements/carouselStyles.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/homePage/recentlyAddedElements/movieFunctionality.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/homePage/recentlyAddedElements/recentMovies.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/homePage/recentlyAddedElements/sideMovieListStyles.css" asp-append-version="true" />
 
 <h2 class="recent-movies-text">Newest on Cinema Critique:</h2>
 <div id="recentMoviesContainer">
@@ -9,17 +14,20 @@
         <button id="prevBtn" class="control-btn">Previous</button>
         <button id="nextBtn" class="control-btn">Next</button>
 
-        @foreach (var movie in Model)
-        {
-            <a asp-controller="Movie" asp-action="SelectedMovie" asp-route-id="@movie.Id" class="movie-link">
-                <div class="carousel-item">
-                    <div class="scene-photo" style="background-image: url('@movie.ScenePhotoURL')">
-                        <img src="@movie.CoverPhotoURL" alt="@movie.Title" class="cover-photo" />
-                        <div class="title">@movie.Title</div>
+        <div class="film-container">
+            @foreach (var movie in Model)
+            {
+                <a asp-controller="Movie" asp-action="SelectedMovie" asp-route-id="@movie.Id" class="movie-link">
+                    <div class="carousel-item">
+                        <div class="scene-photo" style="background-image: url('@movie.ScenePhotoURL')">
+                            <img src="@movie.CoverPhotoURL" alt="@movie.Title" class="cover-photo" />
+                            <div class="title">@movie.Title</div>
+                        </div>
                     </div>
-                </div>
-            </a>
-        }
+                </a>
+            }
+        </div>
+
     </div>
     <ul id="movieList" class="movie-list">
         @foreach (var movie in Model)

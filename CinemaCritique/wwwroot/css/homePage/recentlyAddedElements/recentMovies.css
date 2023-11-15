@@ -1,0 +1,30 @@
+﻿body {
+}
+
+.recent-movies-text {
+    margin-left: 7em;
+    font-family: 'M PLUS 1p', sans-serif;
+    font-weight: 700;
+    font-size: 2em;
+    letter-spacing: 1px;
+    color: #E57224;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    transition: color 0.3s ease;
+}
+
+    .recent-movies-text:hover {
+        color: #F78D34;
+    }
+
+#recentMoviesContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fafafa;
+    border-radius: 10px;
+    margin: 20px auto;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 1200px;
+}

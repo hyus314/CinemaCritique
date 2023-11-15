@@ -1,0 +1,27 @@
+﻿body {
+}
+
+.movie-list {
+    width: 30%;
+    max-width: 300px;
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+.movie-item {
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+    .movie-item:hover {
+        background-color: #eee;
+    }
+
+    .movie-item.selected {
+        background-color: #E57224;
+        color: white;
+    }

@@ -1,0 +1,30 @@
+﻿body {
+}
+
+.carousel-item {
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+    transition: opacity 0.5s ease-in-out, visibility 0s linear 0.5s, height 0s linear 0.5s;
+}
+
+    .carousel-item.active {
+        opacity: 1;
+        visibility: visible;
+        height: auto;
+        transition-delay: 0s, 0s, 0s;
+    }
+
+    .carousel-item.active {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+
+
+.carousel {
+    position: relative;
+    flex: 1;
+    margin-right: 20px;
+}
+

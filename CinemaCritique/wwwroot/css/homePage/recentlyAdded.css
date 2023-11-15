@@ -1,128 +1,15 @@
-﻿body {
+﻿
+body {
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
-.recent-movies-text {
-    margin-left: 7em;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 700;
-    font-size: 2em;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: #E57224;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-    transition: color 0.3s ease;
-}
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@700&display=swap');
+@import url('recentlyAddedElements/recentMovies.css');
+@import url('recentlyAddedElements/movieFunctionality.css');
+@import url('recentlyAddedElements/carouselStyles.css');
+@import url('recentlyAddedElements/buttonsFunctionality.css');
+@import url('recentlyAddedElements/sideMovieListStyles.css');
 
-    .recent-movies-text:hover {
-        color: #F78D34;
-    }
-
-#recentMoviesContainer {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #fafafa;
-    border-radius: 10px;
-    margin: 20px auto;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    max-width: 1200px;
-}
-
-.movie-link, .movie-item a {
-    text-decoration: none;
-    color: inherit;
-    cursor: pointer;
-    display: block;
-    transition: border 0.5s ease, transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
-}
-
-    .movie-link:hover,
-    .movie-item a:hover {
-        text-decoration: none;
-        transition: box-shadow 0.3s ease, filter 0.3s ease;
-        box-shadow: 10px 10px 10px rgba(0,0,0,0.1);
-    }
-
-    .movie-link .carousel-item::before {
-        transition: all 0.3s ease;
-        border: 0 solid red; 
-        content: '';
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        z-index: 20;
-    }
-
-    .movie-link:hover .carousel-item::before {
-        border-width: 8px; 
-        transform: scale(0.95); 
-        background: rgba(0, 0, 0, 0);
-    }
-
-    .movie-link:hover .title {
-        z-index: 30;
-        color: orange;
-    }
-
-.carousel-item {
-    opacity: 0;
-    visibility: hidden;
-    height: 0;
-    transition: opacity 0.5s ease-in-out, visibility 0s linear 0.5s, height 0s linear 0.5s;
-}
-
-    .carousel-item.active {
-        opacity: 1;
-        visibility: visible;
-        height: auto;
-        transition-delay: 0s, 0s, 0s;
-    }
-
-    .carousel-item.active {
-        opacity: 1;
-        pointer-events: auto;
-    }
-
-.movie-link:hover .carousel-item::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: rgba(0,0,0,0.1);
-    z-index: 2;
-}
-
-.movie-link:hover .title {
-    z-index: 3;
-}
-
-.carousel {
-    position: relative;
-    flex: 1;
-    margin-right: 20px;
-}
-
-.control-btn {
-    z-index: 10;
-    background-color: rgba(0, 0, 0, 0.7);
-    color: #fff;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-    .control-btn:hover {
-        background-color: rgba(0, 0, 0, 0.9);
-    }
 
 .scene-photo {
     position: relative;
@@ -131,9 +18,6 @@
     background-position: center;
 }
 
-.scene-photo:hover{
-    filter: brightness(50%);
-}
 
 .cover-photo {
     position: absolute;
@@ -147,11 +31,12 @@
 }
 
 .title {
+    font-size: 30px;
     position: absolute;
     color: transparent; /* Initially transparent */
     font-size: 2.2em;
     border-radius: 8px;
-    transition: color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.3s ease;
     transform: translate(-50%, -50%); /* Center align */
     top: 50%;
     left: 50%;
@@ -159,56 +44,6 @@
 
 
 
-#prevBtn, #nextBtn {
-    z-index: 10;
-    transition: all 0.3s;
-}
-
-#prevBtn {
-    left: -10px;
-}
-
-#nextBtn {
-    right: -10px;
-}
-
-.control-btn {
-    position: absolute;
-    background-color: rgba(0, 0, 0, 0.7);
-    color: #fff;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-    .control-btn:hover {
-        background-color: rgba(0, 0, 0, 0.9);
-    }
 
 
-.movie-list {
-    width: 30%;
-    max-width: 300px;
-    list-style-type: none;
-    padding: 0;
-    margin-top: 20px;
-    box-sizing: border-box;
-    overflow-y: auto;
-}
-
-.movie-item {
-    padding: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-    .movie-item:hover {
-        background-color: #eee;
-    }
-
-    .movie-item.selected {
-        background-color: #E57224;
-        color: white;
-    }
+   

@@ -1,0 +1,55 @@
+﻿body {
+}
+
+.movie-link:hover .scene-photo {
+    filter: brightness(70%);
+    transition: ease-out 0.3s;
+}
+
+.movie-link, .movie-item a {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    display: block;
+    transition: border 0.5s ease, transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+}
+
+
+    .movie-link:hover .title {
+        text-shadow: -1px -1px 2px rgba(0, 0, 0, 0.8), 1px -1px 2px rgba(0, 0, 0, 0.8), -1px 1px 2px rgba(0, 0, 0, 0.8), 1px 1px 2px rgba(0, 0, 0, 0.8), -2px -2px 4px rgba(255, 165, 0, 0.8), 2px -2px 4px rgba(255, 165, 0, 0.8), -2px 2px 4px rgba(255, 165, 0, 0.8), 2px 2px 4px rgba(255, 165, 0, 0.8); /* Apply multiple shadows with different colors and sizes */
+        z-index: 30;
+        color: white;
+        filter: brightness(100%);
+    }
+
+    .movie-link:hover .carousel-item::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 2;
+    }
+
+    .movie-link:hover .title {
+        z-index: 3;
+    }
+
+
+    .movie-link .carousel-item::before {
+        transition: all 0.3s ease;
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 20;
+    }
+
+    .movie-link:hover .carousel-item::before {
+        border-width: 8px; /* Expand the border width */
+        transform: scale(0.95); /* Shrink the element inward */
+        background: rgba(0, 0, 0, 0);
+    }
