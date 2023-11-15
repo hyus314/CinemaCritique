@@ -7,41 +7,24 @@ document.addEventListener('DOMContentLoaded', function () {
     var nextButton = document.getElementById('nextPage');
     var reviewsCount = parseInt(document.getElementById('reviewsCountOfPage').value);
 
-    function updatePaginationButtonsVisibility() {
-        if (reviewsCount > 0) {
-            previousButton.classList.remove('hidden');
-            nextButton.classList.remove('hidden');
-        } else {
-            previousButton.classList.add('hidden');
-            nextButton.classList.add('hidden');
-        }
-    }
+   
     function updatePaginationButtons() {
         var selectedPage = document.querySelector('.pagination-pages .selected');
+        var previousPage = selectedPage ? selectedPage.previousElementSibling : null;
+        var nextPage = selectedPage ? selectedPage.nextElementSibling : null;
 
-        // Check if there is a selected page
-        if (selectedPage) {
-            var previousPage = selectedPage.previousElementSibling;
-            var nextPage = selectedPage.nextElementSibling;
-
-            if (previousPage) {
-                previousButton.classList.remove('hidden');
-            } else {
-                previousButton.classList.add('hidden');
-            }
-
-            if (nextPage) {
-                nextButton.classList.remove('hidden');
-            } else {
-                nextButton.classList.add('hidden');
-            }
-        } else {
-            // If there is no selected page, hide both buttons
+        if (!previousPage) {
             previousButton.classList.add('hidden');
+        } else {
+            previousButton.classList.remove('hidden');
+        }
+
+        if (!nextPage || nextPage.classList.contains('disabled')) {
             nextButton.classList.add('hidden');
+        } else {
+            nextButton.classList.remove('hidden');
         }
     }
-
 
     previousButton.addEventListener('click', function () {
         var selectedPage = document.querySelector('.pagination-pages .selected');
@@ -56,7 +39,6 @@ document.addEventListener('DOMContentLoaded', function () {
             fetchUpdatedReviewsPagination(movieId, currentPage);
             updatePaginationButtons();
         }
-        updatePaginationButtonsVisibility()
     });
 
     nextButton.addEventListener('click', function () {
@@ -72,12 +54,10 @@ document.addEventListener('DOMContentLoaded', function () {
             fetchUpdatedReviewsPagination(movieId, currentPage);
             updatePaginationButtons();
         }
-        updatePaginationButtonsVisibility()
     });
 
     // Initial button visibility check
     updatePaginationButtons();
-    updatePaginationButtonsVisibility()
 });
 
 
