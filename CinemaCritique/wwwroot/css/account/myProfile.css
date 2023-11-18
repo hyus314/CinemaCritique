@@ -45,4 +45,8 @@ p, h1, h2, h3 {
         .upper-line > div {
             width: 100%;
         }
+
+        .watchlist-container{
+            padding-block: 2em;
+        }
 }

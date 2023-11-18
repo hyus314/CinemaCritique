@@ -1,36 +1,52 @@
 ﻿
-
 .watchlist-container {
     background-color: #F78D34;
-    border: 2px solid #FF5E0E;
     box-shadow: inset 0 0px 5000px rgba(0,0,0,0.4);
     border-radius: 2em;
-    flex: 1;
+    flex: 0.8;
     display: flex;
-    justify-content: center;
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
+}
+
+.watchlist-container-header {
+    width: 100%;
+    border-top-left-radius: 2em;
+    border-top-right-radius: 2em;
+    padding-top: 2em;
+}
+
+.watchlist-inner-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border-bottom-left-radius: 2em;
+    border-bottom-right-radius: 2em;
 }
 
 
-
 .watchlist-logo-container {
-    justify-self: flex-start;
+    align-self: center;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-content: center;
     overflow: hidden;
     background-color: #CC2B1D;
-    width: 50%;
-    height: 50%;
+    width: 15em;
+    height: 15em;
     border: 2px solid #FFDAB9;
     border-radius: 2em;
     padding: 0.8em;
     margin-block: 1em 0.5em;
     transition: all 0.3s ease-in;
-    box-shadow: inset 0 0 75px black; 
+    box-shadow: inset 0 0 75px black;
+    box-sizing: border-box;
 }
+
 
     .watchlist-logo-container img {
         display: block;

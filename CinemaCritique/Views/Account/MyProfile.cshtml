@@ -6,6 +6,9 @@
 <link rel="stylesheet" href="~/css/account/watchlist-container.css" asp-append-version="true" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+@{
+    ViewData["Title"] = "Profile";
+}
 
 <div class="upper-line">
     <div class="critique-stats-container">
@@ -32,11 +35,15 @@
         </div>
     </div>
     <div class="watchlist-container">
-        <h2>Your Watchlist</h2>
-        <div class="watchlist-logo-container">
-            <a asp-controller="Watchlist" asp-action="MyWatchlist" class="watchlist-logo-link">
-                <img src="~/img/watchlist_logo.png" alt="">
-            </a>
+        <div class="watchlist-container-header">
+            <h2>Your Watchlist</h2>
+        </div>
+        <div class="watchlist-inner-container">
+            <div class="watchlist-logo-container">
+                <a asp-controller="Watchlist" asp-action="MyWatchlist" class="watchlist-logo-link">
+                    <img src="~/img/watchlist_logo.png" alt="">
+                </a>
+            </div>
         </div>
 
     </div>
