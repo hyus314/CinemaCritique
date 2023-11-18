@@ -15,5 +15,10 @@ namespace CinemaCritique.Controllers
 
             return RedirectToAction("Index", "Home", new { area = "" });
         }
+
+        public IActionResult MyProfile()
+        {
+            return View();
+        }
     }
 }

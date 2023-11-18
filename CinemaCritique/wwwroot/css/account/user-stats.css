@@ -1,0 +1,83 @@
+﻿
+
+.critique-stats-container {
+    background-color: #FFD700;
+    border-radius: 2em;
+    border: 2px solid #FFDAB9;
+    width: 30%;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding: 1em 0.3em;
+    flex: 1;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Added box shadow */
+}
+
+.critique-stats {
+    flex: 7;
+    border-radius: 1em;
+    padding: 1em 1.5em;
+    display: flex;
+    flex-direction: column;
+}
+
+    .critique-stats p {
+        display: flex;
+        justify-content: space-between;
+        font-size: 20px;
+        flex-wrap: wrap;
+    }
+
+    .critique-stats span {
+        margin-left: auto;
+        color: #FF8C00; /* Orangish-red */
+        font-weight: bold;
+        /* Additional styling to make spans stand out */
+        background-color: #FFE4E1; /* Light pink background */
+        padding: 0.2em 0.5em; /* Padding around the text */
+        border-radius: 0.3em; /* Rounded corners */
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
+        transition: all 0.3s ease; /* Smooth transition on hover */
+    }
+
+.buttons-container {
+    border-radius: 1em;
+    height: 30%;
+    display: flex;
+    flex-direction: row;
+    flex: 3;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-block: 1em;
+}
+
+    .buttons-container button {
+        padding: 2em;
+        border-radius: 50%;
+        background-color: #FF6347; /* Orangish-red */
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15); /* Added box shadow */
+        outline: none;
+    }
+
+        .buttons-container button:hover {
+            transform: scale(1.1); /* Scale on hover */
+            background-color: #FF8C00; /* Darker orangish color on hover */
+        }
+
+        .buttons-container button.info-button:hover {
+            background-color: #4682B4; /* Steel blue on info button hover */
+        }
+
+        .buttons-container button.report-button:hover {
+            background-color: #CD5C5C; /* Indian red on report button hover */
+        }
+
+        /* FontAwesome icons might need to be adjusted for size and placement */
+        .buttons-container button i {
+            color: white;
+            font-size: 1.5em;
+        }

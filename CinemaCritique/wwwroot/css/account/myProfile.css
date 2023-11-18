@@ -1,0 +1,32 @@
+﻿@import url('https://fonts.cdnfonts.com/css/helsinki');
+
+body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+p, h1, h2, h3 {
+    font-family: 'Helsinki', sans-serif;
+}
+
+.upper-line {
+    border: 2px solid #FFDAB9;
+    margin: 1em;
+    border-radius: 1em;
+    display: flex;
+    flex-direction: row;
+    padding: 2em;
+    gap: 2em;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 600px) {
+    .upper-line {
+        flex-direction: column;
+    }
+
+        .upper-line > div {
+            width: 100%;
+        }
+}
