@@ -1,9 +1,10 @@
 ﻿
 
 .critique-stats-container {
-    background-color: #FFD700;
+    background-color: #F78D34;
+    border: 2px solid #FF5E0E;
+    box-shadow: inset 0 0px 5000px rgba(0,0,0,0.3);
     border-radius: 2em;
-    border: 2px solid #FFDAB9;
     width: 30%;
     padding: 0;
     display: flex;
@@ -11,7 +12,6 @@
     gap: 1em;
     padding: 1em 0.3em;
     flex: 1;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Added box shadow */
 }
 
 .critique-stats {
@@ -31,14 +31,13 @@
 
     .critique-stats span {
         margin-left: auto;
-        color: #FF8C00; /* Orangish-red */
+        color: #FF8C00; 
         font-weight: bold;
-        /* Additional styling to make spans stand out */
-        background-color: #FFE4E1; /* Light pink background */
-        padding: 0.2em 0.5em; /* Padding around the text */
-        border-radius: 0.3em; /* Rounded corners */
-        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
-        transition: all 0.3s ease; /* Smooth transition on hover */
+        background-color: #FFE4E1;
+        padding: 0.2em 0.5em; 
+        border-radius: 0.3em; 
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); 
+        transition: all 0.3s ease; 
     }
 
 .buttons-container {
@@ -55,28 +54,28 @@
     .buttons-container button {
         padding: 2em;
         border-radius: 50%;
-        background-color: #FF6347; /* Orangish-red */
         border: none;
         cursor: pointer;
         transition: all 0.3s ease;
-        box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15); /* Added box shadow */
+        background-color: #FF8C00;
+        border: 2px solid #FFDAB9;
+        box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15); 
         outline: none;
     }
 
         .buttons-container button:hover {
-            transform: scale(1.1); /* Scale on hover */
-            background-color: #FF8C00; /* Darker orangish color on hover */
+            transform: scale(1.1); 
+            background-color: #FF8C00; 
         }
 
         .buttons-container button.info-button:hover {
-            background-color: #4682B4; /* Steel blue on info button hover */
+            background-color: #4682B4; 
         }
 
         .buttons-container button.report-button:hover {
-            background-color: #CD5C5C; /* Indian red on report button hover */
+            background-color: #CD5C5C; 
         }
 
-        /* FontAwesome icons might need to be adjusted for size and placement */
         .buttons-container button i {
             color: white;
             font-size: 1.5em;

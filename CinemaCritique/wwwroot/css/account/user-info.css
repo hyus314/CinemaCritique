@@ -1,6 +1,9 @@
-﻿.user-info {
-    background-color: #FFD700;
-    border: 2px solid #FFDAB9;
+﻿@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Manrope&family=Raleway&family=Work+Sans:wght@600&display=swap');
+
+.user-info {
+    background-color: #F78D34;
+    border: 2px solid #FF5E0E;
+    box-shadow: inset 0 0px 5000px rgba(0,0,0,0.3);
     width: 30%;
     height: 30%;
     border-radius: 2em;
@@ -8,7 +11,6 @@
     flex-direction: column;
     overflow: hidden;
     flex: 1;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Added box shadow */
 }
 
 .image-container {
@@ -17,14 +19,14 @@
     align-items: center;
     overflow: hidden;
     align-self: center;
-    background-color: #FF8C00;
     width: 50%;
     height: 50%;
-    border: 2px solid #FFDAB9;
     border-radius: 50%;
     padding: 0.8em;
     margin-block: 1em 0.5em;
-    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15); /* Added box shadow */
+    background-color: #FF8C00;
+    border: 2px solid #FFDAB9;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15); 
 }
 
     .image-container img {
@@ -48,7 +50,18 @@
     }
 
         .user-credentials p span {
+            font-family: 'Manrope', sans-serif;
             font-weight: bold;
-            color: #FF6347; /* Orangish-red */
-            margin-right: 0.5em; /* Add spacing between the description and text */
+            letter-spacing: 1px; 
+            transition: color 0.3s ease, transform 0.3s ease; 
+            background: #FFFCC9;
+            width: 40%;
+            text-align: center;
+            padding-inline-end: 4px;
+            border-top-left-radius: 2em;
+            border-bottom-right-radius: 2em;
+            outline: 1px solid black;
+            border-top-right-radius: 0.2em;
+            border-bottom-left-radius: 0.2em;
         }
+
