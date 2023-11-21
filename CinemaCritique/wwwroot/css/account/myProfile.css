@@ -10,6 +10,10 @@ p, h1, h2, h3 {
     font-family: 'Helsinki', sans-serif;
 }
 
+.button-line{
+    margin: 3em;
+}
+
 #logoutButton {
     background-color: #FF6347;
     color: white;
@@ -17,7 +21,6 @@ p, h1, h2, h3 {
     border-radius: 0.5em;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
-    margin-bottom: 10em;
 }
 
     #logoutButton:hover {
@@ -47,6 +50,6 @@ p, h1, h2, h3 {
         }
 
         .watchlist-container{
-            padding-block: 2em;
+            padding-bottom: 2em;
         }
 }
