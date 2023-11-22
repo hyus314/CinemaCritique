@@ -1,11 +1,19 @@
-﻿using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Mvc;
-
-namespace CinemaCritique.Controllers
+﻿namespace CinemaCritique.Controllers
 {
+    using Microsoft.AspNetCore.Authentication.Cookies;
+    using Microsoft.AspNetCore.Authentication;
+    using Microsoft.AspNetCore.Mvc;
+    using CinemaCritique.Core.Contracts;
+    using CinemaCritique.Extensions;
     public class AccountController : Controller
     {
+        private readonly IAccountService service;
+
+        public AccountController(IAccountService service)
+        {
+            this.service = service;
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Logout()
@@ -16,9 +24,11 @@ namespace CinemaCritique.Controllers
             return RedirectToAction("Index", "Home", new { area = "" });
         }
 
-        public IActionResult MyProfile()
+        public async Task<IActionResult> MyProfile()
         {
-            return View();
+            var userId = this.User.GetId();
+            var viewModel = await this.service.GetProfileViewModelAsync(userId);
+            return View(viewModel);
         }
     }
 }

@@ -39,6 +39,7 @@ namespace CinemaCritique
             builder.Services.AddScoped<IMovieService, MovieService>();
             builder.Services.AddScoped<IReviewService, ReviewService>();
             builder.Services.AddScoped<IWatchlistService, WatchlistService>();
+            builder.Services.AddScoped<IAccountService, AccountService>();
 
             builder.Services.AddDefaultIdentity<CritiqueUser>(opt =>
             {

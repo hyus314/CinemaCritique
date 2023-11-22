@@ -17,7 +17,7 @@ namespace CinemaCritique.Core.Services
             var user = await this.data.Users.FindAsync(userId) ?? throw new InvalidOperationException("User is invalid");
 
 
-            var userFullName = $"{user.FirstName} ${user.LastName}";
+            var userFullName = $"{user.FirstName} {user.LastName}";
 
             var watchlistItemsCount = this.data.WatchListItems
                 .Where(x => x.UserId == userId)
@@ -27,9 +27,9 @@ namespace CinemaCritique.Core.Services
                 .Where(x => x.UserId == userId)
                 .Count();
 
-            var averageStarRating = this.data.Reviews
+            var averageStarRating = Math.Round(this.data.Reviews
                 .Where(x => x.UserId == userId)
-                .Average(x => x.Rating);
+                .Average(x => x.Rating), 1);
 
             var profilePicture = user.ProfilePicture == null ? string.Empty : Convert.ToBase64String(user.ProfilePicture);
 
@@ -54,7 +54,7 @@ namespace CinemaCritique.Core.Services
                 AverageStarRating = averageStarRating,
                 FullName = userFullName,
                 UserName = user.UserName,
-                JoinedDate = user.JoinedDate.ToString("dddd, dd MMMM yyyy"),
+                JoinedDate = user.JoinedDate.ToString("dd MMMM yyyy"),
                 ProfilePictureBase64 = profilePicture
             };
 

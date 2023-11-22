@@ -1,4 +1,4 @@
-﻿
+﻿@model ProfileViewModel;
 
 <link rel="stylesheet" href="~/css/account/myProfile.css" asp-append-version="true" />
 <link rel="stylesheet" href="~/css/account/user-info.css" asp-append-version="true" />
@@ -18,11 +18,11 @@
 <div class="upper-line">
     <div class="critique-stats-container">
         <div class="critique-stats">
-            <p>Your Favourite Genre:  <span>Comedy</span></p>
-            <p>Critique points: <span>3169</span></p>
-            <p>Watchlist Items: <span>4</span></p>
-            <p>Numbers of Reviews: <span>7</span></p>
-            <p>Average star rating: <span>6.9/10</span></p>
+            <p>Your Favourite Genre:  <span>@Model.FavouriteGenre</span></p>
+            <p>Critique points: <span>@Model.CritiquePoints</span></p>
+            <p>Watchlist Items: <span>@Model.WatchlistItemsCount</span></p>
+            <p>Numbers of Reviews: <span>@Model.NumberOfReviews</span></p>
+            <p>Average star rating: <span>@Model.AverageStarRating/10</span></p>
         </div>
         <div class="buttons-container">
             <button class="info-button"><i class="fa-solid fa-circle-info"></i></button>
@@ -34,9 +34,9 @@
             <img src="https://play-lh.googleusercontent.com/byNtIb6-JTw9J6SX_Sm2kzsqz8glHcmKaAWu9CTW7iM6fsz5Ufc-zX-0L0eDXa17207Q" alt="John Smith's Profile Picture">
         </div>
         <div class="user-credentials">
-            <p>Full Name: <span>John Smith </span></p>
-            <p>Username: <span>jsmith123</span></p>
-            <p>Joined Date: <span>17.10.2023</span></p>
+            <p>Full Name: <span>@Model.FullName</span></p>
+            <p>Username: <span>@Model.UserName</span></p>
+            <p>Joined Date: <span>@Model.JoinedDate</span></p>
         </div>
     </div>
     <div class="watchlist-container">
