@@ -77,8 +77,10 @@ function getPagesAfterDelete() {
         url: '/Review/GetTotalPages',
         type: 'GET',
         data: { movieId: movieId },
-        success: function (response) {
+        success: async function (response) {
             createPagination(response);
+            var selectedPage = document.querySelector('.pagination-pages .selected');
+            await updatePaginationButtons(selectedPage);
         },
         error: function (error) {
             console.error("Error fetching total pages:", error);
@@ -104,5 +106,24 @@ function createPagination(totalPages) {
             pageButton = $('<button class="page-number">' + i + '</button>');
         }
         paginationContainer.append(pageButton);
+    }
+}
+
+async function updatePaginationButtons(selectedPage) {
+    var previousButton = document.getElementById('previousPage');
+    var nextButton = document.getElementById('nextPage');
+    var previousPage = selectedPage ? selectedPage.previousElementSibling : null;
+    var nextPage = selectedPage ? selectedPage.nextElementSibling : null;
+
+    if (!previousPage) {
+        previousButton.classList.add('hidden');
+    } else {
+        previousButton.classList.remove('hidden');
+    }
+
+    if (!nextPage || nextPage.classList.contains('disabled')) {
+        nextButton.classList.add('hidden');
+    } else {
+        nextButton.classList.remove('hidden');
     }
 }

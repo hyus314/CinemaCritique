@@ -65,6 +65,7 @@ $(document).ready(async function () {
             var reviewText = $("#review-text").val();
             var movieId = $("#movie-id").data("value");
             var ratingValue = $('.star.selected').last().data('value') || 0;
+            
 
             $("#submit-review").prop("disabled", true);
 
@@ -91,7 +92,7 @@ $(document).ready(async function () {
                 $("#review-text").val('');
                 updateCharacterCount();
                 $(".star").removeClass('selected');
-                getPagesAfterAdd();
+                 getPagesAfterAdd();
             } else {
                 messageBox.text(response.message).removeClass('success').addClass('error').fadeIn();
             }
@@ -121,6 +122,7 @@ $(document).ready(async function () {
             $("#submit-review").prop("disabled", false);
         }
         await fetchUpdatedReviews(movieId);
+        
     });
 });
 
@@ -151,13 +153,15 @@ async function fetchUpdatedReviews(movieId) {
     });
 }
 
-function getPagesAfterAdd() {
+ function getPagesAfterAdd() {
     $.ajax({
         url: '/Review/GetTotalPages',
         type: 'GET',
         data: { movieId: movieId },
-        success: function (response) {
-            createPagination(response);
+        success: async function (response) {
+            await createPagination(response);
+            var selectedPage = document.querySelector('.pagination-pages .selected');
+            await updatePaginationButtons(selectedPage);
         },
         error: function (error) {
             console.error("Error fetching total pages:", error);
@@ -165,7 +169,7 @@ function getPagesAfterAdd() {
     });
 }
 
-function createPagination(totalPages) {
+async function createPagination(totalPages) {
 
     paginationContainer.empty();
 
@@ -180,4 +184,23 @@ function createPagination(totalPages) {
         paginationContainer.append(pageButton);
     }
 
+}
+
+async function updatePaginationButtons(selectedPage) {
+    var previousButton = document.getElementById('previousPage');
+    var nextButton = document.getElementById('nextPage');
+    var previousPage = selectedPage ? selectedPage.previousElementSibling : null;
+    var nextPage = selectedPage ? selectedPage.nextElementSibling : null;
+
+    if (!previousPage) {
+        previousButton.classList.add('hidden');
+    } else {
+        previousButton.classList.remove('hidden');
+    }
+
+    if (!nextPage || nextPage.classList.contains('disabled')) {
+        nextButton.classList.add('hidden');
+    } else {
+        nextButton.classList.remove('hidden');
+    }
 }

@@ -5,7 +5,6 @@ var movieId = $('#hiddenMovieId').val();
 document.addEventListener('DOMContentLoaded', function () {
     var previousButton = document.getElementById('previousPage');
     var nextButton = document.getElementById('nextPage');
-    var reviewsCount = parseInt(document.getElementById('reviewsCountOfPage').value);
     var paginationContainer = $('.pagination-container');
 
     function updatePaginationButtons(selectedPage) {
