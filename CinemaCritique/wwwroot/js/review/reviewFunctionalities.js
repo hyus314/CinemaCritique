@@ -6,10 +6,9 @@ document.addEventListener('DOMContentLoaded', function () {
     var previousButton = document.getElementById('previousPage');
     var nextButton = document.getElementById('nextPage');
     var reviewsCount = parseInt(document.getElementById('reviewsCountOfPage').value);
+    var paginationContainer = $('.pagination-container');
 
-   
-    function updatePaginationButtons() {
-        var selectedPage = document.querySelector('.pagination-pages .selected');
+    function updatePaginationButtons(selectedPage) {
         var previousPage = selectedPage ? selectedPage.previousElementSibling : null;
         var nextPage = selectedPage ? selectedPage.nextElementSibling : null;
 
@@ -26,6 +25,15 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    function handlePaginationClick(pageNumber) {
+        var selectedPage = $(`.page-number:contains('${pageNumber}')`)[0];
+        $('.page-number').removeClass('selected');
+        $(selectedPage).addClass('selected');
+
+        fetchUpdatedReviewsPagination(movieId, pageNumber);
+        updatePaginationButtons(selectedPage);
+    }
+
     previousButton.addEventListener('click', function () {
         var selectedPage = document.querySelector('.pagination-pages .selected');
         var previousPage = selectedPage.previousElementSibling;
@@ -35,9 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
             previousPage.classList.add('selected');
 
             var currentPage = previousPage.textContent;
-
-            fetchUpdatedReviewsPagination(movieId, currentPage);
-            updatePaginationButtons();
+            handlePaginationClick(currentPage);
         }
     });
 
@@ -50,16 +56,18 @@ document.addEventListener('DOMContentLoaded', function () {
             nextPage.classList.add('selected');
 
             var currentPage = nextPage.textContent;
-
-            fetchUpdatedReviewsPagination(movieId, currentPage);
-            updatePaginationButtons();
+            handlePaginationClick(currentPage);
         }
     });
 
-    // Initial button visibility check
-    updatePaginationButtons();
-});
+    paginationContainer.on('click', '.page-number', function () {
+        var pageNumber = $(this).text();
+        handlePaginationClick(pageNumber);
+    });
 
+    // Initial button visibility check
+    updatePaginationButtons(document.querySelector('.pagination-pages .selected'));
+});
 
 
 $.ajax({
@@ -91,13 +99,6 @@ function createPagination(totalPages) {
     }
 
 }
-paginationContainer.on('click', '.page-number', function () {
-    $('.page-number').removeClass('selected');
-    $(this).addClass('selected');
-
-    let pageNumber = $(this).text();
-    fetchUpdatedReviewsPagination(movieId, pageNumber);
-});
 
 function fetchUpdatedReviewsPagination(movieId, currentPage) {
     $.ajax({
