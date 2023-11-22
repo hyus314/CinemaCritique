@@ -12,5 +12,9 @@
         public ICollection<Review> Reviews { get; set; } = null!;
         public ICollection<WatchListItem> WatchLists { get; set; } = null!;
         public DateTime JoinedDate { get; set; }
+        public ushort CritiquePoints { get; set; } = 0;
+        [MaxLength(30)]
+        public string FavouriteGenre { get; set; } = "";
+        public byte[]? ProfilePicture { get; set; }
     }
 }
