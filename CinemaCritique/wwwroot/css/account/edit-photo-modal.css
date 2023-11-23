@@ -1,0 +1,47 @@
+﻿body {
+}
+.modal-header {
+    background-color: lightgray;
+    color: black;
+    border-bottom: none;
+}
+
+.modal-title {
+    font-weight: bold;
+}
+
+.close {
+    color: black;
+    font-size: 24px;
+    padding-inline: 0.5em;
+    border-radius: 1em;
+    border: 1px solid black;
+}
+
+.close:hover{
+    background-color: indianred;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+#pictureUploadInput {
+    width:100%;
+    margin-bottom: 20px;
+}
+
+.btn-primary {
+    background-color: lightblue;
+    color: black;
+}
+
+
+.btn-secondary {
+    background-color: #e74c3c;
+    border-color: #c0392b;
+}
+
+    .btn-primary:hover, .btn-secondary:hover {
+        opacity: 0.9;
+    }

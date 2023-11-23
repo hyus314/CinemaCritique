@@ -12,6 +12,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <_ContentIncludedByDefault Remove="wwwroot\css\account\edit-photo-modal.css" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="wwwroot\favicon.png" />
   </ItemGroup>
 

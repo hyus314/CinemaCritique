@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="~/css/account/user-info.css" asp-append-version="true" />
 <link rel="stylesheet" href="~/css/account/user-stats.css" asp-append-version="true" />
 <link rel="stylesheet" href="~/css/account/watchlist-container.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/account/edit-photo-modal.css" asp-append-version="true" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 @{
@@ -31,7 +32,9 @@
     </div>
     <div class="user-info">
         <div class="image-edit-btn-container">
-            <button class="edit-photo-button"><i class="fa-solid fa-pencil"></i></button>
+            <button class="edit-photo-button" data-toggle="modal" data-target="#editPhotoModal">
+                <i class="fa-solid fa-pencil"></i>
+            </button>
             <div class="image-container">
                 <img src="https://play-lh.googleusercontent.com/byNtIb6-JTw9J6SX_Sm2kzsqz8glHcmKaAWu9CTW7iM6fsz5Ufc-zX-0L0eDXa17207Q" alt="John Smith's Profile Picture">
             </div>
@@ -72,6 +75,26 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                 <button id="confirmLogout" type="button" class="btn btn-primary">Logout</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="editPhotoModal" tabindex="-1" role="dialog" aria-labelledby="editPhotoModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editPhotoModalLabel">Edit Photo</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <input type="file" id="pictureUploadInput" accept="image/*">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Save</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>

@@ -31,7 +31,7 @@ p, h1, h2, h3 {
 
 .upper-line {
     border: 2px solid #FFDAB9;
-    margin: 1em;
+    margin: 1em auto 3em auto;
     border-radius: 1em;
     display: flex;
     flex-direction: row;
