@@ -12,7 +12,7 @@
 
             public const string FailedReviewIsInvalid =
                 "The review is not in a valid format!";
-            
+
             public const string FailedUserIdDoesNotExist =
                 "The user trying to submit this review does not exist!";
 
@@ -82,5 +82,23 @@
                 "Unable to remove from your watchlist. Try again.";
         }
 
+        public static class Account
+        {
+            public const string SuccessfullyChangedProfilePicture =
+                "Changed your profile picture successfully.";
+
+            public const string FailedProfileNotFound =
+                "This profile does not exist.";
+
+            public const string FailedUnauthorized =
+                "This profile does not belong to you.";
+
+            public const string FailedFormFileIsNull =
+                "Please choose a picture to add to your profile.";
+
+            public const string FailedWentWrong =
+                "Upload failed. Try again.";
+        }
     }
 }
+

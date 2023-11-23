@@ -15,6 +15,9 @@
 
 <input id="__RequestVerificationReviewTokenEditProfilePicture" type="hidden" value="@requestEditProfilePictureToken" />
 
+<input type="hidden" id="userIdField" value="@Model.UserId" />
+
+
 <div class="button-line">
     <form id="logoutForm" method="post" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
         <button id="logoutButton" type="button" class="nav-link" style="border: none; text-align: left">Logout</button>
@@ -43,7 +46,7 @@
                 <i class="fa-solid fa-pencil"></i>
             </button>
             <div class="image-container">
-                <img src="https://play-lh.googleusercontent.com/byNtIb6-JTw9J6SX_Sm2kzsqz8glHcmKaAWu9CTW7iM6fsz5Ufc-zX-0L0eDXa17207Q" alt="John Smith's Profile Picture">
+                <img src="data:image/jpeg;base64,@Model.ProfilePictureBase64" alt="John Smith's Profile Picture">
             </div>
         </div>
         <div class="user-credentials">

@@ -1,11 +1,13 @@
-﻿using CinemaCritique.Core.Contracts;
-using CinemaCritique.Data;
-using CinemaCritique.ViewModels.Account;
-using Microsoft.AspNetCore.Http;
-using Microsoft.EntityFrameworkCore;
-
+﻿
 namespace CinemaCritique.Core.Services
 {
+    using CinemaCritique.Core.Contracts;
+    using CinemaCritique.Data;
+    using CinemaCritique.ViewModels.Account;
+    using Microsoft.AspNetCore.Http;
+    using Microsoft.EntityFrameworkCore;
+
+    using static CinemaCritique.Common.ResultMessages.Account;
     public class AccountService : IAccountService
     {
         private readonly CritiqueDbContext data;
@@ -56,15 +58,52 @@ namespace CinemaCritique.Core.Services
                 FullName = userFullName,
                 UserName = user.UserName,
                 JoinedDate = user.JoinedDate.ToString("dd MMMM yyyy"),
-                ProfilePictureBase64 = profilePicture
+                ProfilePictureBase64 = profilePicture,
+                UserId = userId,
             };
 
             return viewModel;
         }
 
-        public Task<string> UpdateProfilePictureAsync(IFormFile photoData)
+        public async Task<string> UpdateProfilePictureAsync(IFormFile photoData, string profileUserId, string currentUserId)
         {
-            throw new NotImplementedException();
+            var user = await this.data.Users.FindAsync(currentUserId);
+            if (await this.data.Users.FindAsync(profileUserId) == null ||
+                user == null) 
+            {
+                throw new ArgumentNullException(FailedProfileNotFound);
+            }
+
+            if (profileUserId != currentUserId)
+            {
+                throw new InvalidOperationException(FailedUnauthorized);
+            }
+
+            if (photoData == null || photoData.Length == 0)
+            {
+                throw new InvalidOperationException(FailedFormFileIsNull);
+            }
+
+            byte[] photoByteArray = new byte[photoData.Length];
+
+            using (var memoryStream = new MemoryStream())
+            {
+                photoData.CopyTo(memoryStream);
+                photoByteArray = memoryStream.ToArray();
+            }
+
+            user.ProfilePicture = photoByteArray;
+
+            try
+            {
+                await this.data.SaveChangesAsync();
+
+                return SuccessfullyChangedProfilePicture;
+            }
+            catch (Exception)
+            {
+                throw new Exception(FailedWentWrong);
+            }
         }
     }
 }

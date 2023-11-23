@@ -35,9 +35,21 @@
             return View(viewModel);
         }
         [HttpPost]
-        public IActionResult UploadPhoto(IFormFile photoData)
+        public async Task<IActionResult> UploadPhoto(IFormFile photoData, string profileUserId)
         {
-            return Json(new { result = "success" });
+            string currentUserId = this.User.GetId();
+
+            try
+            {
+                var result = await this.service.UpdateProfilePictureAsync(photoData, profileUserId, currentUserId);
+                return Json(new { status = true, result = result});
+            }
+            catch (Exception e)
+            {
+                return Json(new { status = false, error = e.Message });
+            }
+
+            
         }
     }
 }

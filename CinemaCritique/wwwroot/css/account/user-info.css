@@ -20,7 +20,6 @@
     align-self: center;
     width: 55%;
     border-radius: 50%;
-    padding: 0.8em;
     margin-block: 1em 0.5em;
     background-color: #FF8C00;
     border: 2px solid #FFDAB9;
@@ -31,7 +30,7 @@
         display: block;
         width: 100%;
         height: auto;
-        object-fit: contain;
+        object-fit:cover;
     }
 
 .user-credentials {
