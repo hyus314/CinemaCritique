@@ -18,7 +18,7 @@
     align-items: center;
     overflow: hidden;
     align-self: center;
-    width: 18em;
+    width: 55%;
     border-radius: 50%;
     padding: 0.8em;
     margin-block: 1em 0.5em;
@@ -65,3 +65,36 @@
             border-bottom-left-radius: 0.2em;
         }
 
+
+.image-edit-btn-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+}
+
+.edit-photo-button {
+    position: absolute;
+    top: 15%;
+    right: 28%;
+    z-index: 1;
+    border-radius: 50%;
+    padding: 0.2em 0.5em;
+    background-color: #fff;
+    border: 2px solid pink;
+    color: black;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s, transform 0.3s;
+}
+
+    .edit-photo-button:hover {
+        background-color: #F89880;
+        border-color: #ff6f52;
+        transform: scale(1.1);
+    }
+
+
+    .edit-photo-button i {
+        text-align: center;
+    }
