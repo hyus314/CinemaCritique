@@ -5,6 +5,10 @@
     using Microsoft.AspNetCore.Mvc;
     using CinemaCritique.Core.Contracts;
     using CinemaCritique.Extensions;
+    using Microsoft.AspNetCore.Authorization;
+
+    [Authorize]
+    [AutoValidateAntiforgeryToken]
     public class AccountController : Controller
     {
         private readonly IAccountService service;
@@ -29,6 +33,11 @@
             var userId = this.User.GetId();
             var viewModel = await this.service.GetProfileViewModelAsync(userId);
             return View(viewModel);
+        }
+        [HttpPost]
+        public IActionResult UploadPhoto(IFormFile photoData)
+        {
+            return Json(new { result = "success" });
         }
     }
 }

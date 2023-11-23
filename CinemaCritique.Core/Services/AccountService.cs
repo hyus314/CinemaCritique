@@ -1,6 +1,7 @@
 ﻿using CinemaCritique.Core.Contracts;
 using CinemaCritique.Data;
 using CinemaCritique.ViewModels.Account;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 
 namespace CinemaCritique.Core.Services
@@ -59,6 +60,11 @@ namespace CinemaCritique.Core.Services
             };
 
             return viewModel;
+        }
+
+        public Task<string> UpdateProfilePictureAsync(IFormFile photoData)
+        {
+            throw new NotImplementedException();
         }
     }
 }

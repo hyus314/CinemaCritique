@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.17" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\CinemaCritique.Common\CinemaCritique.Common.csproj" />
     <ProjectReference Include="..\CinemaCritique.Data\CinemaCritique.Data.csproj" />
     <ProjectReference Include="..\CinemaCritique.Security\CinemaCritique.Security.csproj" />

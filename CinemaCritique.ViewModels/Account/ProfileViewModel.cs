@@ -10,7 +10,6 @@
         public string FullName { get; set; } = null!;
         public string UserName { get; set; } = null!;
         public string JoinedDate { get; set; } = null!;
-
         public string? ProfilePictureBase64 { get; set; }
     }
 }
