@@ -1,72 +1,84 @@
 ﻿
 
-var movieId = $('#hiddenMovieId').val();
+let movieId = $('#hiddenMovieId').val();
 
-document.addEventListener('DOMContentLoaded', function () {
-    var previousButton = document.getElementById('previousPage');
-    var nextButton = document.getElementById('nextPage');
-    var paginationContainer = $('.pagination-container');
+$(document).ready(function () {
+    setTimeout(function () {
+        console.log('2 seconds have passed.');
+        let previousButton = $('#previousPage');
+        let nextButton = $('#nextPage');
+        let paginationContainer = $('.pagination-container');
 
-    function updatePaginationButtons(selectedPage) {
-        var previousPage = selectedPage ? selectedPage.previousElementSibling : null;
-        var nextPage = selectedPage ? selectedPage.nextElementSibling : null;
+        console.log('the javascript loaded first');
 
-        if (!previousPage) {
-            previousButton.classList.add('hidden');
-        } else {
-            previousButton.classList.remove('hidden');
+        previousButton.off();
+        nextButton.off();
+        paginationContainer.off();
+
+        function updatePaginationButtons(selectedPage) {
+            let previousPage = selectedPage ? selectedPage.prev() : null;
+            let nextPage = selectedPage ? selectedPage.next() : null;
+
+            if (!previousPage.length) {
+                previousButton.addClass('hidden');
+            } else {
+                previousButton.removeClass('hidden');
+            }
+
+            if (!nextPage || !nextPage.length || nextPage.hasClass('disabled')) {
+                nextButton.addClass('hidden');
+            } else {
+                nextButton.removeClass('hidden');
+            }
+        }
+        function handlePaginationClick(pageNumber) {
+            let selectedPage = $(`.page-number:contains('${pageNumber}')`);
+            $('.page-number').removeClass('selected');
+            selectedPage.addClass('selected');
+
+            fetchUpdatedReviewsPagination(movieId, pageNumber);
+            updatePaginationButtons(selectedPage);
         }
 
-        if (!nextPage || nextPage.classList.contains('disabled')) {
-            nextButton.classList.add('hidden');
-        } else {
-            nextButton.classList.remove('hidden');
-        }
-    }
+        previousButton.on('click', function () {
+            let selectedPage = $('.pagination-pages .selected');
+            let previousPage = selectedPage.prev();
 
-    function handlePaginationClick(pageNumber) {
-        var selectedPage = $(`.page-number:contains('${pageNumber}')`)[0];
-        $('.page-number').removeClass('selected');
-        $(selectedPage).addClass('selected');
+            if (previousPage.length) {
+                selectedPage.removeClass('selected');
+                previousPage.addClass('selected');
 
-        fetchUpdatedReviewsPagination(movieId, pageNumber);
-        updatePaginationButtons(selectedPage);
-    }
+                let currentPage = previousPage.text();
+                handlePaginationClick(currentPage);
+            }
+        });
 
-    previousButton.addEventListener('click', function () {
-        var selectedPage = document.querySelector('.pagination-pages .selected');
-        var previousPage = selectedPage.previousElementSibling;
+        nextButton.on('click', function () {
+            let selectedPage = $('.pagination-pages .selected');
+            let nextPage = selectedPage.next();
 
-        if (previousPage) {
-            selectedPage.classList.remove('selected');
-            previousPage.classList.add('selected');
+            if (nextPage.length) {
+                selectedPage.removeClass('selected');
+                nextPage.addClass('selected');
 
-            var currentPage = previousPage.textContent;
-            handlePaginationClick(currentPage);
-        }
-    });
+                let currentPage = nextPage.text();
+                handlePaginationClick(currentPage);
+            }
+        });
 
-    nextButton.addEventListener('click', function () {
-        var selectedPage = document.querySelector('.pagination-pages .selected');
-        var nextPage = selectedPage.nextElementSibling;
+        paginationContainer.on('click', '.page-number', function () {
+            let pageNumber = $(this).text();
+            handlePaginationClick(pageNumber);
+        });
 
-        if (nextPage) {
-            selectedPage.classList.remove('selected');
-            nextPage.classList.add('selected');
+        // Initial button visibility check
+        updatePaginationButtons($('.pagination-pages .selected'));
+        // Place your subsequent code here...
+    }, 2000);
 
-            var currentPage = nextPage.textContent;
-            handlePaginationClick(currentPage);
-        }
-    });
 
-    paginationContainer.on('click', '.page-number', function () {
-        var pageNumber = $(this).text();
-        handlePaginationClick(pageNumber);
-    });
-
-    // Initial button visibility check
-    updatePaginationButtons(document.querySelector('.pagination-pages .selected'));
 });
+
 
 
 $.ajax({
@@ -86,7 +98,7 @@ function createPagination(totalPages) {
 
     paginationContainer.empty();
 
-    for (var i = 1; i <= totalPages; i++) {
+    for (let i = 1; i <= totalPages; i++) {
         let pageButton;
         if (i == 1) {
             pageButton = $('<button class="page-number selected">' + i + '</button>');
