@@ -1,8 +1,8 @@
-﻿var reviewText = '';
-var reviewIdforEdit = '';
-var movieIdForEdit = '';
+﻿
+let reviewIdforEdit = '';
+let movieIdForEdit = '';
 function showEditModal(movieId, reviewId) {
-    var modal = document.getElementById('editModal');
+    let modal = document.getElementById('editModal');
     modal.style.display = 'block';
 
     reviewIdforEdit = reviewId;
@@ -19,9 +19,9 @@ function showEditModal(movieId, reviewId) {
             $("#selectedStarValue").val(response.reviewRating);
 
             // Apply star ratings
-            var ratingValue = response.reviewRating;
+            let ratingValue = response.reviewRating;
             $(".edit-star").each(function () {
-                var $star = $(this);
+                let $star = $(this);
                 $star.removeClass('selected');
                 if ($star.data('value') <= ratingValue) {
                     $star.addClass('selected');
@@ -37,11 +37,11 @@ function showEditModal(movieId, reviewId) {
 
 $(document).ready(function () {
     $("#submitEdit").on('click', function () {
-        var reviewText = $("#editReviewContent").val();
-        var ratingValue = getLastSelectedStarValue();
-        var reviewId = reviewIdforEdit;
+        let reviewText = $("#editReviewContent").val();
+        let ratingValue = getLastSelectedStarValue();
+        let reviewId = reviewIdforEdit;
 
-        var reviewData = {
+        let reviewData = {
             reviewId: reviewId,
             reviewText: reviewText,
             reviewRating: ratingValue
@@ -57,9 +57,9 @@ $(document).ready(function () {
             data: JSON.stringify(reviewData),
             success: function (response) {
                 if (response.success == true) {
-                    var successMessage = response.message;
-                    var successBox = document.getElementById('success-message-box');
-                    var successBoxText = document.getElementById('success-message-text');
+                    let successMessage = response.message;
+                    let successBox = document.getElementById('success-message-box');
+                    let successBoxText = document.getElementById('success-message-text');
 
                     successBoxText.textContent = successMessage;
                     successBox.style.display = 'flex';
@@ -68,14 +68,14 @@ $(document).ready(function () {
                         successBox.style.display = 'none';
                     }, 3000);
                     let currentPageNumberSelected = $('.page-number.selected').text();
-                    var modal = document.getElementById('editModal');
+                    let modal = document.getElementById('editModal');
                     modal.style.display = 'none';
                     fetchUpdatedReviews(movieIdForEdit, currentPageNumberSelected);
                 }
                 else {
-                    var errorMessage = response.message;
-                    var errorMessageBox = document.getElementById('error-message-box');
-                    var errorMessageText = document.getElementById('error-message-text');
+                    let errorMessage = response.message;
+                    let errorMessageBox = document.getElementById('error-message-box');
+                    let errorMessageText = document.getElementById('error-message-text');
 
                     errorMessageText.textContent = errorMessage;
                     errorMessageBox.style.display = 'flex';
@@ -104,16 +104,16 @@ function fetchUpdatedReviews(movieId, pageNumber) {
     });
 }
 function getLastSelectedStarValue() {
-    var lastSelectedStar = $(".edit-star.selected").last();
+    let lastSelectedStar = $(".edit-star.selected").last();
     return lastSelectedStar.data('value');
 }
 
 
 $(document).ready(function () {
-    var selectedRating = 0;
+    let selectedRating = 0;
     $('.edit-star').hover(
         function () {
-            var index = $(this).index();
+            let index = $(this).index();
             $('.edit-star').each(function (i) {
                 if (i <= index) {
                     $(this).addClass('hover');
@@ -126,7 +126,7 @@ $(document).ready(function () {
     );
 
     $('.edit-star').on('click', function () {
-        var index = $(this).index();
+        let index = $(this).index();
         selectedRating = index + 1;
         updateStars(selectedRating);
     });
@@ -144,9 +144,9 @@ $(document).ready(function () {
 
 $(document).ready(function () {
     $(".edit-star").on('click', function () {
-        var value = $(this).data('value');
+        let value = $(this).data('value');
         $(".edit-star").each(function () {
-            var $star = $(this);
+            let $star = $(this);
             $star.removeClass('selected');
             if ($star.data('value') <= value) {
                 $star.addClass('selected');

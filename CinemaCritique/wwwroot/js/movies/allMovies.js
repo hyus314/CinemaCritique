@@ -1,7 +1,7 @@
-﻿var page = 1; 
-var isLoading = false; 
-var allMoviesLoaded = false;
-var currentSearchTerm = '';
+﻿let page = 1; 
+let isLoading = false; 
+let allMoviesLoaded = false;
+let currentSearchTerm = '';
 $('#dateDropdown, #genreDropdown, #ratingDropdown').change(function () {
     clearMovies();
     page = 1;
@@ -26,12 +26,12 @@ function loadMoreMovies() {
     if (isLoading) return;
     isLoading = true;
 
-    var selectedGenre = $('#genreDropdown').val();
-    var selectedRatingFilter = $('#ratingDropdown').val();
-    var selectedDateFilter = $('#dateDropdown').val();
+    let selectedGenre = $('#genreDropdown').val();
+    let selectedRatingFilter = $('#ratingDropdown').val();
+    let selectedDateFilter = $('#dateDropdown').val();
 
 
-    var filters = {
+    let filters = {
         genre: selectedGenre,
         rating: selectedRatingFilter,
         date: selectedDateFilter,
@@ -39,7 +39,7 @@ function loadMoreMovies() {
     }
 
     $.get('/Movie/MoviesForAllPage', { page: page, filters: filters }, function (data) {
-        var movieList = $('<ul class="home-page-movies"></ul>');
+        let movieList = $('<ul class="home-page-movies"></ul>');
 
         if (data.length == 0) {
             allMoviesLoaded = true;
@@ -48,7 +48,7 @@ function loadMoreMovies() {
         }
 
         data.forEach(movie => {
-            var movieItem = `
+            let movieItem = `
             <li class="movie-element">
                 <a href="/Movie/SelectedMovie/${movie.id}" class="movie-link">
                     <img src="${movie.coverPhotoURL}" alt="${movie.title}" class="movie-cover">

@@ -2,7 +2,7 @@
 $(document).ready(function () {
 
     $('#addToWatchlist').click(function () {
-        var movieId = $("#hiddenMovieId").val();
+        let movieId = $("#hiddenMovieId").val();
 
         $.ajax({
             url: '/Watchlist/AddToWatchlist',
@@ -16,14 +16,14 @@ $(document).ready(function () {
             },
             error: function (xhr, textStatus, errorThrown) {
                 if (xhr.status == 401) { // Check if status code is 401 Unauthorized
-                    var currentPath = window.location.pathname;
-                    var currentQueryString = window.location.search;
+                    let currentPath = window.location.pathname;
+                    let currentQueryString = window.location.search;
 
                     // Check if currentQueryString exists or not
-                    var separator = currentQueryString ? "&" : "?";
-                    var returnUrl = currentPath + currentQueryString + separator + "fromAddWatchlist=true";
+                    let separator = currentQueryString ? "&" : "?";
+                    let returnUrl = currentPath + currentQueryString + separator + "fromAddWatchlist=true";
 
-                    var returnPath = "/Identity/Account/Login?fromAddWatchlist=true&returnUrl=" + encodeURIComponent(returnUrl);
+                    let returnPath = "/Identity/Account/Login?fromAddWatchlist=true&returnUrl=" + encodeURIComponent(returnUrl);
                     window.location.href = returnPath;
                 } else {
                     console.error("Error adding to watchlist:", errorThrown);
@@ -39,7 +39,7 @@ $(document).ready(function () {
 });
 
 function updateWatchlistButtonState() {
-    var movieId = $("#hiddenMovieId").val();
+    let movieId = $("#hiddenMovieId").val();
 
     $.ajax({
         url: '/Watchlist/IsMovieInWatchlist',
@@ -71,7 +71,7 @@ function updateWatchlistButtonState() {
 $(document).ready(function () {
 
     $('#removeFromWatchlist').click(function () {
-        var movieId = $("#hiddenMovieId").val();
+        let movieId = $("#hiddenMovieId").val();
 
         $.ajax({
             url: '/Watchlist/RemoveFromWatchlist',
@@ -85,14 +85,14 @@ $(document).ready(function () {
             },
             error: function (xhr, textStatus, errorThrown) {
                 if (xhr.status == 401) { // Check if status code is 401 Unauthorized
-                    var currentPath = window.location.pathname;
-                    var currentQueryString = window.location.search;
+                    let currentPath = window.location.pathname;
+                    let currentQueryString = window.location.search;
 
                     // Check if currentQueryString exists or not
-                    var separator = currentQueryString ? "&" : "?";
-                    var returnUrl = currentPath + currentQueryString + separator + "fromAddWatchlist=true";
+                    let separator = currentQueryString ? "&" : "?";
+                    let returnUrl = currentPath + currentQueryString + separator + "fromAddWatchlist=true";
 
-                    var returnPath = "/Identity/Account/Login?fromAddWatchlist=true&returnUrl=" + encodeURIComponent(returnUrl);
+                    let returnPath = "/Identity/Account/Login?fromAddWatchlist=true&returnUrl=" + encodeURIComponent(returnUrl);
                     window.location.href = returnPath;
                 } else {
                     alert('Unexpected error occured, try again.');

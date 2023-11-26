@@ -29,9 +29,9 @@ function showDeleteModal(movieId, reviewId) {
                         }
 
                         fetchUpdatedReviews(movieId, currentPageNumberSelectedValue);
-                        var successMessage = response.message;
-                        var successBox = document.getElementById('success-message-box');
-                        var successBoxText = document.getElementById('success-message-text');
+                        let successMessage = response.message;
+                        let successBox = document.getElementById('success-message-box');
+                        let successBoxText = document.getElementById('success-message-text');
                         getPagesAfterDelete();
                         successBoxText.textContent = 'Review deleted successfully!';
                         successBox.style.display = 'flex';
@@ -79,7 +79,7 @@ function getPagesAfterDelete() {
         data: { movieId: movieId },
         success: async function (response) {
             createPagination(response);
-            var selectedPage = document.querySelector('.pagination-pages .selected');
+            let selectedPage = document.querySelector('.pagination-pages .selected');
             await updatePaginationButtons(selectedPage);
         },
         error: function (error) {
@@ -89,16 +89,16 @@ function getPagesAfterDelete() {
 }
 
 function createPagination(totalPages) {
-    var currentPageNumberSelected = document.querySelector('.page-number.selected');
+    let currentPageNumberSelected = document.querySelector('.page-number.selected');
 
-    var selectedPageNumber = null;
+    let selectedPageNumber = null;
     if (currentPageNumberSelected) {
         selectedPageNumber = currentPageNumberSelected.textContent;
     }
 
     paginationContainer.empty();
 
-    for (var i = 1; i <= totalPages; i++) {
+    for (let i = 1; i <= totalPages; i++) {
         let pageButton;
         if (i == selectedPageNumber) { 
             pageButton = $('<button class="page-number selected">' + i + '</button>');
@@ -110,10 +110,10 @@ function createPagination(totalPages) {
 }
 
 async function updatePaginationButtons(selectedPage) {
-    var previousButton = document.getElementById('previousPage');
-    var nextButton = document.getElementById('nextPage');
-    var previousPage = selectedPage ? selectedPage.previousElementSibling : null;
-    var nextPage = selectedPage ? selectedPage.nextElementSibling : null;
+    let previousButton = document.getElementById('previousPage');
+    let nextButton = document.getElementById('nextPage');
+    let previousPage = selectedPage ? selectedPage.previousElementSibling : null;
+    let nextPage = selectedPage ? selectedPage.nextElementSibling : null;
 
     if (!previousPage) {
         previousButton.classList.add('hidden');
