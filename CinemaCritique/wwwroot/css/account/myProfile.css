@@ -11,6 +11,9 @@ p, h1, h2, h3 {
 }
 
 .button-line{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     margin: 3em;
 }
 
@@ -21,6 +24,9 @@ p, h1, h2, h3 {
     border-radius: 0.5em;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
     #logoutButton:hover {
