@@ -16,7 +16,7 @@ static void Main(string[] args)
 
 # CinemaCritique
 
-This platform is a haven for cinema fans to share their expertise and insights on influential films in the cinema industry.
+This platform is the perfect place for cinema fans to share their expertise and insights on influential films in the cinema industry.
 
 
 ## Overview:
