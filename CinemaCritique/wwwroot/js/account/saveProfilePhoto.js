@@ -1,5 +1,10 @@
 ﻿$(document).ready(function () {
     $('#saveButton').on('click', function () {
+        let maxSizeInBytes = 10 * 1024 * 1024;
+        if (photoData.size > maxSizeInBytes) {
+            console.log('The image size is too big');
+            return;
+        }
         let photoData = $('#pictureUploadInput')[0].files[0];
         let userId = $('#userIdField').val();
         if (photoData) {
