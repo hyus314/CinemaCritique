@@ -1,18 +1,3 @@
-## The Project is under active development!
-
-```c#
-static void Main(string[] args)
-{
-    Project project = new Project();
-
-    while (project.IsFinished == false)
-    {
-        project.Develop();
-    }
-
-    Console.WriteLine("Project is Finished!");
-}
-```
 
 # CinemaCritique
 
