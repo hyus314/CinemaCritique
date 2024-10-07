@@ -257,7 +257,7 @@
                 GenreId = 6,
                 YearPublished = 1982,
                 Description = "In a dystopian future, a blade runner named Deckard is tasked with hunting down rogue replicants.",
-                CoverPhotoURL = "https://deepfocusreview.com/wp-content/uploads/2016/12/blade_runner.jpg",
+                CoverPhotoURL = "img/movie_images/movie_covers/blade_runner.jpg",
                 DateAdded = DateTime.Now.AddDays(-2),
                 ScenePhotoUrl = "https://cinemontage.org/wp-content/uploads/2017/02/BladeRunner_Feature-678x381.jpg",
                 TrailerURL = "https://www.youtube.com/embed/eogpIG53Cis",

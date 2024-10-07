@@ -4,6 +4,7 @@ using CinemaCritique.Data.Models;
 using CinemaCritique.Security;
 using CinemaCritique.ViewModels.Movie;
 using Microsoft.EntityFrameworkCore;
+using System.IO;
 
 namespace CinemaCritique.Core.Services
 {
@@ -234,12 +235,31 @@ namespace CinemaCritique.Core.Services
                 HasReviews = hasReviews
             };
 
-            if (!model.IsValid())
+            if (!IsMovieValid(model))
             {
                 throw new InvalidOperationException("This movie has an invalid state!");
             }
 
             return model;
+        }
+        
+        
+        private bool IsMovieValid(SelectedMovieViewModel model)
+        {
+            if (string.IsNullOrWhiteSpace(model.Title)) return false;
+            if (string.IsNullOrWhiteSpace(model.Director)) return false;
+            if (string.IsNullOrWhiteSpace(model.Description)) return false;
+            if (string.IsNullOrWhiteSpace(model.YearPublished)) return false;
+            if (!int.TryParse(model.YearPublished, out int year) || year < 1888 || year > DateTime.Now.Year) return false;
+            if (string.IsNullOrWhiteSpace(model.Genre)) return false;
+            if (string.IsNullOrWhiteSpace(model.MainRoles)) return false;
+
+            if (!string.IsNullOrWhiteSpace(model.TrailerURL) && !Uri.IsWellFormedUriString(model.TrailerURL, UriKind.Absolute)) return false;
+
+            if (!string.IsNullOrWhiteSpace(model.CoverPhotoURL)) return false;
+            if (!string.IsNullOrWhiteSpace(model.ScenePhotoURL)) return false;
+
+            return true;
         }
     }
 }
