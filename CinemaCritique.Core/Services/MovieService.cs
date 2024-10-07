@@ -256,8 +256,8 @@ namespace CinemaCritique.Core.Services
 
             if (!string.IsNullOrWhiteSpace(model.TrailerURL) && !Uri.IsWellFormedUriString(model.TrailerURL, UriKind.Absolute)) return false;
 
-            if (!string.IsNullOrWhiteSpace(model.CoverPhotoURL)) return false;
-            if (!string.IsNullOrWhiteSpace(model.ScenePhotoURL)) return false;
+            if (string.IsNullOrWhiteSpace(model.CoverPhotoURL)) return false;
+            if (string.IsNullOrWhiteSpace(model.ScenePhotoURL)) return false;
 
             return true;
         }
