@@ -18,7 +18,7 @@
                 Description = "A tale of hope and friendship, the film follows Andy Dufresne, a banker falsely convicted of murder, as he befriends fellow inmate Red and seeks solace and eventual freedom through acts of common decency.",
                 CoverPhotoURL = "img/movie_images/movie_covers/the_shawshank_redemption.jpg",
                 DateAdded = DateTime.Now.AddDays(-3),
-                ScenePhotoUrl = "https://flxt.tmsimg.com/assets/p15987_k_h9_ac.jpg",
+                ScenePhotoUrl = "img/movie_images/movie_scenes/the_shawshank_redemption.jpg",
                 TrailerURL = "https://www.youtube.com/embed/PLl99DlL6b4",
                 MainRoles = "Tim Robbins, Morgan Freeman"
             };

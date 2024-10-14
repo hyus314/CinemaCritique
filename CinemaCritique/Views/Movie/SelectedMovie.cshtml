@@ -19,13 +19,15 @@
 
 
 <div class="movie-detail-container">
-    <div class="movie-header" style="background-image: url('@Model.ScenePhotoURL')">
-        <div class="overlay">
+    <div class="movie-header">
+        <div class="movie-header-img-container">
+            <img src="~/@Model.ScenePhotoURL" />
+        </div>
+        <div class="movie-text-overlay">
             <h1>@Model.Title</h1>
-            <h3>@Model.YearPublished</h3>
+            <h2>@Model.YearPublished</h2>
         </div>
     </div>
-
     <div class="movie-content">
         <img src="~/@Model.CoverPhotoURL" alt="@Model.Title" class="cover-photo" />
 
@@ -87,7 +89,7 @@
 
 <div id="reviewsContainer">
 
-    @await Component.InvokeAsync("ReviewsForMovie", new {movieId = Model.Id});
+    @await Component.InvokeAsync("ReviewsForMovie", new { movieId = Model.Id });
 
 </div>
 <div class="pagination-container">

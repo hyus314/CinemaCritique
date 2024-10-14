@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CinemaCritique.Data.Migrations
 {
-    public partial class Update_5MoviePaths_ForTest : Migration
+    public partial class Update_Shawshank_Url_MovieScene2 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,141 +13,141 @@ namespace CinemaCritique.Data.Migrations
                 table: "Movies",
                 keyColumn: "Id",
                 keyValue: 1,
-                columns: new[] { "CoverPhotoURL", "DateAdded" },
-                values: new object[] { "img/movie_images/movie_covers/the_shawshank_redemption.jpg", new DateTime(2024, 10, 4, 12, 50, 18, 759, DateTimeKind.Local).AddTicks(68) });
+                columns: new[] { "DateAdded", "ScenePhotoUrl" },
+                values: new object[] { new DateTime(2024, 10, 11, 12, 59, 11, 538, DateTimeKind.Local).AddTicks(4889), "img/movie_images/movie_scenes/the_shawshank_redemption.jpg" });
 
             migrationBuilder.UpdateData(
                 table: "Movies",
                 keyColumn: "Id",
                 keyValue: 2,
-                columns: new[] { "CoverPhotoURL", "DateAdded" },
-                values: new object[] { "img/movie_images/movie_covers/forrest_gump.jpg", new DateTime(2024, 10, 5, 12, 50, 18, 759, DateTimeKind.Local).AddTicks(109) });
+                column: "DateAdded",
+                value: new DateTime(2024, 10, 12, 12, 59, 11, 538, DateTimeKind.Local).AddTicks(4927));
 
             migrationBuilder.UpdateData(
                 table: "Movies",
                 keyColumn: "Id",
                 keyValue: 3,
-                columns: new[] { "CoverPhotoURL", "DateAdded" },
-                values: new object[] { "img/movie_images/movie_covers/die_hard.jpg", new DateTime(2024, 10, 6, 12, 50, 18, 759, DateTimeKind.Local).AddTicks(112) });
+                column: "DateAdded",
+                value: new DateTime(2024, 10, 13, 12, 59, 11, 538, DateTimeKind.Local).AddTicks(4976));
 
             migrationBuilder.UpdateData(
                 table: "Movies",
                 keyColumn: "Id",
                 keyValue: 4,
-                columns: new[] { "CoverPhotoURL", "DateAdded" },
-                values: new object[] { "img/movie_images/movie_covers/titanic.png", new DateTime(2024, 10, 4, 12, 50, 18, 759, DateTimeKind.Local).AddTicks(116) });
+                column: "DateAdded",
+                value: new DateTime(2024, 10, 11, 12, 59, 11, 538, DateTimeKind.Local).AddTicks(4979));
 
             migrationBuilder.UpdateData(
                 table: "Movies",
                 keyColumn: "Id",
                 keyValue: 5,
-                columns: new[] { "CoverPhotoURL", "DateAdded" },
-                values: new object[] { "img/movie_images/movie_covers/the_exorcist.jpg", new DateTime(2024, 10, 5, 12, 50, 18, 759, DateTimeKind.Local).AddTicks(118) });
+                column: "DateAdded",
+                value: new DateTime(2024, 10, 12, 12, 59, 11, 538, DateTimeKind.Local).AddTicks(4982));
 
             migrationBuilder.UpdateData(
                 table: "Movies",
                 keyColumn: "Id",
                 keyValue: 6,
                 column: "DateAdded",
-                value: new DateTime(2024, 10, 5, 12, 50, 18, 759, DateTimeKind.Local).AddTicks(122));
+                value: new DateTime(2024, 10, 12, 12, 59, 11, 538, DateTimeKind.Local).AddTicks(4987));
 
             migrationBuilder.UpdateData(
                 table: "Movies",
                 keyColumn: "Id",
                 keyValue: 7,
                 column: "DateAdded",
-                value: new DateTime(2024, 10, 5, 12, 50, 18, 759, DateTimeKind.Local).AddTicks(124));
+                value: new DateTime(2024, 10, 12, 12, 59, 11, 538, DateTimeKind.Local).AddTicks(4989));
 
             migrationBuilder.UpdateData(
                 table: "Movies",
                 keyColumn: "Id",
                 keyValue: 8,
                 column: "DateAdded",
-                value: new DateTime(2024, 10, 4, 12, 50, 18, 759, DateTimeKind.Local).AddTicks(127));
+                value: new DateTime(2024, 10, 11, 12, 59, 11, 538, DateTimeKind.Local).AddTicks(4992));
 
             migrationBuilder.UpdateData(
                 table: "Movies",
                 keyColumn: "Id",
                 keyValue: 9,
                 column: "DateAdded",
-                value: new DateTime(2024, 10, 5, 12, 50, 18, 759, DateTimeKind.Local).AddTicks(129));
+                value: new DateTime(2024, 10, 12, 12, 59, 11, 538, DateTimeKind.Local).AddTicks(4994));
 
             migrationBuilder.UpdateData(
                 table: "Movies",
                 keyColumn: "Id",
                 keyValue: 10,
                 column: "DateAdded",
-                value: new DateTime(2024, 10, 4, 12, 50, 18, 759, DateTimeKind.Local).AddTicks(133));
+                value: new DateTime(2024, 10, 11, 12, 59, 11, 538, DateTimeKind.Local).AddTicks(4998));
 
             migrationBuilder.UpdateData(
                 table: "Movies",
                 keyColumn: "Id",
                 keyValue: 11,
                 column: "DateAdded",
-                value: new DateTime(2024, 10, 4, 12, 50, 18, 759, DateTimeKind.Local).AddTicks(136));
+                value: new DateTime(2024, 10, 11, 12, 59, 11, 538, DateTimeKind.Local).AddTicks(5000));
 
             migrationBuilder.UpdateData(
                 table: "Movies",
                 keyColumn: "Id",
                 keyValue: 12,
                 column: "DateAdded",
-                value: new DateTime(2024, 10, 5, 12, 50, 18, 759, DateTimeKind.Local).AddTicks(140));
+                value: new DateTime(2024, 10, 12, 12, 59, 11, 538, DateTimeKind.Local).AddTicks(5003));
 
             migrationBuilder.UpdateData(
                 table: "Movies",
                 keyColumn: "Id",
                 keyValue: 13,
                 column: "DateAdded",
-                value: new DateTime(2024, 10, 5, 12, 50, 18, 759, DateTimeKind.Local).AddTicks(202));
+                value: new DateTime(2024, 10, 12, 12, 59, 11, 538, DateTimeKind.Local).AddTicks(5005));
 
             migrationBuilder.UpdateData(
                 table: "Movies",
                 keyColumn: "Id",
                 keyValue: 14,
                 column: "DateAdded",
-                value: new DateTime(2024, 10, 2, 12, 50, 18, 759, DateTimeKind.Local).AddTicks(205));
+                value: new DateTime(2024, 10, 9, 12, 59, 11, 538, DateTimeKind.Local).AddTicks(5008));
 
             migrationBuilder.UpdateData(
                 table: "Movies",
                 keyColumn: "Id",
                 keyValue: 15,
                 column: "DateAdded",
-                value: new DateTime(2024, 10, 3, 12, 50, 18, 759, DateTimeKind.Local).AddTicks(208));
+                value: new DateTime(2024, 10, 10, 12, 59, 11, 538, DateTimeKind.Local).AddTicks(5010));
 
             migrationBuilder.UpdateData(
                 table: "Movies",
                 keyColumn: "Id",
                 keyValue: 16,
                 column: "DateAdded",
-                value: new DateTime(2024, 10, 5, 12, 50, 18, 759, DateTimeKind.Local).AddTicks(211));
+                value: new DateTime(2024, 10, 12, 12, 59, 11, 538, DateTimeKind.Local).AddTicks(5013));
 
             migrationBuilder.UpdateData(
                 table: "Movies",
                 keyColumn: "Id",
                 keyValue: 17,
                 column: "DateAdded",
-                value: new DateTime(2024, 10, 4, 12, 50, 18, 759, DateTimeKind.Local).AddTicks(214));
+                value: new DateTime(2024, 10, 11, 12, 59, 11, 538, DateTimeKind.Local).AddTicks(5015));
 
             migrationBuilder.UpdateData(
                 table: "Movies",
                 keyColumn: "Id",
                 keyValue: 18,
                 column: "DateAdded",
-                value: new DateTime(2024, 10, 5, 12, 50, 18, 759, DateTimeKind.Local).AddTicks(217));
+                value: new DateTime(2024, 10, 12, 12, 59, 11, 538, DateTimeKind.Local).AddTicks(5019));
 
             migrationBuilder.UpdateData(
                 table: "Movies",
                 keyColumn: "Id",
                 keyValue: 19,
                 column: "DateAdded",
-                value: new DateTime(2024, 10, 3, 12, 50, 18, 759, DateTimeKind.Local).AddTicks(220));
+                value: new DateTime(2024, 10, 10, 12, 59, 11, 538, DateTimeKind.Local).AddTicks(5022));
 
             migrationBuilder.UpdateData(
                 table: "Movies",
                 keyColumn: "Id",
                 keyValue: 20,
                 column: "DateAdded",
-                value: new DateTime(2024, 10, 4, 12, 50, 18, 759, DateTimeKind.Local).AddTicks(224));
+                value: new DateTime(2024, 10, 11, 12, 59, 11, 538, DateTimeKind.Local).AddTicks(5024));
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -156,141 +156,141 @@ namespace CinemaCritique.Data.Migrations
                 table: "Movies",
                 keyColumn: "Id",
                 keyValue: 1,
-                columns: new[] { "CoverPhotoURL", "DateAdded" },
-                values: new object[] { "https://pics.filmaffinity.com/The_Shawshank_Redemption-576140557-mmed.jpg", new DateTime(2024, 10, 4, 12, 26, 13, 277, DateTimeKind.Local).AddTicks(2512) });
+                columns: new[] { "DateAdded", "ScenePhotoUrl" },
+                values: new object[] { new DateTime(2024, 10, 11, 12, 53, 55, 88, DateTimeKind.Local).AddTicks(1206), "img/movie_images/movie_covers/the_shawshank_redemption.jpg" });
 
             migrationBuilder.UpdateData(
                 table: "Movies",
                 keyColumn: "Id",
                 keyValue: 2,
-                columns: new[] { "CoverPhotoURL", "DateAdded" },
-                values: new object[] { "https://upload.wikimedia.org/wikipedia/en/6/67/Forrest_Gump_poster.jpg", new DateTime(2024, 10, 5, 12, 26, 13, 277, DateTimeKind.Local).AddTicks(2553) });
+                column: "DateAdded",
+                value: new DateTime(2024, 10, 12, 12, 53, 55, 88, DateTimeKind.Local).AddTicks(1243));
 
             migrationBuilder.UpdateData(
                 table: "Movies",
                 keyColumn: "Id",
                 keyValue: 3,
-                columns: new[] { "CoverPhotoURL", "DateAdded" },
-                values: new object[] { "https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781608879731/die-hard-the-ultimate-visual-history-9781608879731_hr.jpg", new DateTime(2024, 10, 6, 12, 26, 13, 277, DateTimeKind.Local).AddTicks(2559) });
+                column: "DateAdded",
+                value: new DateTime(2024, 10, 13, 12, 53, 55, 88, DateTimeKind.Local).AddTicks(1247));
 
             migrationBuilder.UpdateData(
                 table: "Movies",
                 keyColumn: "Id",
                 keyValue: 4,
-                columns: new[] { "CoverPhotoURL", "DateAdded" },
-                values: new object[] { "https://upload.wikimedia.org/wikipedia/en/1/18/Titanic_%281997_film%29_poster.png", new DateTime(2024, 10, 4, 12, 26, 13, 277, DateTimeKind.Local).AddTicks(2563) });
+                column: "DateAdded",
+                value: new DateTime(2024, 10, 11, 12, 53, 55, 88, DateTimeKind.Local).AddTicks(1250));
 
             migrationBuilder.UpdateData(
                 table: "Movies",
                 keyColumn: "Id",
                 keyValue: 5,
-                columns: new[] { "CoverPhotoURL", "DateAdded" },
-                values: new object[] { "https://i.etsystatic.com/27725708/r/il/7e5d08/2884298390/il_570xN.2884298390_acu6.jpg", new DateTime(2024, 10, 5, 12, 26, 13, 277, DateTimeKind.Local).AddTicks(2567) });
+                column: "DateAdded",
+                value: new DateTime(2024, 10, 12, 12, 53, 55, 88, DateTimeKind.Local).AddTicks(1397));
 
             migrationBuilder.UpdateData(
                 table: "Movies",
                 keyColumn: "Id",
                 keyValue: 6,
                 column: "DateAdded",
-                value: new DateTime(2024, 10, 5, 12, 26, 13, 277, DateTimeKind.Local).AddTicks(2572));
+                value: new DateTime(2024, 10, 12, 12, 53, 55, 88, DateTimeKind.Local).AddTicks(1404));
 
             migrationBuilder.UpdateData(
                 table: "Movies",
                 keyColumn: "Id",
                 keyValue: 7,
                 column: "DateAdded",
-                value: new DateTime(2024, 10, 5, 12, 26, 13, 277, DateTimeKind.Local).AddTicks(2575));
+                value: new DateTime(2024, 10, 12, 12, 53, 55, 88, DateTimeKind.Local).AddTicks(1407));
 
             migrationBuilder.UpdateData(
                 table: "Movies",
                 keyColumn: "Id",
                 keyValue: 8,
                 column: "DateAdded",
-                value: new DateTime(2024, 10, 4, 12, 26, 13, 277, DateTimeKind.Local).AddTicks(2580));
+                value: new DateTime(2024, 10, 11, 12, 53, 55, 88, DateTimeKind.Local).AddTicks(1410));
 
             migrationBuilder.UpdateData(
                 table: "Movies",
                 keyColumn: "Id",
                 keyValue: 9,
                 column: "DateAdded",
-                value: new DateTime(2024, 10, 5, 12, 26, 13, 277, DateTimeKind.Local).AddTicks(2583));
+                value: new DateTime(2024, 10, 12, 12, 53, 55, 88, DateTimeKind.Local).AddTicks(1413));
 
             migrationBuilder.UpdateData(
                 table: "Movies",
                 keyColumn: "Id",
                 keyValue: 10,
                 column: "DateAdded",
-                value: new DateTime(2024, 10, 4, 12, 26, 13, 277, DateTimeKind.Local).AddTicks(2588));
+                value: new DateTime(2024, 10, 11, 12, 53, 55, 88, DateTimeKind.Local).AddTicks(1417));
 
             migrationBuilder.UpdateData(
                 table: "Movies",
                 keyColumn: "Id",
                 keyValue: 11,
                 column: "DateAdded",
-                value: new DateTime(2024, 10, 4, 12, 26, 13, 277, DateTimeKind.Local).AddTicks(2592));
+                value: new DateTime(2024, 10, 11, 12, 53, 55, 88, DateTimeKind.Local).AddTicks(1420));
 
             migrationBuilder.UpdateData(
                 table: "Movies",
                 keyColumn: "Id",
                 keyValue: 12,
                 column: "DateAdded",
-                value: new DateTime(2024, 10, 5, 12, 26, 13, 277, DateTimeKind.Local).AddTicks(2595));
+                value: new DateTime(2024, 10, 12, 12, 53, 55, 88, DateTimeKind.Local).AddTicks(1422));
 
             migrationBuilder.UpdateData(
                 table: "Movies",
                 keyColumn: "Id",
                 keyValue: 13,
                 column: "DateAdded",
-                value: new DateTime(2024, 10, 5, 12, 26, 13, 277, DateTimeKind.Local).AddTicks(2599));
+                value: new DateTime(2024, 10, 12, 12, 53, 55, 88, DateTimeKind.Local).AddTicks(1425));
 
             migrationBuilder.UpdateData(
                 table: "Movies",
                 keyColumn: "Id",
                 keyValue: 14,
                 column: "DateAdded",
-                value: new DateTime(2024, 10, 2, 12, 26, 13, 277, DateTimeKind.Local).AddTicks(2602));
+                value: new DateTime(2024, 10, 9, 12, 53, 55, 88, DateTimeKind.Local).AddTicks(1428));
 
             migrationBuilder.UpdateData(
                 table: "Movies",
                 keyColumn: "Id",
                 keyValue: 15,
                 column: "DateAdded",
-                value: new DateTime(2024, 10, 3, 12, 26, 13, 277, DateTimeKind.Local).AddTicks(2605));
+                value: new DateTime(2024, 10, 10, 12, 53, 55, 88, DateTimeKind.Local).AddTicks(1431));
 
             migrationBuilder.UpdateData(
                 table: "Movies",
                 keyColumn: "Id",
                 keyValue: 16,
                 column: "DateAdded",
-                value: new DateTime(2024, 10, 5, 12, 26, 13, 277, DateTimeKind.Local).AddTicks(2609));
+                value: new DateTime(2024, 10, 12, 12, 53, 55, 88, DateTimeKind.Local).AddTicks(1434));
 
             migrationBuilder.UpdateData(
                 table: "Movies",
                 keyColumn: "Id",
                 keyValue: 17,
                 column: "DateAdded",
-                value: new DateTime(2024, 10, 4, 12, 26, 13, 277, DateTimeKind.Local).AddTicks(2612));
+                value: new DateTime(2024, 10, 11, 12, 53, 55, 88, DateTimeKind.Local).AddTicks(1437));
 
             migrationBuilder.UpdateData(
                 table: "Movies",
                 keyColumn: "Id",
                 keyValue: 18,
                 column: "DateAdded",
-                value: new DateTime(2024, 10, 5, 12, 26, 13, 277, DateTimeKind.Local).AddTicks(2617));
+                value: new DateTime(2024, 10, 12, 12, 53, 55, 88, DateTimeKind.Local).AddTicks(1441));
 
             migrationBuilder.UpdateData(
                 table: "Movies",
                 keyColumn: "Id",
                 keyValue: 19,
                 column: "DateAdded",
-                value: new DateTime(2024, 10, 3, 12, 26, 13, 277, DateTimeKind.Local).AddTicks(2620));
+                value: new DateTime(2024, 10, 10, 12, 53, 55, 88, DateTimeKind.Local).AddTicks(1444));
 
             migrationBuilder.UpdateData(
                 table: "Movies",
                 keyColumn: "Id",
                 keyValue: 20,
                 column: "DateAdded",
-                value: new DateTime(2024, 10, 4, 12, 26, 13, 277, DateTimeKind.Local).AddTicks(2623));
+                value: new DateTime(2024, 10, 11, 12, 53, 55, 88, DateTimeKind.Local).AddTicks(1447));
         }
     }
 }
