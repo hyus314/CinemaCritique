@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CinemaCritique.Data.Migrations
 {
     [DbContext(typeof(CritiqueDbContext))]
-    [Migration("20241014095911_Update_Shawshank_Url_MovieScene2")]
-    partial class Update_Shawshank_Url_MovieScene2
+    [Migration("20241014105621_Update_An_Unconvient_Truths_MovieScene")]
+    partial class Update_An_Unconvient_Truths_MovieScene
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -276,7 +276,7 @@ namespace CinemaCritique.Data.Migrations
                         {
                             Id = 1,
                             CoverPhotoURL = "img/movie_images/movie_covers/the_shawshank_redemption.jpg",
-                            DateAdded = new DateTime(2024, 10, 11, 12, 59, 11, 538, DateTimeKind.Local).AddTicks(4889),
+                            DateAdded = new DateTime(2024, 10, 11, 13, 56, 21, 587, DateTimeKind.Local).AddTicks(2644),
                             Description = "A tale of hope and friendship, the film follows Andy Dufresne, a banker falsely convicted of murder, as he befriends fellow inmate Red and seeks solace and eventual freedom through acts of common decency.",
                             Director = "Frank Darabont",
                             GenreId = 1,
@@ -290,12 +290,12 @@ namespace CinemaCritique.Data.Migrations
                         {
                             Id = 2,
                             CoverPhotoURL = "img/movie_images/movie_covers/forrest_gump.jpg",
-                            DateAdded = new DateTime(2024, 10, 12, 12, 59, 11, 538, DateTimeKind.Local).AddTicks(4927),
+                            DateAdded = new DateTime(2024, 10, 12, 13, 56, 21, 587, DateTimeKind.Local).AddTicks(2700),
                             Description = "The story chronicles the life of Forrest Gump, a man with a low IQ, as he inadvertently influences some of the most pivotal events in U.S. history through simple acts of kindness and love.",
                             Director = "Robert Zemeckis",
                             GenreId = 2,
                             MainRoles = "Tom Hanks, Robin Wright, Gary Sinise",
-                            ScenePhotoUrl = "https://media.cnn.com/api/v1/images/stellar/prod/140702154952-02-forrest-gump-restricted.jpg?q=w_2434,h_1631,x_0,y_0,c_fill",
+                            ScenePhotoUrl = "img/movie_images/movie_scenes/forrest_gump.jpg",
                             Title = "Forrest Gump",
                             TrailerURL = "https://www.youtube.com/embed/bLvqoHBptjg",
                             YearPublished = 1994
@@ -304,12 +304,12 @@ namespace CinemaCritique.Data.Migrations
                         {
                             Id = 3,
                             CoverPhotoURL = "img/movie_images/movie_covers/die_hard.jpg",
-                            DateAdded = new DateTime(2024, 10, 13, 12, 59, 11, 538, DateTimeKind.Local).AddTicks(4976),
+                            DateAdded = new DateTime(2024, 10, 13, 13, 56, 21, 587, DateTimeKind.Local).AddTicks(2706),
                             Description = "NYPD officer John McClane arrives in Los Angeles to spend Christmas with his family but finds himself fighting off terrorists who have taken hostages in the Nakatomi Plaza building.",
                             Director = "John McTiernan",
                             GenreId = 3,
                             MainRoles = "Bruce Willis, Alan Rickman, Bonnie Bedelia",
-                            ScenePhotoUrl = "https://i.ytimg.com/vi/2UWD2uxIOis/maxresdefault.jpg",
+                            ScenePhotoUrl = "img/movie_images/movie_scenes/die_hard.jpg",
                             Title = "Die Hard",
                             TrailerURL = "https://www.youtube.com/embed/gYWvwkXreaI",
                             YearPublished = 1988
@@ -318,12 +318,12 @@ namespace CinemaCritique.Data.Migrations
                         {
                             Id = 4,
                             CoverPhotoURL = "img/movie_images/movie_covers/titanic.png",
-                            DateAdded = new DateTime(2024, 10, 11, 12, 59, 11, 538, DateTimeKind.Local).AddTicks(4979),
+                            DateAdded = new DateTime(2024, 10, 11, 13, 56, 21, 587, DateTimeKind.Local).AddTicks(2711),
                             Description = "This romantic tragedy follows the ill-fated voyage of the RMS Titanic, focusing on the love story between Jack, a lower-class artist, and Rose, a first-class passenger.",
                             Director = "James Cameron",
                             GenreId = 4,
                             MainRoles = "Leonardo DiCaprio, Kate Winslet, Billy Zane",
-                            ScenePhotoUrl = "https://media.cnn.com/api/v1/images/stellar/prod/230213144330-02-titanic-25th-anniversary-restricted.jpg?c=original",
+                            ScenePhotoUrl = "img/movie_images/movie_scenes/titanic.jpg",
                             Title = "Titanic",
                             TrailerURL = "https://www.youtube.com/embed/I7c1etV7D7g",
                             YearPublished = 1997
@@ -332,12 +332,12 @@ namespace CinemaCritique.Data.Migrations
                         {
                             Id = 5,
                             CoverPhotoURL = "img/movie_images/movie_covers/the_exorcist.jpg",
-                            DateAdded = new DateTime(2024, 10, 12, 12, 59, 11, 538, DateTimeKind.Local).AddTicks(4982),
+                            DateAdded = new DateTime(2024, 10, 12, 13, 56, 21, 587, DateTimeKind.Local).AddTicks(2715),
                             Description = "This chilling tale centers around the demonic possession of a young girl and the subsequent exorcism conducted by two priests to save her soul.",
                             Director = "William Friedkin",
                             GenreId = 5,
                             MainRoles = "Ellen Burstyn, Max von Sydow, Linda Blair",
-                            ScenePhotoUrl = "https://miro.medium.com/v2/resize:fit:1200/1*4-1LWn65DlUF0uBLdIzo2A.jpeg",
+                            ScenePhotoUrl = "img/movie_images/movie_scenes/the_exorcist.jpg",
                             Title = "The Exorcist",
                             TrailerURL = "https://www.youtube.com/embed/YDGw1MTEe9k",
                             YearPublished = 1973
@@ -346,12 +346,12 @@ namespace CinemaCritique.Data.Migrations
                         {
                             Id = 6,
                             CoverPhotoURL = "img/movie_images/movie_covers/star_wars_a_new_hope.jpg",
-                            DateAdded = new DateTime(2024, 10, 12, 12, 59, 11, 538, DateTimeKind.Local).AddTicks(4987),
+                            DateAdded = new DateTime(2024, 10, 12, 13, 56, 21, 587, DateTimeKind.Local).AddTicks(2722),
                             Description = "Young farm boy Luke Skywalker is thrust into an epic battle against the evil Galactic Empire when he meets Princess Leia and learns of his Jedi heritage.",
                             Director = "George Lucas",
                             GenreId = 6,
                             MainRoles = "Mark Hamill, Harrison Ford, Carrie Fisher",
-                            ScenePhotoUrl = "https://hop.dartmouth.edu/sites/hop.prod/files/styles/width_960/public/hop/content/gallery-item/image/star-wars-a-new-hope-gallery1.jpg?itok=3IPzJms_",
+                            ScenePhotoUrl = "img/movie_images/movie_scenes/star_wars_a_new_hope.jpg",
                             Title = "Star Wars: A New Hope",
                             TrailerURL = "https://www.youtube.com/embed/vZ734NWnAHA",
                             YearPublished = 1977
@@ -360,12 +360,12 @@ namespace CinemaCritique.Data.Migrations
                         {
                             Id = 7,
                             CoverPhotoURL = "img/movie_images/movie_covers/an_inconvenient_truth.jpg",
-                            DateAdded = new DateTime(2024, 10, 12, 12, 59, 11, 538, DateTimeKind.Local).AddTicks(4989),
+                            DateAdded = new DateTime(2024, 10, 12, 13, 56, 21, 587, DateTimeKind.Local).AddTicks(2728),
                             Description = "Former Vice President Al Gore presents an eye-opening lecture about the realities and dangers of climate change in a documentary that aims to educate and inspire action.",
                             Director = "Davis Guggenheim",
                             GenreId = 7,
                             MainRoles = "Al Gore, Billy West",
-                            ScenePhotoUrl = "https://grist.org/wp-content/uploads/2016/05/gore-on-scissor-lift.jpg",
+                            ScenePhotoUrl = "img/movie_images/movie_scenes/an_inconvenient_truth.jpg",
                             Title = "An Inconvenient Truth",
                             TrailerURL = "https://www.youtube.com/embed/CH-qO9RRchc",
                             YearPublished = 2006
@@ -374,12 +374,12 @@ namespace CinemaCritique.Data.Migrations
                         {
                             Id = 8,
                             CoverPhotoURL = "img/movie_images/movie_covers/the_sound_of_music.jpg",
-                            DateAdded = new DateTime(2024, 10, 11, 12, 59, 11, 538, DateTimeKind.Local).AddTicks(4992),
+                            DateAdded = new DateTime(2024, 10, 11, 13, 56, 21, 587, DateTimeKind.Local).AddTicks(2800),
                             Description = "A joyful musical that follows Maria, a young woman who leaves an Austrian convent to become the governess to the Von Trapp family, eventually falling in love with the widowed naval officer Captain Von Trapp.",
                             Director = "Robert Wise",
                             GenreId = 8,
                             MainRoles = "Julie Andrews, Christopher Plummer, Eleanor Parker",
-                            ScenePhotoUrl = "https://s.abcnews.com/images/Entertainment/GTY_the_sound_of_music_jef_131210_16x9_992.jpg",
+                            ScenePhotoUrl = "img/movie_images/movie_scenes/the_soound_of_music.jpg",
                             Title = "The Sound of Music",
                             TrailerURL = "https://www.youtube.com/embed/UY6uw3WpPzY",
                             YearPublished = 1965
@@ -388,12 +388,12 @@ namespace CinemaCritique.Data.Migrations
                         {
                             Id = 9,
                             CoverPhotoURL = "img/movie_images/movie_covers/lotr_the_fellowship_of_the_ring.jpg",
-                            DateAdded = new DateTime(2024, 10, 12, 12, 59, 11, 538, DateTimeKind.Local).AddTicks(4994),
+                            DateAdded = new DateTime(2024, 10, 12, 13, 56, 21, 587, DateTimeKind.Local).AddTicks(2805),
                             Description = "The first installment in the epic trilogy, the movie follows a young hobbit named Frodo Baggins as he embarks on a dangerous quest to destroy a powerful ring that could bring doom to Middle-earth.",
                             Director = "Peter Jackson",
                             GenreId = 9,
                             MainRoles = "Elijah Wood, Ian McKellen, Orlando Bloom",
-                            ScenePhotoUrl = "https://legendary-digital-network-assets.s3.amazonaws.com/wp-content/uploads/2022/08/23111048/The-Two-Towers-7.jpg",
+                            ScenePhotoUrl = "img/movie_images/movie_scenes/lotr_the_fellowship_of_the_ring.jpg",
                             Title = "The Lord of the Rings: The Fellowship of the Ring",
                             TrailerURL = "https://www.youtube.com/embed/V75dMMIW2B4",
                             YearPublished = 2001
@@ -402,12 +402,12 @@ namespace CinemaCritique.Data.Migrations
                         {
                             Id = 10,
                             CoverPhotoURL = "img/movie_images/movie_covers/indiana_jones_raiders.jpg",
-                            DateAdded = new DateTime(2024, 10, 11, 12, 59, 11, 538, DateTimeKind.Local).AddTicks(4998),
+                            DateAdded = new DateTime(2024, 10, 11, 13, 56, 21, 587, DateTimeKind.Local).AddTicks(2813),
                             Description = "Adventurous archeologist Indiana Jones races against time and enemies to find the biblical Ark of the Covenant before it falls into the wrong hands.",
                             Director = "Steven Spielberg",
                             GenreId = 10,
                             MainRoles = "Harrison Ford, Karen Allen, Paul Freeman",
-                            ScenePhotoUrl = "https://www.syfy.com/sites/syfy/files/2019/04/mv5botkxmzqymty3nl5bml5banbnxkftztcwmtu4mzczmw._v1_sx1471_cr001471999_al_.jpg",
+                            ScenePhotoUrl = "img/movie_images/movie_scenes/indiana_jones_raiders.jpg",
                             Title = "Indiana Jones: Raiders of the Lost Ark",
                             TrailerURL = "https://www.youtube.com/embed/0xQSIdSRlAk",
                             YearPublished = 1981
@@ -416,12 +416,12 @@ namespace CinemaCritique.Data.Migrations
                         {
                             Id = 11,
                             CoverPhotoURL = "img/movie_images/movie_covers/schindler's_list.jpg",
-                            DateAdded = new DateTime(2024, 10, 11, 12, 59, 11, 538, DateTimeKind.Local).AddTicks(5000),
+                            DateAdded = new DateTime(2024, 10, 11, 13, 56, 21, 587, DateTimeKind.Local).AddTicks(2820),
                             Description = "Oskar Schindler, a German industrialist, saves more than a thousand Polish Jews during the Holocaust by employing them in his factory.",
                             Director = "Steven Spielberg",
                             GenreId = 1,
                             MainRoles = "Liam Neeson, Ben Kingsley, Ralph Fiennes",
-                            ScenePhotoUrl = "https://i.ytimg.com/vi/x4mcmymd-5s/maxresdefault.jpg",
+                            ScenePhotoUrl = "img/movie_images/movie_scenes/schindler's_list.jpg",
                             Title = "Schindler's List",
                             TrailerURL = "https://www.youtube.com/embed/gG22XNhtnoY",
                             YearPublished = 1993
@@ -430,12 +430,12 @@ namespace CinemaCritique.Data.Migrations
                         {
                             Id = 12,
                             CoverPhotoURL = "img/movie_images/movie_covers/home_alone.jpg",
-                            DateAdded = new DateTime(2024, 10, 12, 12, 59, 11, 538, DateTimeKind.Local).AddTicks(5003),
+                            DateAdded = new DateTime(2024, 10, 12, 13, 56, 21, 587, DateTimeKind.Local).AddTicks(2825),
                             Description = "A young boy named Kevin McCallister is accidentally left behind by his family during Christmas and has to defend his home from burglars.",
                             Director = "Chris Columbus",
                             GenreId = 2,
                             MainRoles = "Macaulay Culkin, Joe Pesci, Daniel Stern",
-                            ScenePhotoUrl = "https://www.usatoday.com/gcdn/-mm-/b74c719214fb46f112bebb7fdd4e37d42f82f105/c=0-68-1280-791/local/-/media/2015/10/03/USATODAY/USATODAY/635794823832323546-HA-1604.jpg?width=1280&height=723&fit=crop&format=pjpg&auto=webp",
+                            ScenePhotoUrl = "img/movie_images/movie_scenes/home_alone.jpg",
                             Title = "Home Alone",
                             TrailerURL = "https://www.youtube.com/embed/jEDaVHmw7r4",
                             YearPublished = 1990
@@ -444,12 +444,12 @@ namespace CinemaCritique.Data.Migrations
                         {
                             Id = 13,
                             CoverPhotoURL = "img/movie_images/movie_covers/the_dark_knight.jpg",
-                            DateAdded = new DateTime(2024, 10, 12, 12, 59, 11, 538, DateTimeKind.Local).AddTicks(5005),
+                            DateAdded = new DateTime(2024, 10, 12, 13, 56, 21, 587, DateTimeKind.Local).AddTicks(2830),
                             Description = "Batman takes on the Joker, a criminal mastermind who wants to plunge Gotham City into anarchy.",
                             Director = "Christopher Nolan",
                             GenreId = 3,
                             MainRoles = "Christian Bale, Heath Ledger, Aaron Eckhart",
-                            ScenePhotoUrl = "https://breakinggeek.files.wordpress.com/2015/01/thedarkknightd3176206dsuf4.jpg",
+                            ScenePhotoUrl = "img/movie_images/movie_scenes/the_dark_knight.jpg",
                             Title = "The Dark Knight",
                             TrailerURL = "https://www.youtube.com/embed/EXeTwQWrcwY",
                             YearPublished = 2008
@@ -458,12 +458,12 @@ namespace CinemaCritique.Data.Migrations
                         {
                             Id = 14,
                             CoverPhotoURL = "img/movie_images/movie_covers/pride_and_prejudice.jpg",
-                            DateAdded = new DateTime(2024, 10, 9, 12, 59, 11, 538, DateTimeKind.Local).AddTicks(5008),
+                            DateAdded = new DateTime(2024, 10, 9, 13, 56, 21, 587, DateTimeKind.Local).AddTicks(2836),
                             Description = "Elizabeth Bennet navigates issues of manners, upbringing, and marriage in the society of early 19th-century England.",
                             Director = "Joe Wright",
                             GenreId = 4,
                             MainRoles = "Keira Knightley, Matthew Macfadyen, Brenda Blethyn",
-                            ScenePhotoUrl = "https://lh3.googleusercontent.com/RwOEZG7GP_aR1XcsYC0huOhVxY7lH4LP4KGUVJR_lrQ5ihPCGddNbjCN0CjmXi343yom_ABfg6CWL70a7778kJ1LJGWCQz3YAHRVgcmMI4JY3zfbLt4vflr1qhZoqzIde8AjwCkb",
+                            ScenePhotoUrl = "img/movie_images/movie_scenes/pride_and_prejudice.jpg",
                             Title = "Pride and Prejudice",
                             TrailerURL = "https://www.youtube.com/embed/Ur_DIHs92NM",
                             YearPublished = 2005
@@ -472,12 +472,12 @@ namespace CinemaCritique.Data.Migrations
                         {
                             Id = 15,
                             CoverPhotoURL = "img/movie_images/movie_covers/psycho.jpg",
-                            DateAdded = new DateTime(2024, 10, 10, 12, 59, 11, 538, DateTimeKind.Local).AddTicks(5010),
+                            DateAdded = new DateTime(2024, 10, 10, 13, 56, 21, 587, DateTimeKind.Local).AddTicks(2842),
                             Description = "Marion Crane meets a grisly end at the Bates Motel, run by the mysterious Norman Bates.",
                             Director = "Alfred Hitchcock",
                             GenreId = 5,
                             MainRoles = "Anthony Perkins, Janet Leigh, Vera Miles",
-                            ScenePhotoUrl = "https://i.ytimg.com/vi/2_I70o81fwk/maxresdefault.jpg",
+                            ScenePhotoUrl = "img/movie_images/movie_scenes/psycho.jpg",
                             Title = "Psycho",
                             TrailerURL = "https://www.youtube.com/embed/BwVKSGu8wEA",
                             YearPublished = 1960
@@ -486,12 +486,12 @@ namespace CinemaCritique.Data.Migrations
                         {
                             Id = 16,
                             CoverPhotoURL = "img/movie_images/movie_covers/blade_runner.jpg",
-                            DateAdded = new DateTime(2024, 10, 12, 12, 59, 11, 538, DateTimeKind.Local).AddTicks(5013),
+                            DateAdded = new DateTime(2024, 10, 12, 13, 56, 21, 587, DateTimeKind.Local).AddTicks(2846),
                             Description = "In a dystopian future, a blade runner named Deckard is tasked with hunting down rogue replicants.",
                             Director = "Ridley Scott",
                             GenreId = 6,
                             MainRoles = "Harrison Ford, Rutger Hauer, Sean Young",
-                            ScenePhotoUrl = "https://cinemontage.org/wp-content/uploads/2017/02/BladeRunner_Feature-678x381.jpg",
+                            ScenePhotoUrl = "img/movie_images/movie_scenes/blade_runner.jpg",
                             Title = "Blade Runner",
                             TrailerURL = "https://www.youtube.com/embed/eogpIG53Cis",
                             YearPublished = 1982
@@ -500,12 +500,12 @@ namespace CinemaCritique.Data.Migrations
                         {
                             Id = 17,
                             CoverPhotoURL = "img/movie_images/movie_covers/jiro_dreams_of_sushi.jpg",
-                            DateAdded = new DateTime(2024, 10, 11, 12, 59, 11, 538, DateTimeKind.Local).AddTicks(5015),
+                            DateAdded = new DateTime(2024, 10, 11, 13, 56, 21, 587, DateTimeKind.Local).AddTicks(2851),
                             Description = "This documentary provides an intimate look at Jiro Ono, an 85-year-old sushi master in Tokyo.",
                             Director = "David Gelb",
                             GenreId = 7,
                             MainRoles = "Jiro Ono, Yoshikazu Ono, Masuhiro Yamamoto",
-                            ScenePhotoUrl = "https://media.npr.org/assets/img/2012/03/06/2_wide-dc2780d91910f6718c5e23f5f0a7ca3a7ee6c961-s1100-c50.jpg",
+                            ScenePhotoUrl = "img/movie_images/movie_scenes/jiro_dreams_of_sushi.jpg",
                             Title = "Jiro Dreams of Sushi",
                             TrailerURL = "https://www.youtube.com/embed/0VB_DrsHDQ0",
                             YearPublished = 2011
@@ -514,12 +514,12 @@ namespace CinemaCritique.Data.Migrations
                         {
                             Id = 18,
                             CoverPhotoURL = "img/movie_images/movie_covers/la_la_land.jpg",
-                            DateAdded = new DateTime(2024, 10, 12, 12, 59, 11, 538, DateTimeKind.Local).AddTicks(5019),
+                            DateAdded = new DateTime(2024, 10, 12, 13, 56, 21, 587, DateTimeKind.Local).AddTicks(2859),
                             Description = "Two aspiring artists, a jazz musician and an actress, fall in love while pursuing their dreams in Los Angeles.",
                             Director = "Damien Chazelle",
                             GenreId = 8,
                             MainRoles = "Ryan Gosling, Emma Stone, Rosemarie DeWitt",
-                            ScenePhotoUrl = "https://images.squarespace-cdn.com/content/v1/5bd4e5708dfc8cb34346c68b/1549963167505-IFYQTEWAHSM2U8S2T6DF/la_la_land_banner.jpg?format=1500w",
+                            ScenePhotoUrl = "img/movie_images/movie_scenes/la_la_land.jpg",
                             Title = "La La Land",
                             TrailerURL = "https://www.youtube.com/embed/0pdqf4P9MB8",
                             YearPublished = 2016
@@ -528,12 +528,12 @@ namespace CinemaCritique.Data.Migrations
                         {
                             Id = 19,
                             CoverPhotoURL = "img/movie_images/movie_covers/hp_and_the_sorcerers_stone.jpg",
-                            DateAdded = new DateTime(2024, 10, 10, 12, 59, 11, 538, DateTimeKind.Local).AddTicks(5022),
+                            DateAdded = new DateTime(2024, 10, 10, 13, 56, 21, 587, DateTimeKind.Local).AddTicks(2863),
                             Description = "Harry Potter discovers his magical heritage and attends Hogwarts School of Witchcraft and Wizardry, where he makes friends and enemies.",
                             Director = "Chris Columbus",
                             GenreId = 9,
                             MainRoles = "Daniel Radcliffe, Rupert Grint, Emma Watson",
-                            ScenePhotoUrl = "https://justkillingti.me/wp-content/2016/11/article-2109071-02e5ddd20000044d-817_964x591.jpg",
+                            ScenePhotoUrl = "img/movie_images/movie_scenes/hp_and_the_sorcerers_stone.jpg",
                             Title = "Harry Potter and the Sorcerer's Stone",
                             TrailerURL = "https://www.youtube.com/embed/VyHV0BRtdxo",
                             YearPublished = 2001
@@ -542,12 +542,12 @@ namespace CinemaCritique.Data.Migrations
                         {
                             Id = 20,
                             CoverPhotoURL = "img/movie_images/movie_covers/jurassic_park.jpg",
-                            DateAdded = new DateTime(2024, 10, 11, 12, 59, 11, 538, DateTimeKind.Local).AddTicks(5024),
+                            DateAdded = new DateTime(2024, 10, 11, 13, 56, 21, 587, DateTimeKind.Local).AddTicks(2868),
                             Description = "A group of people tries to survive when a theme park featuring genetically engineered dinosaurs descends into chaos.",
                             Director = "Steven Spielberg",
                             GenreId = 10,
                             MainRoles = "Sam Neill, Laura Dern, Jeff Goldblum",
-                            ScenePhotoUrl = "https://i.kinja-img.com/gawker-media/image/upload/c_fill,f_auto,fl_progressive,g_center,h_675,pg_1,q_80,w_1200/buj0nndhaegv5vje8yox.jpg",
+                            ScenePhotoUrl = "img/movie_images/movie_scenes/jurassic_park.jpg",
                             Title = "Jurassic Park",
                             TrailerURL = "https://www.youtube.com/embed/QWBKEmWWL38",
                             YearPublished = 1993

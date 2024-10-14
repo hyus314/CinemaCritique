@@ -18,7 +18,6 @@
 
 .movie-header-img-container {
     height: 100%;
-    background-color: red;
     object-fit: contain;
     overflow: hidden;
     display: flex;
@@ -29,7 +28,8 @@
 
     .movie-header-img-container > img {
         box-shadow: inset 0 102px 240px rgba(0, 0, 0, 0.1); /* Inward shadow */
-    }
+        width: 100%;
+        }
 
 .movie-text-overlay {
     padding: 0.4em 1em;

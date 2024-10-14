@@ -4,6 +4,7 @@ using CinemaCritique.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CinemaCritique.Data.Migrations
 {
     [DbContext(typeof(CritiqueDbContext))]
-    partial class CritiqueDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241014105141_Update_All_Movies_MovieScenes")]
+    partial class Update_All_Movies_MovieScenes
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -274,7 +276,7 @@ namespace CinemaCritique.Data.Migrations
                         {
                             Id = 1,
                             CoverPhotoURL = "img/movie_images/movie_covers/the_shawshank_redemption.jpg",
-                            DateAdded = new DateTime(2024, 10, 11, 13, 58, 5, 879, DateTimeKind.Local).AddTicks(8061),
+                            DateAdded = new DateTime(2024, 10, 11, 13, 51, 41, 326, DateTimeKind.Local).AddTicks(1143),
                             Description = "A tale of hope and friendship, the film follows Andy Dufresne, a banker falsely convicted of murder, as he befriends fellow inmate Red and seeks solace and eventual freedom through acts of common decency.",
                             Director = "Frank Darabont",
                             GenreId = 1,
@@ -288,7 +290,7 @@ namespace CinemaCritique.Data.Migrations
                         {
                             Id = 2,
                             CoverPhotoURL = "img/movie_images/movie_covers/forrest_gump.jpg",
-                            DateAdded = new DateTime(2024, 10, 12, 13, 58, 5, 879, DateTimeKind.Local).AddTicks(8099),
+                            DateAdded = new DateTime(2024, 10, 12, 13, 51, 41, 326, DateTimeKind.Local).AddTicks(1189),
                             Description = "The story chronicles the life of Forrest Gump, a man with a low IQ, as he inadvertently influences some of the most pivotal events in U.S. history through simple acts of kindness and love.",
                             Director = "Robert Zemeckis",
                             GenreId = 2,
@@ -302,7 +304,7 @@ namespace CinemaCritique.Data.Migrations
                         {
                             Id = 3,
                             CoverPhotoURL = "img/movie_images/movie_covers/die_hard.jpg",
-                            DateAdded = new DateTime(2024, 10, 13, 13, 58, 5, 879, DateTimeKind.Local).AddTicks(8104),
+                            DateAdded = new DateTime(2024, 10, 13, 13, 51, 41, 326, DateTimeKind.Local).AddTicks(1193),
                             Description = "NYPD officer John McClane arrives in Los Angeles to spend Christmas with his family but finds himself fighting off terrorists who have taken hostages in the Nakatomi Plaza building.",
                             Director = "John McTiernan",
                             GenreId = 3,
@@ -316,7 +318,7 @@ namespace CinemaCritique.Data.Migrations
                         {
                             Id = 4,
                             CoverPhotoURL = "img/movie_images/movie_covers/titanic.png",
-                            DateAdded = new DateTime(2024, 10, 11, 13, 58, 5, 879, DateTimeKind.Local).AddTicks(8107),
+                            DateAdded = new DateTime(2024, 10, 11, 13, 51, 41, 326, DateTimeKind.Local).AddTicks(1197),
                             Description = "This romantic tragedy follows the ill-fated voyage of the RMS Titanic, focusing on the love story between Jack, a lower-class artist, and Rose, a first-class passenger.",
                             Director = "James Cameron",
                             GenreId = 4,
@@ -330,7 +332,7 @@ namespace CinemaCritique.Data.Migrations
                         {
                             Id = 5,
                             CoverPhotoURL = "img/movie_images/movie_covers/the_exorcist.jpg",
-                            DateAdded = new DateTime(2024, 10, 12, 13, 58, 5, 879, DateTimeKind.Local).AddTicks(8111),
+                            DateAdded = new DateTime(2024, 10, 12, 13, 51, 41, 326, DateTimeKind.Local).AddTicks(1200),
                             Description = "This chilling tale centers around the demonic possession of a young girl and the subsequent exorcism conducted by two priests to save her soul.",
                             Director = "William Friedkin",
                             GenreId = 5,
@@ -344,7 +346,7 @@ namespace CinemaCritique.Data.Migrations
                         {
                             Id = 6,
                             CoverPhotoURL = "img/movie_images/movie_covers/star_wars_a_new_hope.jpg",
-                            DateAdded = new DateTime(2024, 10, 12, 13, 58, 5, 879, DateTimeKind.Local).AddTicks(8115),
+                            DateAdded = new DateTime(2024, 10, 12, 13, 51, 41, 326, DateTimeKind.Local).AddTicks(1204),
                             Description = "Young farm boy Luke Skywalker is thrust into an epic battle against the evil Galactic Empire when he meets Princess Leia and learns of his Jedi heritage.",
                             Director = "George Lucas",
                             GenreId = 6,
@@ -358,12 +360,12 @@ namespace CinemaCritique.Data.Migrations
                         {
                             Id = 7,
                             CoverPhotoURL = "img/movie_images/movie_covers/an_inconvenient_truth.jpg",
-                            DateAdded = new DateTime(2024, 10, 12, 13, 58, 5, 879, DateTimeKind.Local).AddTicks(8118),
+                            DateAdded = new DateTime(2024, 10, 12, 13, 51, 41, 326, DateTimeKind.Local).AddTicks(1208),
                             Description = "Former Vice President Al Gore presents an eye-opening lecture about the realities and dangers of climate change in a documentary that aims to educate and inspire action.",
                             Director = "Davis Guggenheim",
                             GenreId = 7,
                             MainRoles = "Al Gore, Billy West",
-                            ScenePhotoUrl = "img/movie_images/movie_scenes/an_inconvenient_truth.jpg",
+                            ScenePhotoUrl = "https://grist.org/wp-content/uploads/2016/05/gore-on-scissor-lift.jpg",
                             Title = "An Inconvenient Truth",
                             TrailerURL = "https://www.youtube.com/embed/CH-qO9RRchc",
                             YearPublished = 2006
@@ -372,12 +374,12 @@ namespace CinemaCritique.Data.Migrations
                         {
                             Id = 8,
                             CoverPhotoURL = "img/movie_images/movie_covers/the_sound_of_music.jpg",
-                            DateAdded = new DateTime(2024, 10, 11, 13, 58, 5, 879, DateTimeKind.Local).AddTicks(8121),
+                            DateAdded = new DateTime(2024, 10, 11, 13, 51, 41, 326, DateTimeKind.Local).AddTicks(1211),
                             Description = "A joyful musical that follows Maria, a young woman who leaves an Austrian convent to become the governess to the Von Trapp family, eventually falling in love with the widowed naval officer Captain Von Trapp.",
                             Director = "Robert Wise",
                             GenreId = 8,
                             MainRoles = "Julie Andrews, Christopher Plummer, Eleanor Parker",
-                            ScenePhotoUrl = "img/movie_images/movie_scenes/the_sound_of_music.jpg",
+                            ScenePhotoUrl = "img/movie_images/movie_scenes/the_soound_of_music.jpg",
                             Title = "The Sound of Music",
                             TrailerURL = "https://www.youtube.com/embed/UY6uw3WpPzY",
                             YearPublished = 1965
@@ -386,7 +388,7 @@ namespace CinemaCritique.Data.Migrations
                         {
                             Id = 9,
                             CoverPhotoURL = "img/movie_images/movie_covers/lotr_the_fellowship_of_the_ring.jpg",
-                            DateAdded = new DateTime(2024, 10, 12, 13, 58, 5, 879, DateTimeKind.Local).AddTicks(8124),
+                            DateAdded = new DateTime(2024, 10, 12, 13, 51, 41, 326, DateTimeKind.Local).AddTicks(1214),
                             Description = "The first installment in the epic trilogy, the movie follows a young hobbit named Frodo Baggins as he embarks on a dangerous quest to destroy a powerful ring that could bring doom to Middle-earth.",
                             Director = "Peter Jackson",
                             GenreId = 9,
@@ -400,7 +402,7 @@ namespace CinemaCritique.Data.Migrations
                         {
                             Id = 10,
                             CoverPhotoURL = "img/movie_images/movie_covers/indiana_jones_raiders.jpg",
-                            DateAdded = new DateTime(2024, 10, 11, 13, 58, 5, 879, DateTimeKind.Local).AddTicks(8129),
+                            DateAdded = new DateTime(2024, 10, 11, 13, 51, 41, 326, DateTimeKind.Local).AddTicks(1218),
                             Description = "Adventurous archeologist Indiana Jones races against time and enemies to find the biblical Ark of the Covenant before it falls into the wrong hands.",
                             Director = "Steven Spielberg",
                             GenreId = 10,
@@ -414,7 +416,7 @@ namespace CinemaCritique.Data.Migrations
                         {
                             Id = 11,
                             CoverPhotoURL = "img/movie_images/movie_covers/schindler's_list.jpg",
-                            DateAdded = new DateTime(2024, 10, 11, 13, 58, 5, 879, DateTimeKind.Local).AddTicks(8132),
+                            DateAdded = new DateTime(2024, 10, 11, 13, 51, 41, 326, DateTimeKind.Local).AddTicks(1223),
                             Description = "Oskar Schindler, a German industrialist, saves more than a thousand Polish Jews during the Holocaust by employing them in his factory.",
                             Director = "Steven Spielberg",
                             GenreId = 1,
@@ -428,7 +430,7 @@ namespace CinemaCritique.Data.Migrations
                         {
                             Id = 12,
                             CoverPhotoURL = "img/movie_images/movie_covers/home_alone.jpg",
-                            DateAdded = new DateTime(2024, 10, 12, 13, 58, 5, 879, DateTimeKind.Local).AddTicks(8134),
+                            DateAdded = new DateTime(2024, 10, 12, 13, 51, 41, 326, DateTimeKind.Local).AddTicks(1226),
                             Description = "A young boy named Kevin McCallister is accidentally left behind by his family during Christmas and has to defend his home from burglars.",
                             Director = "Chris Columbus",
                             GenreId = 2,
@@ -442,7 +444,7 @@ namespace CinemaCritique.Data.Migrations
                         {
                             Id = 13,
                             CoverPhotoURL = "img/movie_images/movie_covers/the_dark_knight.jpg",
-                            DateAdded = new DateTime(2024, 10, 12, 13, 58, 5, 879, DateTimeKind.Local).AddTicks(8138),
+                            DateAdded = new DateTime(2024, 10, 12, 13, 51, 41, 326, DateTimeKind.Local).AddTicks(1229),
                             Description = "Batman takes on the Joker, a criminal mastermind who wants to plunge Gotham City into anarchy.",
                             Director = "Christopher Nolan",
                             GenreId = 3,
@@ -456,7 +458,7 @@ namespace CinemaCritique.Data.Migrations
                         {
                             Id = 14,
                             CoverPhotoURL = "img/movie_images/movie_covers/pride_and_prejudice.jpg",
-                            DateAdded = new DateTime(2024, 10, 9, 13, 58, 5, 879, DateTimeKind.Local).AddTicks(8140),
+                            DateAdded = new DateTime(2024, 10, 9, 13, 51, 41, 326, DateTimeKind.Local).AddTicks(1231),
                             Description = "Elizabeth Bennet navigates issues of manners, upbringing, and marriage in the society of early 19th-century England.",
                             Director = "Joe Wright",
                             GenreId = 4,
@@ -470,7 +472,7 @@ namespace CinemaCritique.Data.Migrations
                         {
                             Id = 15,
                             CoverPhotoURL = "img/movie_images/movie_covers/psycho.jpg",
-                            DateAdded = new DateTime(2024, 10, 10, 13, 58, 5, 879, DateTimeKind.Local).AddTicks(8143),
+                            DateAdded = new DateTime(2024, 10, 10, 13, 51, 41, 326, DateTimeKind.Local).AddTicks(1235),
                             Description = "Marion Crane meets a grisly end at the Bates Motel, run by the mysterious Norman Bates.",
                             Director = "Alfred Hitchcock",
                             GenreId = 5,
@@ -484,7 +486,7 @@ namespace CinemaCritique.Data.Migrations
                         {
                             Id = 16,
                             CoverPhotoURL = "img/movie_images/movie_covers/blade_runner.jpg",
-                            DateAdded = new DateTime(2024, 10, 12, 13, 58, 5, 879, DateTimeKind.Local).AddTicks(8222),
+                            DateAdded = new DateTime(2024, 10, 12, 13, 51, 41, 326, DateTimeKind.Local).AddTicks(1238),
                             Description = "In a dystopian future, a blade runner named Deckard is tasked with hunting down rogue replicants.",
                             Director = "Ridley Scott",
                             GenreId = 6,
@@ -498,7 +500,7 @@ namespace CinemaCritique.Data.Migrations
                         {
                             Id = 17,
                             CoverPhotoURL = "img/movie_images/movie_covers/jiro_dreams_of_sushi.jpg",
-                            DateAdded = new DateTime(2024, 10, 11, 13, 58, 5, 879, DateTimeKind.Local).AddTicks(8227),
+                            DateAdded = new DateTime(2024, 10, 11, 13, 51, 41, 326, DateTimeKind.Local).AddTicks(1241),
                             Description = "This documentary provides an intimate look at Jiro Ono, an 85-year-old sushi master in Tokyo.",
                             Director = "David Gelb",
                             GenreId = 7,
@@ -512,7 +514,7 @@ namespace CinemaCritique.Data.Migrations
                         {
                             Id = 18,
                             CoverPhotoURL = "img/movie_images/movie_covers/la_la_land.jpg",
-                            DateAdded = new DateTime(2024, 10, 12, 13, 58, 5, 879, DateTimeKind.Local).AddTicks(8231),
+                            DateAdded = new DateTime(2024, 10, 12, 13, 51, 41, 326, DateTimeKind.Local).AddTicks(1245),
                             Description = "Two aspiring artists, a jazz musician and an actress, fall in love while pursuing their dreams in Los Angeles.",
                             Director = "Damien Chazelle",
                             GenreId = 8,
@@ -526,7 +528,7 @@ namespace CinemaCritique.Data.Migrations
                         {
                             Id = 19,
                             CoverPhotoURL = "img/movie_images/movie_covers/hp_and_the_sorcerers_stone.jpg",
-                            DateAdded = new DateTime(2024, 10, 10, 13, 58, 5, 879, DateTimeKind.Local).AddTicks(8234),
+                            DateAdded = new DateTime(2024, 10, 10, 13, 51, 41, 326, DateTimeKind.Local).AddTicks(1249),
                             Description = "Harry Potter discovers his magical heritage and attends Hogwarts School of Witchcraft and Wizardry, where he makes friends and enemies.",
                             Director = "Chris Columbus",
                             GenreId = 9,
@@ -540,7 +542,7 @@ namespace CinemaCritique.Data.Migrations
                         {
                             Id = 20,
                             CoverPhotoURL = "img/movie_images/movie_covers/jurassic_park.jpg",
-                            DateAdded = new DateTime(2024, 10, 11, 13, 58, 5, 879, DateTimeKind.Local).AddTicks(8237),
+                            DateAdded = new DateTime(2024, 10, 11, 13, 51, 41, 326, DateTimeKind.Local).AddTicks(1252),
                             Description = "A group of people tries to survive when a theme park featuring genetically engineered dinosaurs descends into chaos.",
                             Director = "Steven Spielberg",
                             GenreId = 10,
