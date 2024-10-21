@@ -1,0 +1,39 @@
+﻿body {
+}
+
+.carousel.slide {
+    margin: 0 auto;
+    width: 70%;
+    height: 40em;
+}
+
+.carousel-inner {
+    display: flex;
+    padding: 0;
+    height:100%;
+}
+
+.carousel-img-container {
+    margin: 0 auto;
+    display: block;
+    height: 100%;
+    width: 72%;
+}
+
+    .carousel-img-container > img {
+        width: 100%;
+        height: 100%;
+        object-fit:contain;
+    }
+
+#carouselExampleIndicators > button.carousel-control-prev,
+#carouselExampleIndicators > button.carousel-control-next{
+    background-color: red;
+    height: 20%;
+    width: 10%;
+    align-self: center;
+}
+
+.carousel-indicators {
+    background-color:#fc7b77;
+}

@@ -4,9 +4,42 @@
 }
 
 <link rel="stylesheet" href="~/css/homePage/homePage.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/homePage/carousel.css" asp-append-version="true" />
 
+@* @await Component.InvokeAsync("RecentMovies"); *@
 
-@await Component.InvokeAsync("RecentMovies");
+<div id="carouselExampleIndicators" class="carousel slide">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <div class="carousel-img-container">
+                <img src="~/img/movie_images/movie_scenes/die_hard.jpg" alt="...">
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="carousel-img-container">
+                <img src="~/img/movie_images/movie_scenes/home_alone.jpg" alt="...">
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="carousel-img-container">
+                <img src="~/img/movie_images/movie_scenes/lotr_the_fellowship_of_the_ring.jpg" alt="...">
+            </div>
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
 
 <div id="movieContainer" class="home-page-movies">
     <ul class="home-page-movies">
@@ -20,8 +53,6 @@
             </li>
         }
     </ul>
-
-
 </div>
 
 <script src="~/js/homePage/homePage.js"></script>
